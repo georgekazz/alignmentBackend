@@ -1,0 +1,164 @@
+@prefix : <http://www.w3.org/2008/05/skos#> .
+@prefix dc: <http://purl.org/dc/elements/1.1/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+
+dc:contributor a owl:AnnotationProperty .
+
+dc:creator a owl:AnnotationProperty .
+
+dc:date a owl:AnnotationProperty .
+
+dc:description a owl:AnnotationProperty .
+
+dc:title a owl:AnnotationProperty .
+
+rdf:value a owl:AnnotationProperty .
+
+<http://www.w3.org/2008/05/skos> a owl:Ontology ;
+    dc:contributor "Dave Beckett",
+        "Nikki Rogers",
+        "Participants in W3C's Semantic Web Deployment Working Group." ;
+    dc:creator "Alistair Miles",
+        "Sean Bechhofer" ;
+    dc:description "An RDF vocabulary for describing the basic structure and content of concept schemes such as thesauri, classification schemes, subject heading lists, taxonomies, 'folksonomies', other types of controlled vocabulary, and also concept schemes embedded in glossaries and terminologies."@en ;
+    dc:title "SKOS Core Vocabulary"@en .
+
+:altLabel a owl:AnnotationProperty ;
+    rdfs:subPropertyOf rdfs:label .
+
+:hiddenLabel a owl:AnnotationProperty ;
+    rdfs:subPropertyOf rdfs:label .
+
+:prefLabel a owl:AnnotationProperty ;
+    rdfs:subPropertyOf rdfs:label .
+
+[] dc:creator "Sean Bechhofer" ;
+    dc:date "2008-05-xx" ;
+    rdf:value "Initial description." .
+
+[] dc:creator "Sean Bechhofer" ;
+    dc:date "2008-05-xx" ;
+    rdf:value "Initial description." .
+
+[] dc:creator "Sean Bechhofer" ;
+    dc:date "2008-05-xx" ;
+    rdf:value "Initial description." .
+
+[] dc:creator "Sean Bechhofer" ;
+    dc:date "2008-05-xx" ;
+    rdf:value "Initial description." .
+
+[] dc:creator "Sean Bechhofer" ;
+    dc:date "2008-05-xx" ;
+    rdf:value "Initial description." .
+
+[] dc:creator "Sean Bechhofer" ;
+    dc:date "2008-05-xx" ;
+    rdf:value "Initial description." .
+
+[] dc:creator "Sean Bechhofer" ;
+    dc:date "2008-05-xx" ;
+    rdf:value "Initial description." .
+
+[] dc:creator "Sean Bechhofer" ;
+    dc:date "2008-05-xx" ;
+    rdf:value "Initial description." .
+
+[] dc:creator "Sean Bechhofer" ;
+    dc:date "2008-05-xx" ;
+    rdf:value "Initial description." .
+
+[] dc:creator "Sean Bechhofer" ;
+    dc:date "2008-05-xx" ;
+    rdf:value "Initial description." .
+
+[] dc:creator "Sean Bechhofer" ;
+    dc:date "2008-05-xx" ;
+    rdf:value "Initial description." .
+
+[] dc:creator "Sean Bechhofer" ;
+    dc:date "2008-05-xx" ;
+    rdf:value "Initial description." .
+
+[] dc:creator "Sean Bechhofer" ;
+    dc:date "2008-05-xx" ;
+    rdf:value "Initial description." .
+
+[] dc:creator "Sean Bechhofer" ;
+    dc:date "2008-05-xx" ;
+    rdf:value "Initial description." .
+
+[] dc:creator "Sean Bechhofer" ;
+    dc:date "2008-05-xx" ;
+    rdf:value "Initial description." .
+
+[] dc:creator "Sean Bechhofer" ;
+    dc:date "2008-05-xx" ;
+    rdf:value "Initial description." .
+
+[] dc:creator "Sean Bechhofer" ;
+    dc:date "2008-05-xx" ;
+    rdf:value "Initial description." .
+
+[] dc:creator "Sean Bechhofer" ;
+    dc:date "2008-05-xx" ;
+    rdf:value "Initial description." .
+
+[] dc:creator "Sean Bechhofer" ;
+    dc:date "2008-05-xx" ;
+    rdf:value "Initial description." .
+
+[] dc:creator "Sean Bechhofer" ;
+    dc:date "2008-05-xx" ;
+    rdf:value "Initial description." .
+
+[] dc:creator "Sean Bechhofer" ;
+    dc:date "2008-05-xx" ;
+    rdf:value "Initial description." .
+
+[] dc:creator "Sean Bechhofer" ;
+    dc:date "2008-05-xx" ;
+    rdf:value "Initial description." .
+
+[] dc:creator "Alistair Miles" ;
+    dc:date "2008-05-xx" ;
+    rdf:value "Initial description." .
+
+[] dc:creator "Sean Bechhofer" ;
+    dc:date "2008-05-xx" ;
+    rdf:value "Initial description." .
+
+[] dc:creator "Sean Bechhofer" ;
+    dc:date "2008-05-xx" ;
+    rdf:value "Initial description." .
+
+[] dc:creator "Sean Bechhofer" ;
+    dc:date "2008-05-xx" ;
+    rdf:value "Initial description." .
+
+[] dc:creator "Sean Bechhofer" ;
+    dc:date "2008-05-xx" ;
+    rdf:value "Initial description." .
+
+[] dc:creator "Sean Bechhofer" ;
+    dc:date "2008-05-xx" ;
+    rdf:value "Initial description." .
+
+[] dc:creator "Sean Bechhofer" ;
+    dc:date "2008-05-xx" ;
+    rdf:value "Initial description." .
+
+[] dc:creator "Sean Bechhofer" ;
+    dc:date "2008-05-xx" ;
+    rdf:value "Initial description." .
+
+[] dc:creator "Sean Bechhofer" ;
+    dc:date "2008-05-xx" ;
+    rdf:value "Initial description." .
+
+[] dc:creator "Sean Bechhofer" ;
+    dc:date "2008-05-xx" ;
+    rdf:value "Initial description." .
+

@@ -1,0 +1,720 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns="http://www.w3.org/2004/02/skos/core#"
+     xml:base="http://www.w3.org/2004/02/skos/core"
+     xmlns:fn="http://www.w3.org/2005/xpath-functions#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:terms="http://purl.org/dc/terms/"
+     xmlns:sesame="http://www.openrdf.org/schema/sesame#">
+    <owl:Ontology>
+        <owl:imports rdf:resource="http://www.w3.org/2004/02/skos/core"/>
+    </owl:Ontology>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Annotation properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.w3.org/2004/02/skos/core#inScheme -->
+
+    <owl:AnnotationProperty rdf:about="http://www.w3.org/2004/02/skos/core#inScheme"/>
+    
+
+
+    <!-- http://www.w3.org/2004/02/skos/core#notation -->
+
+    <owl:AnnotationProperty rdf:about="http://www.w3.org/2004/02/skos/core#notation"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Individuals
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://data.openbudgets.eu/resource/dataset/greek-municipalities/codelist/athens-administrations -->
+
+    <owl:NamedIndividual rdf:about="http://data.openbudgets.eu/resource/dataset/greek-municipalities/codelist/athens-administrations">
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#ConceptScheme"/>
+        <rdfs:label xml:lang="en">Numerical codes for the representation of Municipality of Athens (Greece) Administration Offices</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://data.openbudgets.eu/resource/dataset/greek-municipalities/codelist/athens-administrations/1 -->
+
+    <owl:NamedIndividual rdf:about="http://data.openbudgets.eu/resource/dataset/greek-municipalities/codelist/athens-administrations/1">
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <inScheme rdf:resource="http://data.openbudgets.eu/resource/dataset/greek-municipalities/codelist/athens-administrations"/>
+        <notation rdf:datatype="http://www.w3.org/2001/XMLSchema#int">1</notation>
+        <prefLabel xml:lang="el">ΙΔΙΑΙΤΕΡΟ ΓΡΑΦΕΙΟ ΔΗΜΑΡΧΟΥ</prefLabel>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://data.openbudgets.eu/resource/dataset/greek-municipalities/codelist/athens-administrations/10 -->
+
+    <owl:NamedIndividual rdf:about="http://data.openbudgets.eu/resource/dataset/greek-municipalities/codelist/athens-administrations/10">
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <altLabel xml:lang="el">Δ/ΝΣΗ ΟΙΚΟΝΟΜΙΚΩΝ</altLabel>
+        <inScheme rdf:resource="http://data.openbudgets.eu/resource/dataset/greek-municipalities/codelist/athens-administrations"/>
+        <notation rdf:datatype="http://www.w3.org/2001/XMLSchema#int">10</notation>
+        <prefLabel xml:lang="el">Δ/ΝΣΗ ΤΑΜΕΙΑΚΗΣ ΥΠΗΡΕΣΙΑΣ</prefLabel>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://data.openbudgets.eu/resource/dataset/greek-municipalities/codelist/athens-administrations/11 -->
+
+    <owl:NamedIndividual rdf:about="http://data.openbudgets.eu/resource/dataset/greek-municipalities/codelist/athens-administrations/11">
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <inScheme rdf:resource="http://data.openbudgets.eu/resource/dataset/greek-municipalities/codelist/athens-administrations"/>
+        <notation rdf:datatype="http://www.w3.org/2001/XMLSchema#int">11</notation>
+        <prefLabel xml:lang="el">Δ/ΝΣΗ ΔΗΜΟΤΙΚΗΣ ΠΕΡΙΟΥΣΙΑΣ</prefLabel>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://data.openbudgets.eu/resource/dataset/greek-municipalities/codelist/athens-administrations/13 -->
+
+    <owl:NamedIndividual rdf:about="http://data.openbudgets.eu/resource/dataset/greek-municipalities/codelist/athens-administrations/13">
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <altLabel xml:lang="el">Δ/ΝΣΗ ΠΡΟΜΗΘΕΙΩΝ ΚΑΙ ΑΠΟΘΗΚΩΝ</altLabel>
+        <inScheme rdf:resource="http://data.openbudgets.eu/resource/dataset/greek-municipalities/codelist/athens-administrations"/>
+        <notation rdf:datatype="http://www.w3.org/2001/XMLSchema#int">13</notation>
+        <prefLabel xml:lang="el">Δ/ΝΣΗ ΠΡΟΜΗΘΕΙΩΝ ΚΑΙ ΓΕΝΙΚΩΝ ΑΠΟΘΗΚΩΝ</prefLabel>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://data.openbudgets.eu/resource/dataset/greek-municipalities/codelist/athens-administrations/14 -->
+
+    <owl:NamedIndividual rdf:about="http://data.openbudgets.eu/resource/dataset/greek-municipalities/codelist/athens-administrations/14">
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <altLabel xml:lang="el">Δ/ΝΣΗ ΕΜΠΟΡΙΟΥ ΚΑΙ ΑΝΑΠΤΥΞΗΣ</altLabel>
+        <inScheme rdf:resource="http://data.openbudgets.eu/resource/dataset/greek-municipalities/codelist/athens-administrations"/>
+        <notation rdf:datatype="http://www.w3.org/2001/XMLSchema#int">14</notation>
+        <prefLabel xml:lang="el">Δ/ΝΣΗ ΑΔΕΙΩΝ ΚΑΤΑΣΤΗΜΑΤΩΝ ΚΑΙ ΘΕΑΜΑΤΩΝ</prefLabel>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://data.openbudgets.eu/resource/dataset/greek-municipalities/codelist/athens-administrations/15 -->
+
+    <owl:NamedIndividual rdf:about="http://data.openbudgets.eu/resource/dataset/greek-municipalities/codelist/athens-administrations/15">
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <inScheme rdf:resource="http://data.openbudgets.eu/resource/dataset/greek-municipalities/codelist/athens-administrations"/>
+        <notation rdf:datatype="http://www.w3.org/2001/XMLSchema#int">15</notation>
+        <prefLabel xml:lang="el">Δ/ΝΣΗ ΑΛΛΟΔΑΠΩΝ</prefLabel>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://data.openbudgets.eu/resource/dataset/greek-municipalities/codelist/athens-administrations/16 -->
+
+    <owl:NamedIndividual rdf:about="http://data.openbudgets.eu/resource/dataset/greek-municipalities/codelist/athens-administrations/16">
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <inScheme rdf:resource="http://data.openbudgets.eu/resource/dataset/greek-municipalities/codelist/athens-administrations"/>
+        <notation rdf:datatype="http://www.w3.org/2001/XMLSchema#int">16</notation>
+        <prefLabel xml:lang="el">Δ/ΝΣΗ ΠΡΟΛΗΠΤΙΚΗΣ ΙΑΤΡΙΚΗΣ κ ΥΓΕΙΑΣ</prefLabel>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://data.openbudgets.eu/resource/dataset/greek-municipalities/codelist/athens-administrations/17 -->
+
+    <owl:NamedIndividual rdf:about="http://data.openbudgets.eu/resource/dataset/greek-municipalities/codelist/athens-administrations/17">
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <inScheme rdf:resource="http://data.openbudgets.eu/resource/dataset/greek-municipalities/codelist/athens-administrations"/>
+        <notation rdf:datatype="http://www.w3.org/2001/XMLSchema#int">17</notation>
+        <prefLabel xml:lang="el">Δ/ΝΣΗ ΣΧΟΛΙΚΗΣ ΜΕΡΙΜΝΑΣ.</prefLabel>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://data.openbudgets.eu/resource/dataset/greek-municipalities/codelist/athens-administrations/18 -->
+
+    <owl:NamedIndividual rdf:about="http://data.openbudgets.eu/resource/dataset/greek-municipalities/codelist/athens-administrations/18">
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <altLabel xml:lang="el">Δ/ΝΣΗ ΕΠΙΧΕΙΡΗΣΙΑΚΟΥ ΣΧΕΔΙΑΣΜΟΥ ΟΡΓΑΝΩΣΗΣ ΚΑΙ ΠΛΗΡΟΦΟΡΙΚΗΣ</altLabel>
+        <inScheme rdf:resource="http://data.openbudgets.eu/resource/dataset/greek-municipalities/codelist/athens-administrations"/>
+        <notation rdf:datatype="http://www.w3.org/2001/XMLSchema#int">18</notation>
+        <prefLabel xml:lang="el">Δ/ΝΣΗ ΣΤΡΑΤΗΓΙΚΟΥ ΣΧΕΔΙΑΣΜΟΥ κ ΑΝΑΠΤΥΞΗΣ</prefLabel>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://data.openbudgets.eu/resource/dataset/greek-municipalities/codelist/athens-administrations/19 -->
+
+    <owl:NamedIndividual rdf:about="http://data.openbudgets.eu/resource/dataset/greek-municipalities/codelist/athens-administrations/19">
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <inScheme rdf:resource="http://data.openbudgets.eu/resource/dataset/greek-municipalities/codelist/athens-administrations"/>
+        <notation rdf:datatype="http://www.w3.org/2001/XMLSchema#int">19</notation>
+        <prefLabel xml:lang="el">Δ/ΝΣΗ ΕΣΩΤΕΡΙΚΟΥ ΕΛΕΓΧΟΥ</prefLabel>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://data.openbudgets.eu/resource/dataset/greek-municipalities/codelist/athens-administrations/2 -->
+
+    <owl:NamedIndividual rdf:about="http://data.openbudgets.eu/resource/dataset/greek-municipalities/codelist/athens-administrations/2">
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <inScheme rdf:resource="http://data.openbudgets.eu/resource/dataset/greek-municipalities/codelist/athens-administrations"/>
+        <notation rdf:datatype="http://www.w3.org/2001/XMLSchema#int">2</notation>
+        <prefLabel xml:lang="el">Δ/ΝΣΗ ΝΟΜΙΚΗΣ ΥΠΗΡΕΣΙΑΣ</prefLabel>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://data.openbudgets.eu/resource/dataset/greek-municipalities/codelist/athens-administrations/20 -->
+
+    <owl:NamedIndividual rdf:about="http://data.openbudgets.eu/resource/dataset/greek-municipalities/codelist/athens-administrations/20">
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <altLabel xml:lang="el"> </altLabel>
+        <inScheme rdf:resource="http://data.openbudgets.eu/resource/dataset/greek-municipalities/codelist/athens-administrations"/>
+        <notation rdf:datatype="http://www.w3.org/2001/XMLSchema#int">20</notation>
+        <prefLabel xml:lang="el">ΜΙΣΘΟΔΟΣΙΑ ΥΠΑΛΛΗΛΩΝ ΥΠΗΡ.ΠΟΛΙΤΙΣΜΟΥ-ΑΘΛΗΤΙΣΜΟΥ-ΚΟΙΝΩΝ.ΠΟΛΙΤΙΚΗΣ</prefLabel>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://data.openbudgets.eu/resource/dataset/greek-municipalities/codelist/athens-administrations/21 -->
+
+    <owl:NamedIndividual rdf:about="http://data.openbudgets.eu/resource/dataset/greek-municipalities/codelist/athens-administrations/21">
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <altLabel xml:lang="el">Δ/ΝΣΗ ΚΟΙΝΩΝΙΚΗΣ ΑΛΛΗΛΕΓΓΥΗΣ ΚΑΙ ΥΓΕΙΑΣ</altLabel>
+        <inScheme rdf:resource="http://data.openbudgets.eu/resource/dataset/greek-municipalities/codelist/athens-administrations"/>
+        <notation rdf:datatype="http://www.w3.org/2001/XMLSchema#int">21</notation>
+        <prefLabel xml:lang="el">Δ/ΝΣΗ ΚΟΙΝΩΝΙΚΗΣ ΜΕΡΙΜΝΑΣ</prefLabel>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://data.openbudgets.eu/resource/dataset/greek-municipalities/codelist/athens-administrations/22 -->
+
+    <owl:NamedIndividual rdf:about="http://data.openbudgets.eu/resource/dataset/greek-municipalities/codelist/athens-administrations/22">
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <inScheme rdf:resource="http://data.openbudgets.eu/resource/dataset/greek-municipalities/codelist/athens-administrations"/>
+        <notation rdf:datatype="http://www.w3.org/2001/XMLSchema#int">22</notation>
+        <prefLabel xml:lang="el">Δ/ΝΣΗ ΠΑΙΔΙΚΩΝ ΕΞΟΧΩΝ</prefLabel>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://data.openbudgets.eu/resource/dataset/greek-municipalities/codelist/athens-administrations/23 -->
+
+    <owl:NamedIndividual rdf:about="http://data.openbudgets.eu/resource/dataset/greek-municipalities/codelist/athens-administrations/23">
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <altLabel xml:lang="el">Δ/ΝΣΗ ΠΑΙΔΕΙΑΣ ΚΑΙ ΔΙΑ ΒΙΟΥ ΜΑΘΗΣΗΣ</altLabel>
+        <inScheme rdf:resource="http://data.openbudgets.eu/resource/dataset/greek-municipalities/codelist/athens-administrations"/>
+        <notation rdf:datatype="http://www.w3.org/2001/XMLSchema#int">23</notation>
+        <prefLabel xml:lang="el">Δ/ΝΣΗ ΣΧΟΛΙΚΗΣ ΜΕΡΙΜΝΑΣ</prefLabel>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://data.openbudgets.eu/resource/dataset/greek-municipalities/codelist/athens-administrations/24 -->
+
+    <owl:NamedIndividual rdf:about="http://data.openbudgets.eu/resource/dataset/greek-municipalities/codelist/athens-administrations/24">
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <inScheme rdf:resource="http://data.openbudgets.eu/resource/dataset/greek-municipalities/codelist/athens-administrations"/>
+        <notation rdf:datatype="http://www.w3.org/2001/XMLSchema#int">24</notation>
+        <prefLabel xml:lang="el">Δ/ΝΣΗ ΠΡΟΛΗΠΤΙΚΗΣ ΙΑΤΡΙΚΗΣ ΚΑΙ ΥΓΕΙΑΣ</prefLabel>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://data.openbudgets.eu/resource/dataset/greek-municipalities/codelist/athens-administrations/25 -->
+
+    <owl:NamedIndividual rdf:about="http://data.openbudgets.eu/resource/dataset/greek-municipalities/codelist/athens-administrations/25">
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <altLabel xml:lang="el">Δ/ΝΣΗ ΚΑΘΑΡΙΟΤΗΤΑΣ - ΑΝΑΚΥΚΛΩΣΗΣ ΚΑΙ ΣΥΝΤΗΡΗΣΗΣ ΜΗΧΑΝΟΛΟΓΙΚΟΥ ΕΞΟΠΛΙΣΜΟΥ</altLabel>
+        <inScheme rdf:resource="http://data.openbudgets.eu/resource/dataset/greek-municipalities/codelist/athens-administrations"/>
+        <notation rdf:datatype="http://www.w3.org/2001/XMLSchema#int">25</notation>
+        <prefLabel xml:lang="el">Δ/ΝΣΗ ΚΑΘΑΡΙΟΤΗΤΑΣ</prefLabel>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://data.openbudgets.eu/resource/dataset/greek-municipalities/codelist/athens-administrations/26 -->
+
+    <owl:NamedIndividual rdf:about="http://data.openbudgets.eu/resource/dataset/greek-municipalities/codelist/athens-administrations/26">
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <inScheme rdf:resource="http://data.openbudgets.eu/resource/dataset/greek-municipalities/codelist/athens-administrations"/>
+        <notation rdf:datatype="http://www.w3.org/2001/XMLSchema#int">26</notation>
+        <prefLabel xml:lang="el">Δ/ΝΣΗ ΗΛΕΚΤΡΟΛΟΓΙΚΟΥ ΑΝΤΑΠ.</prefLabel>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://data.openbudgets.eu/resource/dataset/greek-municipalities/codelist/athens-administrations/27 -->
+
+    <owl:NamedIndividual rdf:about="http://data.openbudgets.eu/resource/dataset/greek-municipalities/codelist/athens-administrations/27">
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <inScheme rdf:resource="http://data.openbudgets.eu/resource/dataset/greek-municipalities/codelist/athens-administrations"/>
+        <notation rdf:datatype="http://www.w3.org/2001/XMLSchema#int">27</notation>
+        <prefLabel xml:lang="el">Δ/ΝΣΗ ΤΡΟΧΑΙΟΥ ΥΛΙΚΟΥ</prefLabel>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://data.openbudgets.eu/resource/dataset/greek-municipalities/codelist/athens-administrations/28 -->
+
+    <owl:NamedIndividual rdf:about="http://data.openbudgets.eu/resource/dataset/greek-municipalities/codelist/athens-administrations/28">
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <inScheme rdf:resource="http://data.openbudgets.eu/resource/dataset/greek-municipalities/codelist/athens-administrations"/>
+        <notation rdf:datatype="http://www.w3.org/2001/XMLSchema#int">28</notation>
+        <prefLabel xml:lang="el">ΜΙΣΘΟΔΟΣΙΑ ΑΝΤΑΠΟΔΟΤΙΚΩΝ ΥΠΗΡΕΣΙΩΝ</prefLabel>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://data.openbudgets.eu/resource/dataset/greek-municipalities/codelist/athens-administrations/3 -->
+
+    <owl:NamedIndividual rdf:about="http://data.openbudgets.eu/resource/dataset/greek-municipalities/codelist/athens-administrations/3">
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <altLabel xml:lang="el">ΤΜΗΜΑ ΔΙΕΘΝΟΥΣ ΣΥΝΕΡΓΑΣΙΑΣ ΚΑΙ ΔΗΜΟΣΙΩΝ ΣΧΕΣΕΩΝ</altLabel>
+        <inScheme rdf:resource="http://data.openbudgets.eu/resource/dataset/greek-municipalities/codelist/athens-administrations"/>
+        <notation rdf:datatype="http://www.w3.org/2001/XMLSchema#int">3</notation>
+        <prefLabel xml:lang="el">Δ/ΝΣΗ ΔΗΜΟΣΙΩΝ ΣΧΕΣΕΩΝ &amp; ΔΙΕΘΝΟΥΣ ΣΥΝΕΡΓΑΣΙΑΣ</prefLabel>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://data.openbudgets.eu/resource/dataset/greek-municipalities/codelist/athens-administrations/30 -->
+
+    <owl:NamedIndividual rdf:about="http://data.openbudgets.eu/resource/dataset/greek-municipalities/codelist/athens-administrations/30">
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <inScheme rdf:resource="http://data.openbudgets.eu/resource/dataset/greek-municipalities/codelist/athens-administrations"/>
+        <notation rdf:datatype="http://www.w3.org/2001/XMLSchema#int">30</notation>
+        <prefLabel xml:lang="el">Δ/ΝΣΗ ΚΟΙΝΟΧΡΗΣΤΩΝ ΧΩΡΩΝ</prefLabel>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://data.openbudgets.eu/resource/dataset/greek-municipalities/codelist/athens-administrations/31 -->
+
+    <owl:NamedIndividual rdf:about="http://data.openbudgets.eu/resource/dataset/greek-municipalities/codelist/athens-administrations/31">
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <inScheme rdf:resource="http://data.openbudgets.eu/resource/dataset/greek-municipalities/codelist/athens-administrations"/>
+        <notation rdf:datatype="http://www.w3.org/2001/XMLSchema#int">31</notation>
+        <prefLabel xml:lang="el">Δ/ΝΣΗ ΑΠΟΧΕΤΕΥΣΗΣ</prefLabel>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://data.openbudgets.eu/resource/dataset/greek-municipalities/codelist/athens-administrations/32 -->
+
+    <owl:NamedIndividual rdf:about="http://data.openbudgets.eu/resource/dataset/greek-municipalities/codelist/athens-administrations/32">
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <inScheme rdf:resource="http://data.openbudgets.eu/resource/dataset/greek-municipalities/codelist/athens-administrations"/>
+        <notation rdf:datatype="http://www.w3.org/2001/XMLSchema#int">32</notation>
+        <prefLabel xml:lang="el">Δ/ΝΣΗ ΜΕΛΕΤΩΝ</prefLabel>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://data.openbudgets.eu/resource/dataset/greek-municipalities/codelist/athens-administrations/33 -->
+
+    <owl:NamedIndividual rdf:about="http://data.openbudgets.eu/resource/dataset/greek-municipalities/codelist/athens-administrations/33">
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <inScheme rdf:resource="http://data.openbudgets.eu/resource/dataset/greek-municipalities/codelist/athens-administrations"/>
+        <notation rdf:datatype="http://www.w3.org/2001/XMLSchema#int">33</notation>
+        <prefLabel xml:lang="el">Δ/ΝΣΗ ΚΑΤΑΣΚΕΥΩΝ</prefLabel>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://data.openbudgets.eu/resource/dataset/greek-municipalities/codelist/athens-administrations/34 -->
+
+    <owl:NamedIndividual rdf:about="http://data.openbudgets.eu/resource/dataset/greek-municipalities/codelist/athens-administrations/34">
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <altLabel xml:lang="el">Δ/ΝΣΗ ΚΤΗΡΙΑΚΩΝ ΕΡΓΩΝ</altLabel>
+        <inScheme rdf:resource="http://data.openbudgets.eu/resource/dataset/greek-municipalities/codelist/athens-administrations"/>
+        <notation rdf:datatype="http://www.w3.org/2001/XMLSchema#int">34</notation>
+        <prefLabel xml:lang="el">Δ/ΝΣΗ ΣΥΝΤΗΡΗΣΗΣ ΚΤΙΡΙΑΚΩΝ ΕΡΓΩΝ</prefLabel>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://data.openbudgets.eu/resource/dataset/greek-municipalities/codelist/athens-administrations/35 -->
+
+    <owl:NamedIndividual rdf:about="http://data.openbudgets.eu/resource/dataset/greek-municipalities/codelist/athens-administrations/35">
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <inScheme rdf:resource="http://data.openbudgets.eu/resource/dataset/greek-municipalities/codelist/athens-administrations"/>
+        <notation rdf:datatype="http://www.w3.org/2001/XMLSchema#int">35</notation>
+        <prefLabel xml:lang="el">Δ/ΝΣΗ ΠΡΟΓΡΑΜΜΑΤΙΣΜΟΥ ΕΛΕΓΧΟΥ κ ΕΠΙΘΕΩΡΗΣΗΣ</prefLabel>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://data.openbudgets.eu/resource/dataset/greek-municipalities/codelist/athens-administrations/36 -->
+
+    <owl:NamedIndividual rdf:about="http://data.openbudgets.eu/resource/dataset/greek-municipalities/codelist/athens-administrations/36">
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <inScheme rdf:resource="http://data.openbudgets.eu/resource/dataset/greek-municipalities/codelist/athens-administrations"/>
+        <notation rdf:datatype="http://www.w3.org/2001/XMLSchema#int">36</notation>
+        <prefLabel xml:lang="el">Δ/ΝΣΗ ΑΡΧΙΤΕΚΤΟΝΙΚΟΥ</prefLabel>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://data.openbudgets.eu/resource/dataset/greek-municipalities/codelist/athens-administrations/37 -->
+
+    <owl:NamedIndividual rdf:about="http://data.openbudgets.eu/resource/dataset/greek-municipalities/codelist/athens-administrations/37">
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <inScheme rdf:resource="http://data.openbudgets.eu/resource/dataset/greek-municipalities/codelist/athens-administrations"/>
+        <notation rdf:datatype="http://www.w3.org/2001/XMLSchema#int">37</notation>
+        <prefLabel xml:lang="el">Δ/ΝΣΗ ΟΔΟΠΟΙΙΑΣ</prefLabel>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://data.openbudgets.eu/resource/dataset/greek-municipalities/codelist/athens-administrations/38 -->
+
+    <owl:NamedIndividual rdf:about="http://data.openbudgets.eu/resource/dataset/greek-municipalities/codelist/athens-administrations/38">
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <altLabel xml:lang="el">Δ/ΝΣΗ ΣΧΟΛΙΚΩΝ ΚΤΗΡΙΩΝ</altLabel>
+        <inScheme rdf:resource="http://data.openbudgets.eu/resource/dataset/greek-municipalities/codelist/athens-administrations"/>
+        <notation rdf:datatype="http://www.w3.org/2001/XMLSchema#int">38</notation>
+        <prefLabel xml:lang="el">Δ/ΝΣΗ ΣΧΟΛΙΚΗΣ. ΜΕΡΙΜΝΑΣ.</prefLabel>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://data.openbudgets.eu/resource/dataset/greek-municipalities/codelist/athens-administrations/39 -->
+
+    <owl:NamedIndividual rdf:about="http://data.openbudgets.eu/resource/dataset/greek-municipalities/codelist/athens-administrations/39">
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <inScheme rdf:resource="http://data.openbudgets.eu/resource/dataset/greek-municipalities/codelist/athens-administrations"/>
+        <notation rdf:datatype="http://www.w3.org/2001/XMLSchema#int">39</notation>
+        <prefLabel xml:lang="el">Δ/ΝΣΗ ΗΛΕΚΤΡΟΛΟΓΙΚΟΥ</prefLabel>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://data.openbudgets.eu/resource/dataset/greek-municipalities/codelist/athens-administrations/4 -->
+
+    <owl:NamedIndividual rdf:about="http://data.openbudgets.eu/resource/dataset/greek-municipalities/codelist/athens-administrations/4">
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <inScheme rdf:resource="http://data.openbudgets.eu/resource/dataset/greek-municipalities/codelist/athens-administrations"/>
+        <notation rdf:datatype="http://www.w3.org/2001/XMLSchema#int">4</notation>
+        <prefLabel xml:lang="el">Δ/ΝΣΗ ΑΝΘΡΩΠΙΝΟΥ ΔΥΝΑΜΙΚΟΥ</prefLabel>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://data.openbudgets.eu/resource/dataset/greek-municipalities/codelist/athens-administrations/40 -->
+
+    <owl:NamedIndividual rdf:about="http://data.openbudgets.eu/resource/dataset/greek-municipalities/codelist/athens-administrations/40">
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <altLabel xml:lang="el">Δ/ΝΣΗ ΚΑΘ/ΤΑΣ - ΑΝΑΚ/ΣΗΣ &amp; ΣΥΝΤ/ΣΗΣ ΜΗΧ/ΚΟΥ ΕΞΟΠΛΙΣΜΟΥ (ΜΗ ΑΝΤΑΠΟΔΟΤΙΚΑ)</altLabel>
+        <inScheme rdf:resource="http://data.openbudgets.eu/resource/dataset/greek-municipalities/codelist/athens-administrations"/>
+        <notation rdf:datatype="http://www.w3.org/2001/XMLSchema#int">40</notation>
+        <prefLabel xml:lang="el">Δ/ΝΣΗ ΤΡΟΧΑΙΟΥ ΥΛΙΚΟΥ</prefLabel>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://data.openbudgets.eu/resource/dataset/greek-municipalities/codelist/athens-administrations/41 -->
+
+    <owl:NamedIndividual rdf:about="http://data.openbudgets.eu/resource/dataset/greek-municipalities/codelist/athens-administrations/41">
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <inScheme rdf:resource="http://data.openbudgets.eu/resource/dataset/greek-municipalities/codelist/athens-administrations"/>
+        <notation rdf:datatype="http://www.w3.org/2001/XMLSchema#int">41</notation>
+        <prefLabel xml:lang="el">Δ/ΝΣΗ ΣΧΕΔΙΟΥ ΠΟΛΕΩΣ</prefLabel>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://data.openbudgets.eu/resource/dataset/greek-municipalities/codelist/athens-administrations/42 -->
+
+    <owl:NamedIndividual rdf:about="http://data.openbudgets.eu/resource/dataset/greek-municipalities/codelist/athens-administrations/42">
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <inScheme rdf:resource="http://data.openbudgets.eu/resource/dataset/greek-municipalities/codelist/athens-administrations"/>
+        <notation rdf:datatype="http://www.w3.org/2001/XMLSchema#int">42</notation>
+        <prefLabel xml:lang="el">Δ/ΝΣΗ ΑΣΤΙΚΟΥ ΣΧΕΔΙΑΣΜΟΥ κ ΠΕΡΙΒΑΛΛΟΝΤΟΣ</prefLabel>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://data.openbudgets.eu/resource/dataset/greek-municipalities/codelist/athens-administrations/43 -->
+
+    <owl:NamedIndividual rdf:about="http://data.openbudgets.eu/resource/dataset/greek-municipalities/codelist/athens-administrations/43">
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <inScheme rdf:resource="http://data.openbudgets.eu/resource/dataset/greek-municipalities/codelist/athens-administrations"/>
+        <notation rdf:datatype="http://www.w3.org/2001/XMLSchema#int">43</notation>
+        <prefLabel xml:lang="el">Δ/ΝΣΗ ΟΔΟΠΟΙΪΑΣ ΚΑΙ ΑΠΟΧΕΤΕΥΣΗΣ</prefLabel>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://data.openbudgets.eu/resource/dataset/greek-municipalities/codelist/athens-administrations/44 -->
+
+    <owl:NamedIndividual rdf:about="http://data.openbudgets.eu/resource/dataset/greek-municipalities/codelist/athens-administrations/44">
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <inScheme rdf:resource="http://data.openbudgets.eu/resource/dataset/greek-municipalities/codelist/athens-administrations"/>
+        <notation rdf:datatype="http://www.w3.org/2001/XMLSchema#int">44</notation>
+        <prefLabel xml:lang="el">ΜΙΣΘ/ΣΙΑ ΥΠΑΛΛΗΛΩΝ ΥΠΗΡΕΣ ΤΕΧΝΙΚΩΝ ΕΡΓΩΝ</prefLabel>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://data.openbudgets.eu/resource/dataset/greek-municipalities/codelist/athens-administrations/45 -->
+
+    <owl:NamedIndividual rdf:about="http://data.openbudgets.eu/resource/dataset/greek-municipalities/codelist/athens-administrations/45">
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <altLabel xml:lang="el">Δ/ΝΣΗ ΠΡΑΣΙΝΟΥ ΚΑΙ ΠΕΡΙΒΑΛΛΟΝΤΟΣ</altLabel>
+        <inScheme rdf:resource="http://data.openbudgets.eu/resource/dataset/greek-municipalities/codelist/athens-administrations"/>
+        <notation rdf:datatype="http://www.w3.org/2001/XMLSchema#int">45</notation>
+        <prefLabel xml:lang="el">Δ/ΝΣΗ ΠΡΑΣΙΝΟΥ ΚΑΙ ΚΗΠΟΤΕΧΝΙΑΣ</prefLabel>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://data.openbudgets.eu/resource/dataset/greek-municipalities/codelist/athens-administrations/46 -->
+
+    <owl:NamedIndividual rdf:about="http://data.openbudgets.eu/resource/dataset/greek-municipalities/codelist/athens-administrations/46">
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <inScheme rdf:resource="http://data.openbudgets.eu/resource/dataset/greek-municipalities/codelist/athens-administrations"/>
+        <notation rdf:datatype="http://www.w3.org/2001/XMLSchema#int">46</notation>
+        <prefLabel xml:lang="el">ΜΙΣΘ/ΣΙΑ ΥΠΑΛΛΗΛΩΝ ΥΠΗΡΕΣΙΑΣ ΠΡΑΣΙΝΟΥ</prefLabel>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://data.openbudgets.eu/resource/dataset/greek-municipalities/codelist/athens-administrations/5 -->
+
+    <owl:NamedIndividual rdf:about="http://data.openbudgets.eu/resource/dataset/greek-municipalities/codelist/athens-administrations/5">
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <altLabel xml:lang="el">Δ/ΝΣΗ ΑΠΟΚΕΝΤΡΩΣΗΣ &amp; ΔΙΟΙΚΗΣΗΣ </altLabel>
+        <altLabel xml:lang="el">Δ/ΝΣΗ ΔΙΟΙΚΗΣΕΩΣ &amp; ΑΠΟΚΕΝΤΡΩΣΗΣ</altLabel>
+        <inScheme rdf:resource="http://data.openbudgets.eu/resource/dataset/greek-municipalities/codelist/athens-administrations"/>
+        <notation rdf:datatype="http://www.w3.org/2001/XMLSchema#int">5</notation>
+        <prefLabel xml:lang="el">Δ/ΝΣΗ ΔΙΟΙΚΗΣΕΩΣ</prefLabel>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://data.openbudgets.eu/resource/dataset/greek-municipalities/codelist/athens-administrations/51 -->
+
+    <owl:NamedIndividual rdf:about="http://data.openbudgets.eu/resource/dataset/greek-municipalities/codelist/athens-administrations/51">
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <altLabel xml:lang="el">Δ/ΝΣΗ ΣΧΕΔΙΟΥ ΠΟΛΕΩΣ &amp; ΔΟΜΗΣΗΣ</altLabel>
+        <altLabel xml:lang="el">Δ/ΝΣΗ ΣΧΕΔΙΟΥ ΠΟΛΕΩΣ &amp; ΠΟΛΕΟΔΟΜΙΑΣ</altLabel>
+        <inScheme rdf:resource="http://data.openbudgets.eu/resource/dataset/greek-municipalities/codelist/athens-administrations"/>
+        <notation rdf:datatype="http://www.w3.org/2001/XMLSchema#int">51</notation>
+        <prefLabel xml:lang="el">Δ/ΝΣΗ ΠΟΛΕΟΔΟΜΙΑΣ</prefLabel>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://data.openbudgets.eu/resource/dataset/greek-municipalities/codelist/athens-administrations/52 -->
+
+    <owl:NamedIndividual rdf:about="http://data.openbudgets.eu/resource/dataset/greek-municipalities/codelist/athens-administrations/52">
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <inScheme rdf:resource="http://data.openbudgets.eu/resource/dataset/greek-municipalities/codelist/athens-administrations"/>
+        <notation rdf:datatype="http://www.w3.org/2001/XMLSchema#int">52</notation>
+        <prefLabel xml:lang="el">ΜΙΣΘ/ΣΙΑ ΥΠΑΛΛΗΛΩΝ ΥΠΗΡΕΣΙΑΣ ΠΟΛΕΟΔΟΜΙΑΣ</prefLabel>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://data.openbudgets.eu/resource/dataset/greek-municipalities/codelist/athens-administrations/55 -->
+
+    <owl:NamedIndividual rdf:about="http://data.openbudgets.eu/resource/dataset/greek-municipalities/codelist/athens-administrations/55">
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <inScheme rdf:resource="http://data.openbudgets.eu/resource/dataset/greek-municipalities/codelist/athens-administrations"/>
+        <notation rdf:datatype="http://www.w3.org/2001/XMLSchema#int">55</notation>
+        <prefLabel xml:lang="el">Δ/ΝΣΗ ΚΟΙΜΗΤΗΡΙΩΝ</prefLabel>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://data.openbudgets.eu/resource/dataset/greek-municipalities/codelist/athens-administrations/56 -->
+
+    <owl:NamedIndividual rdf:about="http://data.openbudgets.eu/resource/dataset/greek-municipalities/codelist/athens-administrations/56">
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <inScheme rdf:resource="http://data.openbudgets.eu/resource/dataset/greek-municipalities/codelist/athens-administrations"/>
+        <notation rdf:datatype="http://www.w3.org/2001/XMLSchema#int">56</notation>
+        <prefLabel xml:lang="el">Δ/ΝΣΗ ΚΟΙΜΗΤΗΡΙΩΝ</prefLabel>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://data.openbudgets.eu/resource/dataset/greek-municipalities/codelist/athens-administrations/57 -->
+
+    <owl:NamedIndividual rdf:about="http://data.openbudgets.eu/resource/dataset/greek-municipalities/codelist/athens-administrations/57">
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <inScheme rdf:resource="http://data.openbudgets.eu/resource/dataset/greek-municipalities/codelist/athens-administrations"/>
+        <notation rdf:datatype="http://www.w3.org/2001/XMLSchema#int">57</notation>
+        <prefLabel xml:lang="el">ΜΙΣΘ/ΣΙΑ ΥΠΑΛΛΗΛΩΝ ΥΠΗΡΕΣΙΑΣ ΚΟΙΜΗΤΗΡΙΩΝ</prefLabel>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://data.openbudgets.eu/resource/dataset/greek-municipalities/codelist/athens-administrations/6 -->
+
+    <owl:NamedIndividual rdf:about="http://data.openbudgets.eu/resource/dataset/greek-municipalities/codelist/athens-administrations/6">
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <inScheme rdf:resource="http://data.openbudgets.eu/resource/dataset/greek-municipalities/codelist/athens-administrations"/>
+        <notation rdf:datatype="http://www.w3.org/2001/XMLSchema#int">6</notation>
+        <prefLabel xml:lang="el">Δ/ΝΣΗ ΔΗΜΟΤΟΛΟΓΙΟΥ</prefLabel>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://data.openbudgets.eu/resource/dataset/greek-municipalities/codelist/athens-administrations/61 -->
+
+    <owl:NamedIndividual rdf:about="http://data.openbudgets.eu/resource/dataset/greek-municipalities/codelist/athens-administrations/61">
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <inScheme rdf:resource="http://data.openbudgets.eu/resource/dataset/greek-municipalities/codelist/athens-administrations"/>
+        <notation rdf:datatype="http://www.w3.org/2001/XMLSchema#int">61</notation>
+        <prefLabel xml:lang="el">Δ/ΝΣΗ ΔΗΜΟΤΙΚΗΣ ΑΣΤΥΝΟΜΙΑΣ</prefLabel>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://data.openbudgets.eu/resource/dataset/greek-municipalities/codelist/athens-administrations/62 -->
+
+    <owl:NamedIndividual rdf:about="http://data.openbudgets.eu/resource/dataset/greek-municipalities/codelist/athens-administrations/62">
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <inScheme rdf:resource="http://data.openbudgets.eu/resource/dataset/greek-municipalities/codelist/athens-administrations"/>
+        <notation rdf:datatype="http://www.w3.org/2001/XMLSchema#int">62</notation>
+        <prefLabel xml:lang="el">ΜΙΣΘ/ΣΙΑ ΥΠΑΛΛΗΛΩΝ ΥΠΗΡΕΣΙΑΣ ΔΗΜΟΤΙΚΗΣ ΑΣΤΥΝΟΜΙΑΣ</prefLabel>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://data.openbudgets.eu/resource/dataset/greek-municipalities/codelist/athens-administrations/65 -->
+
+    <owl:NamedIndividual rdf:about="http://data.openbudgets.eu/resource/dataset/greek-municipalities/codelist/athens-administrations/65">
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <inScheme rdf:resource="http://data.openbudgets.eu/resource/dataset/greek-municipalities/codelist/athens-administrations"/>
+        <notation rdf:datatype="http://www.w3.org/2001/XMLSchema#int">65</notation>
+        <prefLabel xml:lang="el">Δ/ΝΣΗ ΔΙΑΜΕΡΙΣΜΑΤΩΝ</prefLabel>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://data.openbudgets.eu/resource/dataset/greek-municipalities/codelist/athens-administrations/66 -->
+
+    <owl:NamedIndividual rdf:about="http://data.openbudgets.eu/resource/dataset/greek-municipalities/codelist/athens-administrations/66">
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <inScheme rdf:resource="http://data.openbudgets.eu/resource/dataset/greek-municipalities/codelist/athens-administrations"/>
+        <notation rdf:datatype="http://www.w3.org/2001/XMLSchema#int">66</notation>
+        <prefLabel xml:lang="el">Δ/ΝΣΗ ΠΛΗΡΟΦΟΡΙΚΗΣ</prefLabel>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://data.openbudgets.eu/resource/dataset/greek-municipalities/codelist/athens-administrations/67 -->
+
+    <owl:NamedIndividual rdf:about="http://data.openbudgets.eu/resource/dataset/greek-municipalities/codelist/athens-administrations/67">
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <altLabel xml:lang="el">Δ/ΝΣΗ ΚΕΝΤΡΩΝ ΕΞΥΠΗΡΕΤΗΣΗΣ ΠΟΛΙΤΩΝ</altLabel>
+        <altLabel xml:lang="el">Δ/ΝΣΗ ΚΕΝΤΡΩΝ ΕΞΥΠΗΡΕΤΗΣΗΣ ΠΟΛΙΤΩΝ (Κ.Ε.Π.)</altLabel>
+        <inScheme rdf:resource="http://data.openbudgets.eu/resource/dataset/greek-municipalities/codelist/athens-administrations"/>
+        <notation rdf:datatype="http://www.w3.org/2001/XMLSchema#int">67</notation>
+        <prefLabel xml:lang="el">Δ/ΝΣΗ Κ.Ε.Π.</prefLabel>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://data.openbudgets.eu/resource/dataset/greek-municipalities/codelist/athens-administrations/69 -->
+
+    <owl:NamedIndividual rdf:about="http://data.openbudgets.eu/resource/dataset/greek-municipalities/codelist/athens-administrations/69">
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <inScheme rdf:resource="http://data.openbudgets.eu/resource/dataset/greek-municipalities/codelist/athens-administrations"/>
+        <notation rdf:datatype="http://www.w3.org/2001/XMLSchema#int">69</notation>
+        <prefLabel xml:lang="el">Δ/ΝΣΗ ΕΛΕΓΧΟΥ ΚΟΙΝΟΧΡΗΣΤΟΥ ΧΩΡΟΥ</prefLabel>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://data.openbudgets.eu/resource/dataset/greek-municipalities/codelist/athens-administrations/7 -->
+
+    <owl:NamedIndividual rdf:about="http://data.openbudgets.eu/resource/dataset/greek-municipalities/codelist/athens-administrations/7">
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <altLabel xml:lang="el">Δ/ΝΣΗ ΑΣΤΙΚΗΣ ΚΑΤΑΣΤΑΣΗΣ</altLabel>
+        <inScheme rdf:resource="http://data.openbudgets.eu/resource/dataset/greek-municipalities/codelist/athens-administrations"/>
+        <notation rdf:datatype="http://www.w3.org/2001/XMLSchema#int">7</notation>
+        <prefLabel xml:lang="el">Δ/ΝΣΗ ΛΗΞΙΑΡΧΕΙΟΥ ΜΗΤΡΩΩΝ κ ΔΗΜΟΤΟΛΟΓΙΟΥ</prefLabel>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://data.openbudgets.eu/resource/dataset/greek-municipalities/codelist/athens-administrations/71 -->
+
+    <owl:NamedIndividual rdf:about="http://data.openbudgets.eu/resource/dataset/greek-municipalities/codelist/athens-administrations/71">
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <inScheme rdf:resource="http://data.openbudgets.eu/resource/dataset/greek-municipalities/codelist/athens-administrations"/>
+        <notation rdf:datatype="http://www.w3.org/2001/XMLSchema#int">71</notation>
+        <prefLabel xml:lang="el">ΜΙΣΘ/ΣΙΑ ΥΠΑΛΛΗΛΩΝ ΛΟΙΠΩΝ ΥΠΗΡΕΣΙΩΝ</prefLabel>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://data.openbudgets.eu/resource/dataset/greek-municipalities/codelist/athens-administrations/72 -->
+
+    <owl:NamedIndividual rdf:about="http://data.openbudgets.eu/resource/dataset/greek-municipalities/codelist/athens-administrations/72">
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <inScheme rdf:resource="http://data.openbudgets.eu/resource/dataset/greek-municipalities/codelist/athens-administrations"/>
+        <notation rdf:datatype="http://www.w3.org/2001/XMLSchema#int">72</notation>
+        <prefLabel xml:lang="el">ΕΠΙΧΟΡΗΓΟΥΜΕΝΑ ΕΡΓΑ ΠΔΕ - ΕΣΠΑ</prefLabel>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://data.openbudgets.eu/resource/dataset/greek-municipalities/codelist/athens-administrations/8 -->
+
+    <owl:NamedIndividual rdf:about="http://data.openbudgets.eu/resource/dataset/greek-municipalities/codelist/athens-administrations/8">
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <inScheme rdf:resource="http://data.openbudgets.eu/resource/dataset/greek-municipalities/codelist/athens-administrations"/>
+        <notation rdf:datatype="http://www.w3.org/2001/XMLSchema#int">8</notation>
+        <prefLabel xml:lang="el">Δ/ΝΣΗ ΛΟΓΙΣΤΙΚΟΥ ΠΡΟΫΠΟΛΟΓΙΣΜΟΥ</prefLabel>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://data.openbudgets.eu/resource/dataset/greek-municipalities/codelist/athens-administrations/9 -->
+
+    <owl:NamedIndividual rdf:about="http://data.openbudgets.eu/resource/dataset/greek-municipalities/codelist/athens-administrations/9">
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <altLabel xml:lang="el">Δ/ΝΣΗ ΔΗΜΟΤΙΚΩΝ ΠΡΟΣΟΔΩΝ</altLabel>
+        <inScheme rdf:resource="http://data.openbudgets.eu/resource/dataset/greek-municipalities/codelist/athens-administrations"/>
+        <notation rdf:datatype="http://www.w3.org/2001/XMLSchema#int">9</notation>
+        <prefLabel xml:lang="el">ΔΗΜΟΤΙΚΩΝ ΠΡΟΣΟΔΩΝ</prefLabel>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.co-ode.org/ontologies/ont.owl#athens_administrations -->
+
+    <owl:NamedIndividual rdf:about="http://www.co-ode.org/ontologies/ont.owl#athens_administrations">
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <topConceptOf rdf:resource="http://data.openbudgets.eu/resource/dataset/greek-municipalities/codelist/athens-administrations"/>
+    </owl:NamedIndividual>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 4.5.29.2024-05-13T12:11:03Z) https://github.com/owlcs/owlapi -->
+

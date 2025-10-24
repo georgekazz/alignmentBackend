@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Silk>
+    <DataSources>
+        <Dataset id="source" type="file" path="uploads/cleaned_cybersecurity_taxonomy.rdf" format="rdfxml"/>
+        <Dataset id="target" type="file" path="uploads/cybersecurity-taxonomy-skos-ap-eu.rdf" format="rdfxml"/>
+    </DataSources>
+    <Interlinks>
+        <Interlink id="project-2">
+            <LinkType>owl:sameAs</LinkType>
+            <SourceDataset dataSource="source" var="a"/>
+            <TargetDataset dataSource="target" var="b"/>
+            <LinkageRule>
+                <Compare metric="levenshtein" threshold="0.8">
+                    <Input path="skos:prefLabel"/>
+                    <Input path="skos:prefLabel"/>
+                </Compare>
+            </LinkageRule>
+            <Output type="file" file="uploads/suggestions/silk_output_2.nt" format="ntriples"/>
+        </Interlink>
+    </Interlinks>
+</Silk>

@@ -1,0 +1,116 @@
+_:Nf10df1673d00499b83d423e140ccbe13 <http://www.w3.org/1999/02/22-rdf-syntax-ns#value> "Initial description." .
+<http://www.w3.org/2008/05/skos#hiddenLabel> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AnnotationProperty> .
+<http://www.w3.org/2008/05/skos> <http://purl.org/dc/elements/1.1/contributor> "Nikki Rogers" .
+_:N6be384aa5e304809bd5755b023052ada <http://purl.org/dc/elements/1.1/creator> "Sean Bechhofer" .
+_:N013c40e41d4f44f78049ea5e177e85b9 <http://purl.org/dc/elements/1.1/date> "2008-05-xx" .
+_:N1c631ef333b8449a893192a4fac64fb6 <http://purl.org/dc/elements/1.1/creator> "Sean Bechhofer" .
+_:N7ac2f7d651dc45ba941ba29828a1e05c <http://purl.org/dc/elements/1.1/date> "2008-05-xx" .
+_:Na464269095dd44a8942b77c57c93fb9b <http://purl.org/dc/elements/1.1/date> "2008-05-xx" .
+_:Nd0ef75ee433b474db578d32d32e9c89f <http://purl.org/dc/elements/1.1/creator> "Sean Bechhofer" .
+_:N36cb519dc94c4f93bc07299778ac72f5 <http://purl.org/dc/elements/1.1/creator> "Sean Bechhofer" .
+<http://www.w3.org/2008/05/skos> <http://purl.org/dc/elements/1.1/description> "An RDF vocabulary for describing the basic structure and content of concept schemes such as thesauri, classification schemes, subject heading lists, taxonomies, 'folksonomies', other types of controlled vocabulary, and also concept schemes embedded in glossaries and terminologies."@en .
+_:Ne7cc224e37b546379f1ba854cbe1b29e <http://purl.org/dc/elements/1.1/date> "2008-05-xx" .
+_:N33e0a4ae14944db5925c6b74c3b756b4 <http://purl.org/dc/elements/1.1/creator> "Sean Bechhofer" .
+<http://www.w3.org/1999/02/22-rdf-syntax-ns#value> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AnnotationProperty> .
+_:N81eef028f01b490fb2346a2fec183e61 <http://purl.org/dc/elements/1.1/date> "2008-05-xx" .
+_:N2ee531f5691c4ebd941813992262ab83 <http://purl.org/dc/elements/1.1/date> "2008-05-xx" .
+_:N41579f0caa5c459187c204bb3c270bee <http://www.w3.org/1999/02/22-rdf-syntax-ns#value> "Initial description." .
+_:Nd91301c2b1f24d41b038a2649941b6e4 <http://purl.org/dc/elements/1.1/creator> "Sean Bechhofer" .
+_:N81eef028f01b490fb2346a2fec183e61 <http://www.w3.org/1999/02/22-rdf-syntax-ns#value> "Initial description." .
+_:Nfd310328ef7f4f83ada61bec6c54cfd8 <http://purl.org/dc/elements/1.1/date> "2008-05-xx" .
+_:N7ac2f7d651dc45ba941ba29828a1e05c <http://www.w3.org/1999/02/22-rdf-syntax-ns#value> "Initial description." .
+<http://www.w3.org/2008/05/skos#prefLabel> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AnnotationProperty> .
+_:Na464269095dd44a8942b77c57c93fb9b <http://www.w3.org/1999/02/22-rdf-syntax-ns#value> "Initial description." .
+_:N31dfd81230c64ae4ac2479793db27466 <http://purl.org/dc/elements/1.1/date> "2008-05-xx" .
+_:N19e1444c710f4a0a863c34042c67786a <http://purl.org/dc/elements/1.1/creator> "Sean Bechhofer" .
+<http://purl.org/dc/elements/1.1/contributor> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AnnotationProperty> .
+_:Nd1745ad3d97a4d4fb120b60985e7bae1 <http://purl.org/dc/elements/1.1/creator> "Sean Bechhofer" .
+_:N45985692c1694c2b94ef543c34c35cee <http://www.w3.org/1999/02/22-rdf-syntax-ns#value> "Initial description." .
+_:N664695137b474c36a67cbcc31b1aeac3 <http://purl.org/dc/elements/1.1/date> "2008-05-xx" .
+_:N1c631ef333b8449a893192a4fac64fb6 <http://purl.org/dc/elements/1.1/date> "2008-05-xx" .
+_:Ne7cc224e37b546379f1ba854cbe1b29e <http://www.w3.org/1999/02/22-rdf-syntax-ns#value> "Initial description." .
+_:N7ac2f7d651dc45ba941ba29828a1e05c <http://purl.org/dc/elements/1.1/creator> "Sean Bechhofer" .
+<http://purl.org/dc/elements/1.1/creator> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AnnotationProperty> .
+_:N6be384aa5e304809bd5755b023052ada <http://www.w3.org/1999/02/22-rdf-syntax-ns#value> "Initial description." .
+_:Na464269095dd44a8942b77c57c93fb9b <http://purl.org/dc/elements/1.1/creator> "Sean Bechhofer" .
+_:Nd0ef75ee433b474db578d32d32e9c89f <http://purl.org/dc/elements/1.1/date> "2008-05-xx" .
+_:N774ea09fe0bd4813a5f05f4b43f401f1 <http://www.w3.org/1999/02/22-rdf-syntax-ns#value> "Initial description." .
+<http://purl.org/dc/elements/1.1/date> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AnnotationProperty> .
+_:N42757e0942524ac0858b67df93cf4e3b <http://purl.org/dc/elements/1.1/creator> "Sean Bechhofer" .
+<http://www.w3.org/2008/05/skos#hiddenLabel> <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <http://www.w3.org/2000/01/rdf-schema#label> .
+_:N36cb519dc94c4f93bc07299778ac72f5 <http://purl.org/dc/elements/1.1/date> "2008-05-xx" .
+_:N013c40e41d4f44f78049ea5e177e85b9 <http://purl.org/dc/elements/1.1/creator> "Sean Bechhofer" .
+<http://www.w3.org/2008/05/skos#altLabel> <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <http://www.w3.org/2000/01/rdf-schema#label> .
+<http://www.w3.org/2008/05/skos> <http://purl.org/dc/elements/1.1/contributor> "Dave Beckett" .
+_:N3c0cd8f722c045d08bf9076d3dc8e967 <http://purl.org/dc/elements/1.1/creator> "Sean Bechhofer" .
+_:Nc856129674b14f4390dea59058cb0b50 <http://purl.org/dc/elements/1.1/date> "2008-05-xx" .
+_:N774ea09fe0bd4813a5f05f4b43f401f1 <http://purl.org/dc/elements/1.1/creator> "Sean Bechhofer" .
+_:N33e0a4ae14944db5925c6b74c3b756b4 <http://purl.org/dc/elements/1.1/date> "2008-05-xx" .
+_:N1c631ef333b8449a893192a4fac64fb6 <http://www.w3.org/1999/02/22-rdf-syntax-ns#value> "Initial description." .
+_:N918fa8b0678344f78c78d6d0eef13031 <http://purl.org/dc/elements/1.1/date> "2008-05-xx" .
+_:Nfbc2ae7fd68c4f30baa8fcdd6a9e4f58 <http://purl.org/dc/elements/1.1/date> "2008-05-xx" .
+_:N4a9174e7430b42419ae8278bc3c3a9cd <http://www.w3.org/1999/02/22-rdf-syntax-ns#value> "Initial description." .
+<http://www.w3.org/2008/05/skos> <http://purl.org/dc/elements/1.1/creator> "Sean Bechhofer" .
+_:Ne3a873af4ac746d0be1b258ccb0349ad <http://purl.org/dc/elements/1.1/creator> "Sean Bechhofer" .
+_:N45985692c1694c2b94ef543c34c35cee <http://purl.org/dc/elements/1.1/creator> "Sean Bechhofer" .
+_:Naf67e2ed0ceb4d0198c75aaf91ce0f77 <http://purl.org/dc/elements/1.1/date> "2008-05-xx" .
+_:Nce38fa0fc8ae428d83f31b0328fdf9ce <http://www.w3.org/1999/02/22-rdf-syntax-ns#value> "Initial description." .
+_:Nf10df1673d00499b83d423e140ccbe13 <http://purl.org/dc/elements/1.1/date> "2008-05-xx" .
+_:Nd1745ad3d97a4d4fb120b60985e7bae1 <http://purl.org/dc/elements/1.1/date> "2008-05-xx" .
+_:Ne7cc224e37b546379f1ba854cbe1b29e <http://purl.org/dc/elements/1.1/creator> "Sean Bechhofer" .
+_:N65449f5d2d574effab90a4b39343452b <http://purl.org/dc/elements/1.1/creator> "Sean Bechhofer" .
+_:N23cd3827bfee443cb0b846da564cf295 <http://www.w3.org/1999/02/22-rdf-syntax-ns#value> "Initial description." .
+<http://www.w3.org/2008/05/skos> <http://purl.org/dc/elements/1.1/title> "SKOS Core Vocabulary"@en .
+_:Nc856129674b14f4390dea59058cb0b50 <http://www.w3.org/1999/02/22-rdf-syntax-ns#value> "Initial description." .
+_:Nd91301c2b1f24d41b038a2649941b6e4 <http://www.w3.org/1999/02/22-rdf-syntax-ns#value> "Initial description." .
+_:N31dfd81230c64ae4ac2479793db27466 <http://purl.org/dc/elements/1.1/creator> "Sean Bechhofer" .
+_:N42757e0942524ac0858b67df93cf4e3b <http://purl.org/dc/elements/1.1/date> "2008-05-xx" .
+_:N918fa8b0678344f78c78d6d0eef13031 <http://www.w3.org/1999/02/22-rdf-syntax-ns#value> "Initial description." .
+_:N19e1444c710f4a0a863c34042c67786a <http://www.w3.org/1999/02/22-rdf-syntax-ns#value> "Initial description." .
+_:Nd1745ad3d97a4d4fb120b60985e7bae1 <http://www.w3.org/1999/02/22-rdf-syntax-ns#value> "Initial description." .
+_:N664695137b474c36a67cbcc31b1aeac3 <http://purl.org/dc/elements/1.1/creator> "Sean Bechhofer" .
+_:N41579f0caa5c459187c204bb3c270bee <http://purl.org/dc/elements/1.1/date> "2008-05-xx" .
+_:N4a9174e7430b42419ae8278bc3c3a9cd <http://purl.org/dc/elements/1.1/creator> "Sean Bechhofer" .
+_:N3c0cd8f722c045d08bf9076d3dc8e967 <http://purl.org/dc/elements/1.1/date> "2008-05-xx" .
+<http://www.w3.org/2008/05/skos#altLabel> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AnnotationProperty> .
+<http://www.w3.org/2008/05/skos> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Ontology> .
+_:Nc856129674b14f4390dea59058cb0b50 <http://purl.org/dc/elements/1.1/creator> "Sean Bechhofer" .
+<http://www.w3.org/2008/05/skos> <http://purl.org/dc/elements/1.1/contributor> "Participants in W3C's Semantic Web Deployment Working Group." .
+_:N013c40e41d4f44f78049ea5e177e85b9 <http://www.w3.org/1999/02/22-rdf-syntax-ns#value> "Initial description." .
+_:N3c0cd8f722c045d08bf9076d3dc8e967 <http://www.w3.org/1999/02/22-rdf-syntax-ns#value> "Initial description." .
+_:Ne3a873af4ac746d0be1b258ccb0349ad <http://purl.org/dc/elements/1.1/date> "2008-05-xx" .
+_:Naf67e2ed0ceb4d0198c75aaf91ce0f77 <http://purl.org/dc/elements/1.1/creator> "Sean Bechhofer" .
+_:N23cd3827bfee443cb0b846da564cf295 <http://purl.org/dc/elements/1.1/creator> "Sean Bechhofer" .
+<http://purl.org/dc/elements/1.1/title> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AnnotationProperty> .
+_:Nce38fa0fc8ae428d83f31b0328fdf9ce <http://purl.org/dc/elements/1.1/creator> "Sean Bechhofer" .
+_:N42757e0942524ac0858b67df93cf4e3b <http://www.w3.org/1999/02/22-rdf-syntax-ns#value> "Initial description." .
+_:N65449f5d2d574effab90a4b39343452b <http://purl.org/dc/elements/1.1/date> "2008-05-xx" .
+_:N45985692c1694c2b94ef543c34c35cee <http://purl.org/dc/elements/1.1/date> "2008-05-xx" .
+<http://www.w3.org/2008/05/skos> <http://purl.org/dc/elements/1.1/creator> "Alistair Miles" .
+_:Nfbc2ae7fd68c4f30baa8fcdd6a9e4f58 <http://purl.org/dc/elements/1.1/creator> "Sean Bechhofer" .
+_:N2ee531f5691c4ebd941813992262ab83 <http://www.w3.org/1999/02/22-rdf-syntax-ns#value> "Initial description." .
+<http://purl.org/dc/elements/1.1/description> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AnnotationProperty> .
+_:N918fa8b0678344f78c78d6d0eef13031 <http://purl.org/dc/elements/1.1/creator> "Sean Bechhofer" .
+_:N6be384aa5e304809bd5755b023052ada <http://purl.org/dc/elements/1.1/date> "2008-05-xx" .
+_:N774ea09fe0bd4813a5f05f4b43f401f1 <http://purl.org/dc/elements/1.1/date> "2008-05-xx" .
+_:Nfd310328ef7f4f83ada61bec6c54cfd8 <http://www.w3.org/1999/02/22-rdf-syntax-ns#value> "Initial description." .
+_:Ne3a873af4ac746d0be1b258ccb0349ad <http://www.w3.org/1999/02/22-rdf-syntax-ns#value> "Initial description." .
+_:N65449f5d2d574effab90a4b39343452b <http://www.w3.org/1999/02/22-rdf-syntax-ns#value> "Initial description." .
+_:N41579f0caa5c459187c204bb3c270bee <http://purl.org/dc/elements/1.1/creator> "Sean Bechhofer" .
+_:N664695137b474c36a67cbcc31b1aeac3 <http://www.w3.org/1999/02/22-rdf-syntax-ns#value> "Initial description." .
+_:N4a9174e7430b42419ae8278bc3c3a9cd <http://purl.org/dc/elements/1.1/date> "2008-05-xx" .
+_:Nd91301c2b1f24d41b038a2649941b6e4 <http://purl.org/dc/elements/1.1/date> "2008-05-xx" .
+_:Nd0ef75ee433b474db578d32d32e9c89f <http://www.w3.org/1999/02/22-rdf-syntax-ns#value> "Initial description." .
+_:N31dfd81230c64ae4ac2479793db27466 <http://www.w3.org/1999/02/22-rdf-syntax-ns#value> "Initial description." .
+_:Nce38fa0fc8ae428d83f31b0328fdf9ce <http://purl.org/dc/elements/1.1/date> "2008-05-xx" .
+_:N23cd3827bfee443cb0b846da564cf295 <http://purl.org/dc/elements/1.1/date> "2008-05-xx" .
+_:Nf10df1673d00499b83d423e140ccbe13 <http://purl.org/dc/elements/1.1/creator> "Alistair Miles" .
+_:N2ee531f5691c4ebd941813992262ab83 <http://purl.org/dc/elements/1.1/creator> "Sean Bechhofer" .
+_:N81eef028f01b490fb2346a2fec183e61 <http://purl.org/dc/elements/1.1/creator> "Sean Bechhofer" .
+_:Nfd310328ef7f4f83ada61bec6c54cfd8 <http://purl.org/dc/elements/1.1/creator> "Sean Bechhofer" .
+_:N36cb519dc94c4f93bc07299778ac72f5 <http://www.w3.org/1999/02/22-rdf-syntax-ns#value> "Initial description." .
+_:N33e0a4ae14944db5925c6b74c3b756b4 <http://www.w3.org/1999/02/22-rdf-syntax-ns#value> "Initial description." .
+_:Nfbc2ae7fd68c4f30baa8fcdd6a9e4f58 <http://www.w3.org/1999/02/22-rdf-syntax-ns#value> "Initial description." .
+<http://www.w3.org/2008/05/skos#prefLabel> <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <http://www.w3.org/2000/01/rdf-schema#label> .
+_:Naf67e2ed0ceb4d0198c75aaf91ce0f77 <http://www.w3.org/1999/02/22-rdf-syntax-ns#value> "Initial description." .
+_:N19e1444c710f4a0a863c34042c67786a <http://purl.org/dc/elements/1.1/date> "2008-05-xx" .

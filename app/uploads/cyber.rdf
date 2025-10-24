@@ -1,0 +1,259 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns="http://www.w3.org/2008/05/skos#"
+     xml:base="http://www.w3.org/2008/05/skos"
+     xmlns:dc="http://purl.org/dc/elements/1.1/"
+     xmlns:vs="http://www.w3.org/2003/06/sw-vocab-status/ns#"
+     xmlns:dct="http://purl.org/dc/terms/"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:foaf="http://xmlns.com/foaf/0.1/"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:skos="http://www.w3.org/2008/05/skos#">
+    <owl:Ontology rdf:about="http://www.w3.org/2008/05/skos">
+        <dc:contributor>Dave Beckett</dc:contributor>
+        <dc:contributor>Nikki Rogers</dc:contributor>
+        <dc:contributor>Participants in W3C&apos;s Semantic Web Deployment Working Group.</dc:contributor>
+        <dc:creator>Alistair Miles</dc:creator>
+        <dc:creator>Sean Bechhofer</dc:creator>
+        <dc:description xml:lang="en">An RDF vocabulary for describing the basic structure and content of concept schemes such as thesauri, classification schemes, subject heading lists, taxonomies, &apos;folksonomies&apos;, other types of controlled vocabulary, and also concept schemes embedded in glossaries and terminologies.</dc:description>
+        <dc:title xml:lang="en">SKOS Core Vocabulary</dc:title>
+    </owl:Ontology>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Annotation properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://purl.org/dc/elements/1.1/contributor -->
+
+    <owl:AnnotationProperty rdf:about="http://purl.org/dc/elements/1.1/contributor"/>
+    
+
+
+    <!-- http://purl.org/dc/elements/1.1/creator -->
+
+    <owl:AnnotationProperty rdf:about="http://purl.org/dc/elements/1.1/creator"/>
+    
+
+
+    <!-- http://purl.org/dc/elements/1.1/date -->
+
+    <owl:AnnotationProperty rdf:about="http://purl.org/dc/elements/1.1/date"/>
+    
+
+
+    <!-- http://purl.org/dc/elements/1.1/description -->
+
+    <owl:AnnotationProperty rdf:about="http://purl.org/dc/elements/1.1/description"/>
+    
+
+
+    <!-- http://purl.org/dc/elements/1.1/title -->
+
+    <owl:AnnotationProperty rdf:about="http://purl.org/dc/elements/1.1/title"/>
+    
+
+
+    <!-- http://www.w3.org/1999/02/22-rdf-syntax-ns#value -->
+
+    <owl:AnnotationProperty rdf:about="http://www.w3.org/1999/02/22-rdf-syntax-ns#value"/>
+    
+
+
+    <!-- http://www.w3.org/2008/05/skos#altLabel -->
+
+    <owl:AnnotationProperty rdf:about="http://www.w3.org/2008/05/skos#altLabel">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2000/01/rdf-schema#label"/>
+    </owl:AnnotationProperty>
+    
+
+
+    <!-- http://www.w3.org/2008/05/skos#hiddenLabel -->
+
+    <owl:AnnotationProperty rdf:about="http://www.w3.org/2008/05/skos#hiddenLabel">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2000/01/rdf-schema#label"/>
+    </owl:AnnotationProperty>
+    
+
+
+    <!-- http://www.w3.org/2008/05/skos#prefLabel -->
+
+    <owl:AnnotationProperty rdf:about="http://www.w3.org/2008/05/skos#prefLabel">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2000/01/rdf-schema#label"/>
+    </owl:AnnotationProperty>
+    <rdf:Description>
+        <dc:creator>Sean Bechhofer</dc:creator>
+        <dc:date>2008-05-xx</dc:date>
+        <rdf:value>Initial description.</rdf:value>
+    </rdf:Description>
+    <rdf:Description>
+        <dc:creator>Sean Bechhofer</dc:creator>
+        <dc:date>2008-05-xx</dc:date>
+        <rdf:value>Initial description.</rdf:value>
+    </rdf:Description>
+    <rdf:Description>
+        <dc:creator>Sean Bechhofer</dc:creator>
+        <dc:date>2008-05-xx</dc:date>
+        <rdf:value>Initial description.</rdf:value>
+    </rdf:Description>
+    <rdf:Description>
+        <dc:creator>Alistair Miles</dc:creator>
+        <dc:date>2008-05-xx</dc:date>
+        <rdf:value>Initial description.</rdf:value>
+    </rdf:Description>
+    <rdf:Description>
+        <dc:creator>Sean Bechhofer</dc:creator>
+        <dc:date>2008-05-xx</dc:date>
+        <rdf:value>Initial description.</rdf:value>
+    </rdf:Description>
+    <rdf:Description>
+        <dc:creator>Sean Bechhofer</dc:creator>
+        <dc:date>2008-05-xx</dc:date>
+        <rdf:value>Initial description.</rdf:value>
+    </rdf:Description>
+    <rdf:Description>
+        <dc:creator>Sean Bechhofer</dc:creator>
+        <dc:date>2008-05-xx</dc:date>
+        <rdf:value>Initial description.</rdf:value>
+    </rdf:Description>
+    <rdf:Description>
+        <dc:creator>Sean Bechhofer</dc:creator>
+        <dc:date>2008-05-xx</dc:date>
+        <rdf:value>Initial description.</rdf:value>
+    </rdf:Description>
+    <rdf:Description>
+        <dc:creator>Sean Bechhofer</dc:creator>
+        <dc:date>2008-05-xx</dc:date>
+        <rdf:value>Initial description.</rdf:value>
+    </rdf:Description>
+    <rdf:Description>
+        <dc:creator>Sean Bechhofer</dc:creator>
+        <dc:date>2008-05-xx</dc:date>
+        <rdf:value>Initial description.</rdf:value>
+    </rdf:Description>
+    <rdf:Description>
+        <dc:creator>Sean Bechhofer</dc:creator>
+        <dc:date>2008-05-xx</dc:date>
+        <rdf:value>Initial description.</rdf:value>
+    </rdf:Description>
+    <rdf:Description>
+        <dc:creator>Sean Bechhofer</dc:creator>
+        <dc:date>2008-05-xx</dc:date>
+        <rdf:value>Initial description.</rdf:value>
+    </rdf:Description>
+    <rdf:Description>
+        <dc:creator>Sean Bechhofer</dc:creator>
+        <dc:date>2008-05-xx</dc:date>
+        <rdf:value>Initial description.</rdf:value>
+    </rdf:Description>
+    <rdf:Description>
+        <dc:creator>Sean Bechhofer</dc:creator>
+        <dc:date>2008-05-xx</dc:date>
+        <rdf:value>Initial description.</rdf:value>
+    </rdf:Description>
+    <rdf:Description>
+        <dc:creator>Sean Bechhofer</dc:creator>
+        <dc:date>2008-05-xx</dc:date>
+        <rdf:value>Initial description.</rdf:value>
+    </rdf:Description>
+    <rdf:Description>
+        <dc:creator>Sean Bechhofer</dc:creator>
+        <dc:date>2008-05-xx</dc:date>
+        <rdf:value>Initial description.</rdf:value>
+    </rdf:Description>
+    <rdf:Description>
+        <dc:creator>Sean Bechhofer</dc:creator>
+        <dc:date>2008-05-xx</dc:date>
+        <rdf:value>Initial description.</rdf:value>
+    </rdf:Description>
+    <rdf:Description>
+        <dc:creator>Sean Bechhofer</dc:creator>
+        <dc:date>2008-05-xx</dc:date>
+        <rdf:value>Initial description.</rdf:value>
+    </rdf:Description>
+    <rdf:Description>
+        <dc:creator>Sean Bechhofer</dc:creator>
+        <dc:date>2008-05-xx</dc:date>
+        <rdf:value>Initial description.</rdf:value>
+    </rdf:Description>
+    <rdf:Description>
+        <dc:creator>Sean Bechhofer</dc:creator>
+        <dc:date>2008-05-xx</dc:date>
+        <rdf:value>Initial description.</rdf:value>
+    </rdf:Description>
+    <rdf:Description>
+        <dc:creator>Sean Bechhofer</dc:creator>
+        <dc:date>2008-05-xx</dc:date>
+        <rdf:value>Initial description.</rdf:value>
+    </rdf:Description>
+    <rdf:Description>
+        <dc:creator>Sean Bechhofer</dc:creator>
+        <dc:date>2008-05-xx</dc:date>
+        <rdf:value>Initial description.</rdf:value>
+    </rdf:Description>
+    <rdf:Description>
+        <dc:creator>Sean Bechhofer</dc:creator>
+        <dc:date>2008-05-xx</dc:date>
+        <rdf:value>Initial description.</rdf:value>
+    </rdf:Description>
+    <rdf:Description>
+        <dc:creator>Sean Bechhofer</dc:creator>
+        <dc:date>2008-05-xx</dc:date>
+        <rdf:value>Initial description.</rdf:value>
+    </rdf:Description>
+    <rdf:Description>
+        <dc:creator>Sean Bechhofer</dc:creator>
+        <dc:date>2008-05-xx</dc:date>
+        <rdf:value>Initial description.</rdf:value>
+    </rdf:Description>
+    <rdf:Description>
+        <dc:creator>Sean Bechhofer</dc:creator>
+        <dc:date>2008-05-xx</dc:date>
+        <rdf:value>Initial description.</rdf:value>
+    </rdf:Description>
+    <rdf:Description>
+        <dc:creator>Sean Bechhofer</dc:creator>
+        <dc:date>2008-05-xx</dc:date>
+        <rdf:value>Initial description.</rdf:value>
+    </rdf:Description>
+    <rdf:Description>
+        <dc:creator>Sean Bechhofer</dc:creator>
+        <dc:date>2008-05-xx</dc:date>
+        <rdf:value>Initial description.</rdf:value>
+    </rdf:Description>
+    <rdf:Description>
+        <dc:creator>Sean Bechhofer</dc:creator>
+        <dc:date>2008-05-xx</dc:date>
+        <rdf:value>Initial description.</rdf:value>
+    </rdf:Description>
+    <rdf:Description>
+        <dc:creator>Sean Bechhofer</dc:creator>
+        <dc:date>2008-05-xx</dc:date>
+        <rdf:value>Initial description.</rdf:value>
+    </rdf:Description>
+    <rdf:Description>
+        <dc:creator>Sean Bechhofer</dc:creator>
+        <dc:date>2008-05-xx</dc:date>
+        <rdf:value>Initial description.</rdf:value>
+    </rdf:Description>
+    <rdf:Description>
+        <dc:creator>Sean Bechhofer</dc:creator>
+        <dc:date>2008-05-xx</dc:date>
+        <rdf:value>Initial description.</rdf:value>
+    </rdf:Description>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 4.5.29.2024-05-13T12:11:03Z) https://github.com/owlcs/owlapi -->
+

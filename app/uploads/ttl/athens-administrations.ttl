@@ -1,0 +1,313 @@
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<http://data.openbudgets.eu/resource/dataset/greek-municipalities/codelist/athens-administrations/1> a skos:Concept ;
+    skos:inScheme <http://data.openbudgets.eu/resource/dataset/greek-municipalities/codelist/athens-administrations> ;
+    skos:notation "1"^^xsd:int ;
+    skos:prefLabel "ΙΔΙΑΙΤΕΡΟ ΓΡΑΦΕΙΟ ΔΗΜΑΡΧΟΥ"@el .
+
+<http://data.openbudgets.eu/resource/dataset/greek-municipalities/codelist/athens-administrations/10> a skos:Concept ;
+    skos:altLabel "Δ/ΝΣΗ ΟΙΚΟΝΟΜΙΚΩΝ"@el ;
+    skos:inScheme <http://data.openbudgets.eu/resource/dataset/greek-municipalities/codelist/athens-administrations> ;
+    skos:notation "10"^^xsd:int ;
+    skos:prefLabel "Δ/ΝΣΗ ΤΑΜΕΙΑΚΗΣ ΥΠΗΡΕΣΙΑΣ"@el .
+
+<http://data.openbudgets.eu/resource/dataset/greek-municipalities/codelist/athens-administrations/11> a skos:Concept ;
+    skos:inScheme <http://data.openbudgets.eu/resource/dataset/greek-municipalities/codelist/athens-administrations> ;
+    skos:notation "11"^^xsd:int ;
+    skos:prefLabel "Δ/ΝΣΗ ΔΗΜΟΤΙΚΗΣ ΠΕΡΙΟΥΣΙΑΣ"@el .
+
+<http://data.openbudgets.eu/resource/dataset/greek-municipalities/codelist/athens-administrations/13> a skos:Concept ;
+    skos:altLabel "Δ/ΝΣΗ ΠΡΟΜΗΘΕΙΩΝ ΚΑΙ ΑΠΟΘΗΚΩΝ"@el ;
+    skos:inScheme <http://data.openbudgets.eu/resource/dataset/greek-municipalities/codelist/athens-administrations> ;
+    skos:notation "13"^^xsd:int ;
+    skos:prefLabel "Δ/ΝΣΗ ΠΡΟΜΗΘΕΙΩΝ ΚΑΙ ΓΕΝΙΚΩΝ ΑΠΟΘΗΚΩΝ"@el .
+
+<http://data.openbudgets.eu/resource/dataset/greek-municipalities/codelist/athens-administrations/14> a skos:Concept ;
+    skos:altLabel "Δ/ΝΣΗ ΕΜΠΟΡΙΟΥ ΚΑΙ ΑΝΑΠΤΥΞΗΣ"@el ;
+    skos:inScheme <http://data.openbudgets.eu/resource/dataset/greek-municipalities/codelist/athens-administrations> ;
+    skos:notation "14"^^xsd:int ;
+    skos:prefLabel "Δ/ΝΣΗ ΑΔΕΙΩΝ ΚΑΤΑΣΤΗΜΑΤΩΝ ΚΑΙ ΘΕΑΜΑΤΩΝ"@el .
+
+<http://data.openbudgets.eu/resource/dataset/greek-municipalities/codelist/athens-administrations/15> a skos:Concept ;
+    skos:inScheme <http://data.openbudgets.eu/resource/dataset/greek-municipalities/codelist/athens-administrations> ;
+    skos:notation "15"^^xsd:int ;
+    skos:prefLabel "Δ/ΝΣΗ ΑΛΛΟΔΑΠΩΝ"@el .
+
+<http://data.openbudgets.eu/resource/dataset/greek-municipalities/codelist/athens-administrations/16> a skos:Concept ;
+    skos:inScheme <http://data.openbudgets.eu/resource/dataset/greek-municipalities/codelist/athens-administrations> ;
+    skos:notation "16"^^xsd:int ;
+    skos:prefLabel "Δ/ΝΣΗ ΠΡΟΛΗΠΤΙΚΗΣ ΙΑΤΡΙΚΗΣ κ ΥΓΕΙΑΣ"@el .
+
+<http://data.openbudgets.eu/resource/dataset/greek-municipalities/codelist/athens-administrations/17> a skos:Concept ;
+    skos:inScheme <http://data.openbudgets.eu/resource/dataset/greek-municipalities/codelist/athens-administrations> ;
+    skos:notation "17"^^xsd:int ;
+    skos:prefLabel "Δ/ΝΣΗ ΣΧΟΛΙΚΗΣ ΜΕΡΙΜΝΑΣ."@el .
+
+<http://data.openbudgets.eu/resource/dataset/greek-municipalities/codelist/athens-administrations/18> a skos:Concept ;
+    skos:altLabel "Δ/ΝΣΗ ΕΠΙΧΕΙΡΗΣΙΑΚΟΥ ΣΧΕΔΙΑΣΜΟΥ ΟΡΓΑΝΩΣΗΣ ΚΑΙ ΠΛΗΡΟΦΟΡΙΚΗΣ"@el ;
+    skos:inScheme <http://data.openbudgets.eu/resource/dataset/greek-municipalities/codelist/athens-administrations> ;
+    skos:notation "18"^^xsd:int ;
+    skos:prefLabel "Δ/ΝΣΗ ΣΤΡΑΤΗΓΙΚΟΥ ΣΧΕΔΙΑΣΜΟΥ κ ΑΝΑΠΤΥΞΗΣ"@el .
+
+<http://data.openbudgets.eu/resource/dataset/greek-municipalities/codelist/athens-administrations/19> a skos:Concept ;
+    skos:inScheme <http://data.openbudgets.eu/resource/dataset/greek-municipalities/codelist/athens-administrations> ;
+    skos:notation "19"^^xsd:int ;
+    skos:prefLabel "Δ/ΝΣΗ ΕΣΩΤΕΡΙΚΟΥ ΕΛΕΓΧΟΥ"@el .
+
+<http://data.openbudgets.eu/resource/dataset/greek-municipalities/codelist/athens-administrations/2> a skos:Concept ;
+    skos:inScheme <http://data.openbudgets.eu/resource/dataset/greek-municipalities/codelist/athens-administrations> ;
+    skos:notation "2"^^xsd:int ;
+    skos:prefLabel "Δ/ΝΣΗ ΝΟΜΙΚΗΣ ΥΠΗΡΕΣΙΑΣ"@el .
+
+<http://data.openbudgets.eu/resource/dataset/greek-municipalities/codelist/athens-administrations/20> a skos:Concept ;
+    skos:altLabel " "@el ;
+    skos:inScheme <http://data.openbudgets.eu/resource/dataset/greek-municipalities/codelist/athens-administrations> ;
+    skos:notation "20"^^xsd:int ;
+    skos:prefLabel "ΜΙΣΘΟΔΟΣΙΑ ΥΠΑΛΛΗΛΩΝ ΥΠΗΡ.ΠΟΛΙΤΙΣΜΟΥ-ΑΘΛΗΤΙΣΜΟΥ-ΚΟΙΝΩΝ.ΠΟΛΙΤΙΚΗΣ"@el .
+
+<http://data.openbudgets.eu/resource/dataset/greek-municipalities/codelist/athens-administrations/21> a skos:Concept ;
+    skos:altLabel "Δ/ΝΣΗ ΚΟΙΝΩΝΙΚΗΣ ΑΛΛΗΛΕΓΓΥΗΣ ΚΑΙ ΥΓΕΙΑΣ"@el ;
+    skos:inScheme <http://data.openbudgets.eu/resource/dataset/greek-municipalities/codelist/athens-administrations> ;
+    skos:notation "21"^^xsd:int ;
+    skos:prefLabel "Δ/ΝΣΗ ΚΟΙΝΩΝΙΚΗΣ ΜΕΡΙΜΝΑΣ"@el .
+
+<http://data.openbudgets.eu/resource/dataset/greek-municipalities/codelist/athens-administrations/22> a skos:Concept ;
+    skos:inScheme <http://data.openbudgets.eu/resource/dataset/greek-municipalities/codelist/athens-administrations> ;
+    skos:notation "22"^^xsd:int ;
+    skos:prefLabel "Δ/ΝΣΗ ΠΑΙΔΙΚΩΝ ΕΞΟΧΩΝ"@el .
+
+<http://data.openbudgets.eu/resource/dataset/greek-municipalities/codelist/athens-administrations/23> a skos:Concept ;
+    skos:altLabel "Δ/ΝΣΗ ΠΑΙΔΕΙΑΣ ΚΑΙ ΔΙΑ ΒΙΟΥ ΜΑΘΗΣΗΣ"@el ;
+    skos:inScheme <http://data.openbudgets.eu/resource/dataset/greek-municipalities/codelist/athens-administrations> ;
+    skos:notation "23"^^xsd:int ;
+    skos:prefLabel "Δ/ΝΣΗ ΣΧΟΛΙΚΗΣ ΜΕΡΙΜΝΑΣ"@el .
+
+<http://data.openbudgets.eu/resource/dataset/greek-municipalities/codelist/athens-administrations/24> a skos:Concept ;
+    skos:inScheme <http://data.openbudgets.eu/resource/dataset/greek-municipalities/codelist/athens-administrations> ;
+    skos:notation "24"^^xsd:int ;
+    skos:prefLabel "Δ/ΝΣΗ ΠΡΟΛΗΠΤΙΚΗΣ ΙΑΤΡΙΚΗΣ ΚΑΙ ΥΓΕΙΑΣ"@el .
+
+<http://data.openbudgets.eu/resource/dataset/greek-municipalities/codelist/athens-administrations/25> a skos:Concept ;
+    skos:altLabel "Δ/ΝΣΗ ΚΑΘΑΡΙΟΤΗΤΑΣ - ΑΝΑΚΥΚΛΩΣΗΣ ΚΑΙ ΣΥΝΤΗΡΗΣΗΣ ΜΗΧΑΝΟΛΟΓΙΚΟΥ ΕΞΟΠΛΙΣΜΟΥ"@el ;
+    skos:inScheme <http://data.openbudgets.eu/resource/dataset/greek-municipalities/codelist/athens-administrations> ;
+    skos:notation "25"^^xsd:int ;
+    skos:prefLabel "Δ/ΝΣΗ ΚΑΘΑΡΙΟΤΗΤΑΣ"@el .
+
+<http://data.openbudgets.eu/resource/dataset/greek-municipalities/codelist/athens-administrations/26> a skos:Concept ;
+    skos:inScheme <http://data.openbudgets.eu/resource/dataset/greek-municipalities/codelist/athens-administrations> ;
+    skos:notation "26"^^xsd:int ;
+    skos:prefLabel "Δ/ΝΣΗ ΗΛΕΚΤΡΟΛΟΓΙΚΟΥ ΑΝΤΑΠ."@el .
+
+<http://data.openbudgets.eu/resource/dataset/greek-municipalities/codelist/athens-administrations/27> a skos:Concept ;
+    skos:inScheme <http://data.openbudgets.eu/resource/dataset/greek-municipalities/codelist/athens-administrations> ;
+    skos:notation "27"^^xsd:int ;
+    skos:prefLabel "Δ/ΝΣΗ ΤΡΟΧΑΙΟΥ ΥΛΙΚΟΥ"@el .
+
+<http://data.openbudgets.eu/resource/dataset/greek-municipalities/codelist/athens-administrations/28> a skos:Concept ;
+    skos:inScheme <http://data.openbudgets.eu/resource/dataset/greek-municipalities/codelist/athens-administrations> ;
+    skos:notation "28"^^xsd:int ;
+    skos:prefLabel "ΜΙΣΘΟΔΟΣΙΑ ΑΝΤΑΠΟΔΟΤΙΚΩΝ ΥΠΗΡΕΣΙΩΝ"@el .
+
+<http://data.openbudgets.eu/resource/dataset/greek-municipalities/codelist/athens-administrations/3> a skos:Concept ;
+    skos:altLabel "ΤΜΗΜΑ ΔΙΕΘΝΟΥΣ ΣΥΝΕΡΓΑΣΙΑΣ ΚΑΙ ΔΗΜΟΣΙΩΝ ΣΧΕΣΕΩΝ"@el ;
+    skos:inScheme <http://data.openbudgets.eu/resource/dataset/greek-municipalities/codelist/athens-administrations> ;
+    skos:notation "3"^^xsd:int ;
+    skos:prefLabel "Δ/ΝΣΗ ΔΗΜΟΣΙΩΝ ΣΧΕΣΕΩΝ & ΔΙΕΘΝΟΥΣ ΣΥΝΕΡΓΑΣΙΑΣ"@el .
+
+<http://data.openbudgets.eu/resource/dataset/greek-municipalities/codelist/athens-administrations/30> a skos:Concept ;
+    skos:inScheme <http://data.openbudgets.eu/resource/dataset/greek-municipalities/codelist/athens-administrations> ;
+    skos:notation "30"^^xsd:int ;
+    skos:prefLabel "Δ/ΝΣΗ ΚΟΙΝΟΧΡΗΣΤΩΝ ΧΩΡΩΝ"@el .
+
+<http://data.openbudgets.eu/resource/dataset/greek-municipalities/codelist/athens-administrations/31> a skos:Concept ;
+    skos:inScheme <http://data.openbudgets.eu/resource/dataset/greek-municipalities/codelist/athens-administrations> ;
+    skos:notation "31"^^xsd:int ;
+    skos:prefLabel "Δ/ΝΣΗ ΑΠΟΧΕΤΕΥΣΗΣ"@el .
+
+<http://data.openbudgets.eu/resource/dataset/greek-municipalities/codelist/athens-administrations/32> a skos:Concept ;
+    skos:inScheme <http://data.openbudgets.eu/resource/dataset/greek-municipalities/codelist/athens-administrations> ;
+    skos:notation "32"^^xsd:int ;
+    skos:prefLabel "Δ/ΝΣΗ ΜΕΛΕΤΩΝ"@el .
+
+<http://data.openbudgets.eu/resource/dataset/greek-municipalities/codelist/athens-administrations/33> a skos:Concept ;
+    skos:inScheme <http://data.openbudgets.eu/resource/dataset/greek-municipalities/codelist/athens-administrations> ;
+    skos:notation "33"^^xsd:int ;
+    skos:prefLabel "Δ/ΝΣΗ ΚΑΤΑΣΚΕΥΩΝ"@el .
+
+<http://data.openbudgets.eu/resource/dataset/greek-municipalities/codelist/athens-administrations/34> a skos:Concept ;
+    skos:altLabel "Δ/ΝΣΗ ΚΤΗΡΙΑΚΩΝ ΕΡΓΩΝ"@el ;
+    skos:inScheme <http://data.openbudgets.eu/resource/dataset/greek-municipalities/codelist/athens-administrations> ;
+    skos:notation "34"^^xsd:int ;
+    skos:prefLabel "Δ/ΝΣΗ ΣΥΝΤΗΡΗΣΗΣ ΚΤΙΡΙΑΚΩΝ ΕΡΓΩΝ"@el .
+
+<http://data.openbudgets.eu/resource/dataset/greek-municipalities/codelist/athens-administrations/35> a skos:Concept ;
+    skos:inScheme <http://data.openbudgets.eu/resource/dataset/greek-municipalities/codelist/athens-administrations> ;
+    skos:notation "35"^^xsd:int ;
+    skos:prefLabel "Δ/ΝΣΗ ΠΡΟΓΡΑΜΜΑΤΙΣΜΟΥ ΕΛΕΓΧΟΥ κ ΕΠΙΘΕΩΡΗΣΗΣ"@el .
+
+<http://data.openbudgets.eu/resource/dataset/greek-municipalities/codelist/athens-administrations/36> a skos:Concept ;
+    skos:inScheme <http://data.openbudgets.eu/resource/dataset/greek-municipalities/codelist/athens-administrations> ;
+    skos:notation "36"^^xsd:int ;
+    skos:prefLabel "Δ/ΝΣΗ ΑΡΧΙΤΕΚΤΟΝΙΚΟΥ"@el .
+
+<http://data.openbudgets.eu/resource/dataset/greek-municipalities/codelist/athens-administrations/37> a skos:Concept ;
+    skos:inScheme <http://data.openbudgets.eu/resource/dataset/greek-municipalities/codelist/athens-administrations> ;
+    skos:notation "37"^^xsd:int ;
+    skos:prefLabel "Δ/ΝΣΗ ΟΔΟΠΟΙΙΑΣ"@el .
+
+<http://data.openbudgets.eu/resource/dataset/greek-municipalities/codelist/athens-administrations/38> a skos:Concept ;
+    skos:altLabel "Δ/ΝΣΗ ΣΧΟΛΙΚΩΝ ΚΤΗΡΙΩΝ"@el ;
+    skos:inScheme <http://data.openbudgets.eu/resource/dataset/greek-municipalities/codelist/athens-administrations> ;
+    skos:notation "38"^^xsd:int ;
+    skos:prefLabel "Δ/ΝΣΗ ΣΧΟΛΙΚΗΣ. ΜΕΡΙΜΝΑΣ."@el .
+
+<http://data.openbudgets.eu/resource/dataset/greek-municipalities/codelist/athens-administrations/39> a skos:Concept ;
+    skos:inScheme <http://data.openbudgets.eu/resource/dataset/greek-municipalities/codelist/athens-administrations> ;
+    skos:notation "39"^^xsd:int ;
+    skos:prefLabel "Δ/ΝΣΗ ΗΛΕΚΤΡΟΛΟΓΙΚΟΥ"@el .
+
+<http://data.openbudgets.eu/resource/dataset/greek-municipalities/codelist/athens-administrations/4> a skos:Concept ;
+    skos:inScheme <http://data.openbudgets.eu/resource/dataset/greek-municipalities/codelist/athens-administrations> ;
+    skos:notation "4"^^xsd:int ;
+    skos:prefLabel "Δ/ΝΣΗ ΑΝΘΡΩΠΙΝΟΥ ΔΥΝΑΜΙΚΟΥ"@el .
+
+<http://data.openbudgets.eu/resource/dataset/greek-municipalities/codelist/athens-administrations/40> a skos:Concept ;
+    skos:altLabel "Δ/ΝΣΗ ΚΑΘ/ΤΑΣ - ΑΝΑΚ/ΣΗΣ & ΣΥΝΤ/ΣΗΣ ΜΗΧ/ΚΟΥ ΕΞΟΠΛΙΣΜΟΥ (ΜΗ ΑΝΤΑΠΟΔΟΤΙΚΑ)"@el ;
+    skos:inScheme <http://data.openbudgets.eu/resource/dataset/greek-municipalities/codelist/athens-administrations> ;
+    skos:notation "40"^^xsd:int ;
+    skos:prefLabel "Δ/ΝΣΗ ΤΡΟΧΑΙΟΥ ΥΛΙΚΟΥ"@el .
+
+<http://data.openbudgets.eu/resource/dataset/greek-municipalities/codelist/athens-administrations/41> a skos:Concept ;
+    skos:inScheme <http://data.openbudgets.eu/resource/dataset/greek-municipalities/codelist/athens-administrations> ;
+    skos:notation "41"^^xsd:int ;
+    skos:prefLabel "Δ/ΝΣΗ ΣΧΕΔΙΟΥ ΠΟΛΕΩΣ"@el .
+
+<http://data.openbudgets.eu/resource/dataset/greek-municipalities/codelist/athens-administrations/42> a skos:Concept ;
+    skos:inScheme <http://data.openbudgets.eu/resource/dataset/greek-municipalities/codelist/athens-administrations> ;
+    skos:notation "42"^^xsd:int ;
+    skos:prefLabel "Δ/ΝΣΗ ΑΣΤΙΚΟΥ ΣΧΕΔΙΑΣΜΟΥ κ ΠΕΡΙΒΑΛΛΟΝΤΟΣ"@el .
+
+<http://data.openbudgets.eu/resource/dataset/greek-municipalities/codelist/athens-administrations/43> a skos:Concept ;
+    skos:inScheme <http://data.openbudgets.eu/resource/dataset/greek-municipalities/codelist/athens-administrations> ;
+    skos:notation "43"^^xsd:int ;
+    skos:prefLabel "Δ/ΝΣΗ ΟΔΟΠΟΙΪΑΣ ΚΑΙ ΑΠΟΧΕΤΕΥΣΗΣ"@el .
+
+<http://data.openbudgets.eu/resource/dataset/greek-municipalities/codelist/athens-administrations/44> a skos:Concept ;
+    skos:inScheme <http://data.openbudgets.eu/resource/dataset/greek-municipalities/codelist/athens-administrations> ;
+    skos:notation "44"^^xsd:int ;
+    skos:prefLabel "ΜΙΣΘ/ΣΙΑ ΥΠΑΛΛΗΛΩΝ ΥΠΗΡΕΣ ΤΕΧΝΙΚΩΝ ΕΡΓΩΝ"@el .
+
+<http://data.openbudgets.eu/resource/dataset/greek-municipalities/codelist/athens-administrations/45> a skos:Concept ;
+    skos:altLabel "Δ/ΝΣΗ ΠΡΑΣΙΝΟΥ ΚΑΙ ΠΕΡΙΒΑΛΛΟΝΤΟΣ"@el ;
+    skos:inScheme <http://data.openbudgets.eu/resource/dataset/greek-municipalities/codelist/athens-administrations> ;
+    skos:notation "45"^^xsd:int ;
+    skos:prefLabel "Δ/ΝΣΗ ΠΡΑΣΙΝΟΥ ΚΑΙ ΚΗΠΟΤΕΧΝΙΑΣ"@el .
+
+<http://data.openbudgets.eu/resource/dataset/greek-municipalities/codelist/athens-administrations/46> a skos:Concept ;
+    skos:inScheme <http://data.openbudgets.eu/resource/dataset/greek-municipalities/codelist/athens-administrations> ;
+    skos:notation "46"^^xsd:int ;
+    skos:prefLabel "ΜΙΣΘ/ΣΙΑ ΥΠΑΛΛΗΛΩΝ ΥΠΗΡΕΣΙΑΣ ΠΡΑΣΙΝΟΥ"@el .
+
+<http://data.openbudgets.eu/resource/dataset/greek-municipalities/codelist/athens-administrations/5> a skos:Concept ;
+    skos:altLabel "Δ/ΝΣΗ ΑΠΟΚΕΝΤΡΩΣΗΣ & ΔΙΟΙΚΗΣΗΣ "@el,
+        "Δ/ΝΣΗ ΔΙΟΙΚΗΣΕΩΣ & ΑΠΟΚΕΝΤΡΩΣΗΣ"@el ;
+    skos:inScheme <http://data.openbudgets.eu/resource/dataset/greek-municipalities/codelist/athens-administrations> ;
+    skos:notation "5"^^xsd:int ;
+    skos:prefLabel "Δ/ΝΣΗ ΔΙΟΙΚΗΣΕΩΣ"@el .
+
+<http://data.openbudgets.eu/resource/dataset/greek-municipalities/codelist/athens-administrations/51> a skos:Concept ;
+    skos:altLabel "Δ/ΝΣΗ ΣΧΕΔΙΟΥ ΠΟΛΕΩΣ & ΔΟΜΗΣΗΣ"@el,
+        "Δ/ΝΣΗ ΣΧΕΔΙΟΥ ΠΟΛΕΩΣ & ΠΟΛΕΟΔΟΜΙΑΣ"@el ;
+    skos:inScheme <http://data.openbudgets.eu/resource/dataset/greek-municipalities/codelist/athens-administrations> ;
+    skos:notation "51"^^xsd:int ;
+    skos:prefLabel "Δ/ΝΣΗ ΠΟΛΕΟΔΟΜΙΑΣ"@el .
+
+<http://data.openbudgets.eu/resource/dataset/greek-municipalities/codelist/athens-administrations/52> a skos:Concept ;
+    skos:inScheme <http://data.openbudgets.eu/resource/dataset/greek-municipalities/codelist/athens-administrations> ;
+    skos:notation "52"^^xsd:int ;
+    skos:prefLabel "ΜΙΣΘ/ΣΙΑ ΥΠΑΛΛΗΛΩΝ ΥΠΗΡΕΣΙΑΣ ΠΟΛΕΟΔΟΜΙΑΣ"@el .
+
+<http://data.openbudgets.eu/resource/dataset/greek-municipalities/codelist/athens-administrations/55> a skos:Concept ;
+    skos:inScheme <http://data.openbudgets.eu/resource/dataset/greek-municipalities/codelist/athens-administrations> ;
+    skos:notation "55"^^xsd:int ;
+    skos:prefLabel "Δ/ΝΣΗ ΚΟΙΜΗΤΗΡΙΩΝ"@el .
+
+<http://data.openbudgets.eu/resource/dataset/greek-municipalities/codelist/athens-administrations/56> a skos:Concept ;
+    skos:inScheme <http://data.openbudgets.eu/resource/dataset/greek-municipalities/codelist/athens-administrations> ;
+    skos:notation "56"^^xsd:int ;
+    skos:prefLabel "Δ/ΝΣΗ ΚΟΙΜΗΤΗΡΙΩΝ"@el .
+
+<http://data.openbudgets.eu/resource/dataset/greek-municipalities/codelist/athens-administrations/57> a skos:Concept ;
+    skos:inScheme <http://data.openbudgets.eu/resource/dataset/greek-municipalities/codelist/athens-administrations> ;
+    skos:notation "57"^^xsd:int ;
+    skos:prefLabel "ΜΙΣΘ/ΣΙΑ ΥΠΑΛΛΗΛΩΝ ΥΠΗΡΕΣΙΑΣ ΚΟΙΜΗΤΗΡΙΩΝ"@el .
+
+<http://data.openbudgets.eu/resource/dataset/greek-municipalities/codelist/athens-administrations/6> a skos:Concept ;
+    skos:inScheme <http://data.openbudgets.eu/resource/dataset/greek-municipalities/codelist/athens-administrations> ;
+    skos:notation "6"^^xsd:int ;
+    skos:prefLabel "Δ/ΝΣΗ ΔΗΜΟΤΟΛΟΓΙΟΥ"@el .
+
+<http://data.openbudgets.eu/resource/dataset/greek-municipalities/codelist/athens-administrations/61> a skos:Concept ;
+    skos:inScheme <http://data.openbudgets.eu/resource/dataset/greek-municipalities/codelist/athens-administrations> ;
+    skos:notation "61"^^xsd:int ;
+    skos:prefLabel "Δ/ΝΣΗ ΔΗΜΟΤΙΚΗΣ ΑΣΤΥΝΟΜΙΑΣ"@el .
+
+<http://data.openbudgets.eu/resource/dataset/greek-municipalities/codelist/athens-administrations/62> a skos:Concept ;
+    skos:inScheme <http://data.openbudgets.eu/resource/dataset/greek-municipalities/codelist/athens-administrations> ;
+    skos:notation "62"^^xsd:int ;
+    skos:prefLabel "ΜΙΣΘ/ΣΙΑ ΥΠΑΛΛΗΛΩΝ ΥΠΗΡΕΣΙΑΣ ΔΗΜΟΤΙΚΗΣ ΑΣΤΥΝΟΜΙΑΣ"@el .
+
+<http://data.openbudgets.eu/resource/dataset/greek-municipalities/codelist/athens-administrations/65> a skos:Concept ;
+    skos:inScheme <http://data.openbudgets.eu/resource/dataset/greek-municipalities/codelist/athens-administrations> ;
+    skos:notation "65"^^xsd:int ;
+    skos:prefLabel "Δ/ΝΣΗ ΔΙΑΜΕΡΙΣΜΑΤΩΝ"@el .
+
+<http://data.openbudgets.eu/resource/dataset/greek-municipalities/codelist/athens-administrations/66> a skos:Concept ;
+    skos:inScheme <http://data.openbudgets.eu/resource/dataset/greek-municipalities/codelist/athens-administrations> ;
+    skos:notation "66"^^xsd:int ;
+    skos:prefLabel "Δ/ΝΣΗ ΠΛΗΡΟΦΟΡΙΚΗΣ"@el .
+
+<http://data.openbudgets.eu/resource/dataset/greek-municipalities/codelist/athens-administrations/67> a skos:Concept ;
+    skos:altLabel "Δ/ΝΣΗ ΚΕΝΤΡΩΝ ΕΞΥΠΗΡΕΤΗΣΗΣ ΠΟΛΙΤΩΝ"@el,
+        "Δ/ΝΣΗ ΚΕΝΤΡΩΝ ΕΞΥΠΗΡΕΤΗΣΗΣ ΠΟΛΙΤΩΝ (Κ.Ε.Π.)"@el ;
+    skos:inScheme <http://data.openbudgets.eu/resource/dataset/greek-municipalities/codelist/athens-administrations> ;
+    skos:notation "67"^^xsd:int ;
+    skos:prefLabel "Δ/ΝΣΗ Κ.Ε.Π."@el .
+
+<http://data.openbudgets.eu/resource/dataset/greek-municipalities/codelist/athens-administrations/69> a skos:Concept ;
+    skos:inScheme <http://data.openbudgets.eu/resource/dataset/greek-municipalities/codelist/athens-administrations> ;
+    skos:notation "69"^^xsd:int ;
+    skos:prefLabel "Δ/ΝΣΗ ΕΛΕΓΧΟΥ ΚΟΙΝΟΧΡΗΣΤΟΥ ΧΩΡΟΥ"@el .
+
+<http://data.openbudgets.eu/resource/dataset/greek-municipalities/codelist/athens-administrations/7> a skos:Concept ;
+    skos:altLabel "Δ/ΝΣΗ ΑΣΤΙΚΗΣ ΚΑΤΑΣΤΑΣΗΣ"@el ;
+    skos:inScheme <http://data.openbudgets.eu/resource/dataset/greek-municipalities/codelist/athens-administrations> ;
+    skos:notation "7"^^xsd:int ;
+    skos:prefLabel "Δ/ΝΣΗ ΛΗΞΙΑΡΧΕΙΟΥ ΜΗΤΡΩΩΝ κ ΔΗΜΟΤΟΛΟΓΙΟΥ"@el .
+
+<http://data.openbudgets.eu/resource/dataset/greek-municipalities/codelist/athens-administrations/71> a skos:Concept ;
+    skos:inScheme <http://data.openbudgets.eu/resource/dataset/greek-municipalities/codelist/athens-administrations> ;
+    skos:notation "71"^^xsd:int ;
+    skos:prefLabel "ΜΙΣΘ/ΣΙΑ ΥΠΑΛΛΗΛΩΝ ΛΟΙΠΩΝ ΥΠΗΡΕΣΙΩΝ"@el .
+
+<http://data.openbudgets.eu/resource/dataset/greek-municipalities/codelist/athens-administrations/72> a skos:Concept ;
+    skos:inScheme <http://data.openbudgets.eu/resource/dataset/greek-municipalities/codelist/athens-administrations> ;
+    skos:notation "72"^^xsd:int ;
+    skos:prefLabel "ΕΠΙΧΟΡΗΓΟΥΜΕΝΑ ΕΡΓΑ ΠΔΕ - ΕΣΠΑ"@el .
+
+<http://data.openbudgets.eu/resource/dataset/greek-municipalities/codelist/athens-administrations/8> a skos:Concept ;
+    skos:inScheme <http://data.openbudgets.eu/resource/dataset/greek-municipalities/codelist/athens-administrations> ;
+    skos:notation "8"^^xsd:int ;
+    skos:prefLabel "Δ/ΝΣΗ ΛΟΓΙΣΤΙΚΟΥ ΠΡΟΫΠΟΛΟΓΙΣΜΟΥ"@el .
+
+<http://data.openbudgets.eu/resource/dataset/greek-municipalities/codelist/athens-administrations/9> a skos:Concept ;
+    skos:altLabel "Δ/ΝΣΗ ΔΗΜΟΤΙΚΩΝ ΠΡΟΣΟΔΩΝ"@el ;
+    skos:inScheme <http://data.openbudgets.eu/resource/dataset/greek-municipalities/codelist/athens-administrations> ;
+    skos:notation "9"^^xsd:int ;
+    skos:prefLabel "ΔΗΜΟΤΙΚΩΝ ΠΡΟΣΟΔΩΝ"@el .
+
+<http://data.openbudgets.eu/resource/dataset/greek-municipalities/codelist/athens-administrations> a skos:ConceptScheme ;
+    rdfs:label "Numerical codes for the representation of Municipality of Athens (Greece) Administration Offices"@en .
+
