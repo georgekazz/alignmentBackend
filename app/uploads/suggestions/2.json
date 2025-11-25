@@ -1,613 +1,138 @@
 [
   {
-    "node2": "http://data.jrc.ec.europa.eu/ontology/cybersecurity/privacy_requirements_data_management_systems",
-    "label2": "Privacy requirements for data management systems",
-    "similarity": 1.0
-  },
-  {
-    "node2": "http://data.jrc.ec.europa.eu/ontology/cybersecurity/data_security_privacy",
-    "label2": "Data Security and Privacy",
-    "similarity": 0.64
-  },
-  {
-    "node2": "http://data.jrc.ec.europa.eu/ontology/cybersecurity/privacy_identity_management",
-    "label2": "Privacy and identity management",
-    "similarity": 0.63
-  },
-  {
-    "node2": "http://data.jrc.ec.europa.eu/ontology/cybersecurity/privacy-impact-assessment_risk_management",
-    "label2": "Privacy impact assessment and risk management",
-    "similarity": 0.62
-  },
-  {
-    "node2": "http://data.jrc.ec.europa.eu/ontology/cybersecurity/security_requirements_engineering",
-    "label2": "Security requirements engineering with emphasis on identity, privacy, accountability, and trust",
-    "similarity": 0.6
-  },
-  {
-    "node2": "http://data.jrc.ec.europa.eu/ontology/cybersecurity/development_operations_data_management_systems",
-    "label2": "Design, implementation, and operation of data management systems that include security and privacy functions",
-    "similarity": 0.57
-  },
-  {
-    "node2": "http://data.jrc.ec.europa.eu/ontology/cybersecurity/distributed_systems_security",
-    "label2": "Distributed systems security",
-    "similarity": 0.56
-  },
-  {
-    "node2": "http://data.jrc.ec.europa.eu/ontology/cybersecurity/semantics_models_security_accountability_privacy_trust",
-    "label2": "Semantics and models for security, accountability, privacy, and trust",
-    "similarity": 0.56
-  },
-  {
-    "node2": "http://data.jrc.ec.europa.eu/ontology/cybersecurity/trust_privacy",
-    "label2": "Trust and privacy",
-    "similarity": 0.53
-  },
-  {
-    "node2": "http://data.jrc.ec.europa.eu/ontology/cybersecurity/identity_trust_management",
-    "label2": "Identity and trust management",
-    "similarity": 0.53
-  },
-  {
-    "node2": "http://data.jrc.ec.europa.eu/ontology/cybersecurity/trust_management_architectures_mechanisms_policies",
-    "label2": "Trust management architectures, mechanisms and policies",
-    "similarity": 0.52
-  },
-  {
-    "node2": "http://data.jrc.ec.europa.eu/ontology/cybersecurity/satellite_systems_applications",
-    "label2": "Satellite systems and applications",
-    "similarity": 0.52
-  },
-  {
-    "node2": "http://data.jrc.ec.europa.eu/ontology/cybersecurity/trust_management_accountability",
-    "label2": "Trust Management and Accountability",
-    "similarity": 0.51
-  },
-  {
-    "node2": "http://data.jrc.ec.europa.eu/ontology/cybersecurity/refinement-verification_security_management_policy_models",
-    "label2": "Refinement and verification of security management policy models",
-    "similarity": 0.5
-  },
-  {
-    "node2": "http://data.jrc.ec.europa.eu/ontology/cybersecurity/network_distributed_systems",
-    "label2": "Network and Distributed Systems",
-    "similarity": 0.5
-  },
-  {
-    "node2": "http://data.jrc.ec.europa.eu/ontology/cybersecurity/distributed_systems_security_analysis_simulation",
-    "label2": "Distributed systems security analysis and simulation",
-    "similarity": 0.5
-  },
-  {
-    "node2": "http://data.jrc.ec.europa.eu/ontology/cybersecurity/digital_rights_management",
-    "label2": "Digital Rights Management",
-    "similarity": 0.49
-  },
-  {
-    "node2": "http://data.jrc.ec.europa.eu/ontology/cybersecurity/secure_system_interconnection",
-    "label2": "Secure system interconnection",
-    "similarity": 0.49
-  },
-  {
-    "node2": "http://data.jrc.ec.europa.eu/ontology/cybersecurity/network-security_managerial_procedural_technical_aspects",
-    "label2": "Managerial, procedural and technical aspects of network security",
-    "similarity": 0.49
-  },
-  {
-    "node2": "http://data.jrc.ec.europa.eu/ontology/cybersecurity/device_end-of-life_security_privacy",
-    "label2": "Processes and procedures to ensure device end-of-life security and privacy",
-    "similarity": 0.48
-  },
-  {
-    "node2": "http://data.jrc.ec.europa.eu/ontology/cybersecurity/trust_securing_digital_physical_assets",
-    "label2": "Trust in securing digital as well as physical assets",
-    "similarity": 0.48
-  },
-  {
-    "node2": "http://data.jrc.ec.europa.eu/ontology/cybersecurity/operating_systems",
-    "label2": "Operating systems",
-    "similarity": 0.47
-  },
-  {
-    "node2": "http://data.jrc.ec.europa.eu/ontology/cybersecurity/industrial_iot_control_systems",
-    "label2": "Industrial IoT and Control Systems",
-    "similarity": 0.47
-  },
-  {
-    "node2": "http://data.jrc.ec.europa.eu/ontology/cybersecurity/iot_embedded_pervasive_systems",
-    "label2": "Internet of Things, embedded systems, pervasive systems",
-    "similarity": 0.47
-  },
-  {
-    "node2": "http://data.jrc.ec.europa.eu/ontology/cybersecurity/disaster_resilience_crisis_management",
-    "label2": "Disaster resilience and crisis management",
-    "similarity": 0.46
-  },
-  {
-    "node2": "http://data.jrc.ec.europa.eu/ontology/cybersecurity/identity-management_quality_assurance",
-    "label2": "Identity management quality assurance",
-    "similarity": 0.46
-  },
-  {
-    "node2": "http://data.jrc.ec.europa.eu/ontology/cybersecurity/privacy_enhancing_technologies",
-    "label2": "Privacy Enhancing Technologies",
-    "similarity": 0.46
-  },
-  {
-    "node2": "http://data.jrc.ec.europa.eu/ontology/cybersecurity/network-security_requirements",
-    "label2": "Requirements for network security",
-    "similarity": 0.46
-  },
-  {
-    "node2": "http://data.jrc.ec.europa.eu/ontology/cybersecurity/cybersecurity_economic_aspects",
-    "label2": "Economic aspects of the cybersecurity ecosystem",
-    "similarity": 0.45
-  },
-  {
-    "node2": "http://data.jrc.ec.europa.eu/ontology/cybersecurity/secure_programming_principles_best_practices",
-    "label2": "Secure programming principles and best practices",
-    "similarity": 0.45
-  },
-  {
-    "node2": "http://data.jrc.ec.europa.eu/ontology/cybersecurity/compliance_security_privacy_policies_procedures_regulations",
-    "label2": "Compliance with information security and privacy policies, procedures, and regulations",
-    "similarity": 0.45
-  },
-  {
-    "node2": "http://data.jrc.ec.europa.eu/ontology/cybersecurity/trust_reputation_social_mainstream_media",
-    "label2": "Trust and reputation of social and mainstream media",
-    "similarity": 0.45
-  },
-  {
     "node2": "http://data.jrc.ec.europa.eu/ontology/cybersecurity/human_aspects_trust",
     "label2": "Human aspects of trust",
-    "similarity": 0.44
-  },
-  {
-    "node2": "http://data.jrc.ec.europa.eu/ontology/cybersecurity/human-related_risks-threats",
-    "label2": "Human-related risks/threats",
-    "similarity": 0.44
-  },
-  {
-    "node2": "http://data.jrc.ec.europa.eu/ontology/cybersecurity/protocols-frameworks_authentication,_authorizations_rights_management",
-    "label2": "Protocols and frameworks for authentication, authorization, and rights management",
-    "similarity": 0.44
-  },
-  {
-    "node2": "http://data.jrc.ec.europa.eu/ontology/cybersecurity/cryptomaterial_management",
-    "label2": "Crypto material management",
-    "similarity": 0.43
-  },
-  {
-    "node2": "http://data.jrc.ec.europa.eu/ontology/cybersecurity/privacy-friendly_communication_architectures_services",
-    "label2": "Privacy-friendly communication architectures and services",
-    "similarity": 0.43
-  },
-  {
-    "node2": "http://data.jrc.ec.europa.eu/ontology/cybersecurity/privacy-by-design",
-    "label2": "Privacy by design",
-    "similarity": 0.43
-  },
-  {
-    "node2": "http://data.jrc.ec.europa.eu/ontology/cybersecurity/digital-forensics_policy_issues",
-    "label2": "Policy issues related to digital forensics",
-    "similarity": 0.42
-  },
-  {
-    "node2": "http://data.jrc.ec.europa.eu/ontology/cybersecurity/user_acceptance_security_policies-technologies",
-    "label2": "User acceptance of security policies and technologies",
-    "similarity": 0.42
-  },
-  {
-    "node2": "http://data.jrc.ec.europa.eu/ontology/cybersecurity/network_layer_attacks_mitigation_techniques",
-    "label2": "Network layer attacks and mitigation techniques",
-    "similarity": 0.42
-  },
-  {
-    "node2": "http://data.jrc.ec.europa.eu/ontology/cybersecurity/area_observation_surveillance",
-    "label2": "Local/wide area observation and surveillance",
-    "similarity": 0.42
-  },
-  {
-    "node2": "http://data.jrc.ec.europa.eu/ontology/cybersecurity/network-security_principles_methods_protocols_algorithms_technologies",
-    "label2": "Network security (principles, methods, protocols, algorithms and technologies)",
-    "similarity": 0.42
-  },
-  {
-    "node2": "http://data.jrc.ec.europa.eu/ontology/cybersecurity/security_risk_analysis_components_compositions",
-    "label2": "Security and risk analysis of components compositions",
-    "similarity": 0.42
-  },
-  {
-    "node2": "http://data.jrc.ec.europa.eu/ontology/cybersecurity/model-driven_security_domain-specific_modelling_languages",
-    "label2": "Model-driven security and domain-specific modelling languages",
-    "similarity": 0.41
-  },
-  {
-    "node2": "http://data.jrc.ec.europa.eu/ontology/cybersecurity/software_hardware_security_engineering",
-    "label2": "Software and Hardware Security Engineering",
-    "similarity": 0.41
-  },
-  {
-    "node2": "http://data.jrc.ec.europa.eu/ontology/cybersecurity/information-security_managerial_aspects",
-    "label2": "Managerial aspects concerning information security",
-    "similarity": 0.41
-  },
-  {
-    "node2": "http://data.jrc.ec.europa.eu/ontology/cybersecurity/manufacturing_supply_chain",
-    "label2": "Manufacturing and supply chain",
-    "similarity": 0.4
-  },
-  {
-    "node2": "http://data.jrc.ec.europa.eu/ontology/cybersecurity/security_management_governance",
-    "label2": "Security Management and Governance",
-    "similarity": 0.4
-  },
-  {
-    "node2": "http://data.jrc.ec.europa.eu/ontology/cybersecurity/algorithmic_auditability_accountability",
-    "label2": "Algorithmic auditability and accountability",
-    "similarity": 0.4
-  },
-  {
-    "node2": "http://data.jrc.ec.europa.eu/ontology/cybersecurity/information_systems",
-    "label2": "Information systems",
-    "similarity": 0.4
-  },
-  {
-    "node2": "http://data.jrc.ec.europa.eu/ontology/cybersecurity/formal_specification_aspects_security",
-    "label2": "Formal specification of various aspects of security",
-    "similarity": 0.39
-  },
-  {
-    "node2": "http://data.jrc.ec.europa.eu/ontology/cybersecurity/steganography_steganalysis_watermarking",
-    "label2": "Steganography, Steganalysis and Watermarking",
-    "similarity": 0.39
-  },
-  {
-    "node2": "http://data.jrc.ec.europa.eu/ontology/cybersecurity/security_support_programming_environments",
-    "label2": "Security support in programming environments",
-    "similarity": 0.39
-  },
-  {
-    "node2": "http://data.jrc.ec.europa.eu/ontology/cybersecurity/secure_multi-party_computation",
-    "label2": "Secure multi-party computation",
-    "similarity": 0.39
-  },
-  {
-    "node2": "http://data.jrc.ec.europa.eu/ontology/cybersecurity/optical_electronic_document_security",
-    "label2": "Optical and electronic document security",
-    "similarity": 0.39
+    "similarity": 1.0
   },
   {
     "node2": "http://data.jrc.ec.europa.eu/ontology/cybersecurity/social_aspects_trust",
     "label2": "Social aspects of trust",
-    "similarity": 0.39
+    "similarity": 0.87
   },
   {
-    "node2": "http://data.jrc.ec.europa.eu/ontology/cybersecurity/enhancing_risk_perception",
-    "label2": "Enhancing risk perception",
-    "similarity": 0.39
+    "node2": "http://data.jrc.ec.europa.eu/ontology/cybersecurity/trust_privacy",
+    "label2": "Trust and privacy",
+    "similarity": 0.74
   },
   {
-    "node2": "http://data.jrc.ec.europa.eu/ontology/cybersecurity/impact_hardware-software_changes_magement_information_security",
-    "label2": "Identification of the impact of hardware and software changes on the management of Information Security",
-    "similarity": 0.39
+    "node2": "http://data.jrc.ec.europa.eu/ontology/cybersecurity/trusted_computing",
+    "label2": "Trusted computing",
+    "similarity": 0.64
   },
   {
-    "node2": "http://data.jrc.ec.europa.eu/ontology/cybersecurity/fault_injection_testing_analysis",
-    "label2": "Fault injection testing and analysis",
-    "similarity": 0.39
+    "node2": "http://data.jrc.ec.europa.eu/ontology/cybersecurity/trust_reputation_social_mainstream_media",
+    "label2": "Trust and reputation of social and mainstream media",
+    "similarity": 0.61
   },
   {
-    "node2": "http://data.jrc.ec.europa.eu/ontology/cybersecurity/anti-forensics_malware_analytics",
-    "label2": "Anti-forensics and malware analytics",
-    "similarity": 0.39
+    "node2": "http://data.jrc.ec.europa.eu/ontology/cybersecurity/identity_trust_management",
+    "label2": "Identity and trust management",
+    "similarity": 0.61
   },
   {
-    "node2": "http://data.jrc.ec.europa.eu/ontology/cybersecurity/risk-management_modeling_assessment_analysis_mitigation",
-    "label2": "Risk management, including modeling, assessment, analysis and mitigation",
-    "similarity": 0.39
-  },
-  {
-    "node2": "http://data.jrc.ec.europa.eu/ontology/cybersecurity/incident-analysis_communication_documentation_forecasting_response_reporting",
-    "label2": "Incident analysis, communication, documentation, forecasting, response, and reporting",
-    "similarity": 0.39
-  },
-  {
-    "node2": "http://data.jrc.ec.europa.eu/ontology/cybersecurity/uav",
-    "label2": "Unmanned aerial vehicles",
-    "similarity": 0.39
-  },
-  {
-    "node2": "http://data.jrc.ec.europa.eu/ontology/cybersecurity/cloud_edge_virtualisation",
-    "label2": "Cloud, Edge and Virtualisation",
-    "similarity": 0.39
-  },
-  {
-    "node2": "http://data.jrc.ec.europa.eu/ontology/cybersecurity/security_design_patterns",
-    "label2": "Security design patterns",
-    "similarity": 0.38
-  },
-  {
-    "node2": "http://data.jrc.ec.europa.eu/ontology/cybersecurity/quantum_cryptography",
-    "label2": "Quantum cryptography",
-    "similarity": 0.38
-  },
-  {
-    "node2": "http://data.jrc.ec.europa.eu/ontology/cybersecurity/citizen_cooperation_reporting",
-    "label2": "Citizen cooperation and reporting",
-    "similarity": 0.38
-  },
-  {
-    "node2": "http://data.jrc.ec.europa.eu/ontology/cybersecurity/cybersecurity_regulation_analysis_design",
-    "label2": "Cybersecurity regulation analysis and design",
-    "similarity": 0.38
-  },
-  {
-    "node2": "http://data.jrc.ec.europa.eu/ontology/cybersecurity/fight_against_crime_terrorism",
-    "label2": "Fight against crime and terrorism",
-    "similarity": 0.38
-  },
-  {
-    "node2": "http://data.jrc.ec.europa.eu/ontology/cybersecurity/secure_softwre_architectures_design",
-    "label2": "Secure software architectures and design",
-    "similarity": 0.38
-  },
-  {
-    "node2": "http://data.jrc.ec.europa.eu/ontology/cybersecurity/automating_security_functionality",
-    "label2": "Automating security functionality",
-    "similarity": 0.38
+    "node2": "http://data.jrc.ec.europa.eu/ontology/cybersecurity/human_aspects",
+    "label2": "Human aspects",
+    "similarity": 0.55
   },
   {
     "node2": "http://data.jrc.ec.europa.eu/ontology/cybersecurity/trust_decision_making_algorithms",
     "label2": "Trust in decision making algorithms",
-    "similarity": 0.38
+    "similarity": 0.55
   },
   {
-    "node2": "http://data.jrc.ec.europa.eu/ontology/cybersecurity/malware_analysis",
-    "label2": "Malware analysis including adversarial learning of malware",
-    "similarity": 0.37
+    "node2": "http://data.jrc.ec.europa.eu/ontology/cybersecurity/trust_securing_digital_physical_assets",
+    "label2": "Trust in securing digital as well as physical assets",
+    "similarity": 0.5
   },
   {
-    "node2": "http://data.jrc.ec.europa.eu/ontology/cybersecurity/telecomm_infrastructure",
-    "label2": "Telecomm Infrastructure",
-    "similarity": 0.37
+    "node2": "http://data.jrc.ec.europa.eu/ontology/cybersecurity/trust_management_accountability",
+    "label2": "Trust Management and Accountability",
+    "similarity": 0.5
   },
   {
-    "node2": "http://data.jrc.ec.europa.eu/ontology/cybersecurity/critical_infrastructure_protection",
-    "label2": "Critical Infrastructure Protection",
-    "similarity": 0.37
+    "node2": "http://data.jrc.ec.europa.eu/ontology/cybersecurity/semantics_models_security_accountability_privacy_trust",
+    "label2": "Semantics and models for security, accountability, privacy, and trust",
+    "similarity": 0.5
   },
   {
-    "node2": "http://data.jrc.ec.europa.eu/ontology/cybersecurity/identity_management",
-    "label2": "Identity Management",
-    "similarity": 0.37
+    "node2": "http://data.jrc.ec.europa.eu/ontology/cybersecurity/security_requirements_engineering",
+    "label2": "Security requirements engineering with emphasis on identity, privacy, accountability, and trust",
+    "similarity": 0.48
   },
   {
-    "node2": "http://data.jrc.ec.europa.eu/ontology/cybersecurity/data_integrity",
-    "label2": "Data integrity",
-    "similarity": 0.37
+    "node2": "http://data.jrc.ec.europa.eu/ontology/cybersecurity/trust_management_architectures_mechanisms_policies",
+    "label2": "Trust management architectures, mechanisms and policies",
+    "similarity": 0.47
+  },
+  {
+    "node2": "http://data.jrc.ec.europa.eu/ontology/cybersecurity/human_perception_cybersecurity",
+    "label2": "Human perception of cybersecurity",
+    "similarity": 0.43
+  },
+  {
+    "node2": "http://data.jrc.ec.europa.eu/ontology/cybersecurity/psychological-models_cognitive-processes",
+    "label2": "Psychological models and cognitive processes",
+    "similarity": 0.43
+  },
+  {
+    "node2": "http://data.jrc.ec.europa.eu/ontology/cybersecurity/identity-management_quality_assurance",
+    "label2": "Identity management quality assurance",
+    "similarity": 0.43
+  },
+  {
+    "node2": "http://data.jrc.ec.europa.eu/ontology/cybersecurity/enhancing_risk_perception",
+    "label2": "Enhancing risk perception",
+    "similarity": 0.41
   },
   {
     "node2": "http://data.jrc.ec.europa.eu/ontology/cybersecurity/privacy_concerns_behaviours_practices",
     "label2": "Privacy concerns, behaviours, and practices",
+    "similarity": 0.41
+  },
+  {
+    "node2": "http://data.jrc.ec.europa.eu/ontology/cybersecurity/assurance",
+    "label2": "Assurance",
+    "similarity": 0.4
+  },
+  {
+    "node2": "http://data.jrc.ec.europa.eu/ontology/cybersecurity/reputation_models",
+    "label2": "Reputation models",
+    "similarity": 0.4
+  },
+  {
+    "node2": "http://data.jrc.ec.europa.eu/ontology/cybersecurity/safety_security",
+    "label2": "Safety and Security",
     "similarity": 0.37
   },
   {
-    "node2": "http://data.jrc.ec.europa.eu/ontology/cybersecurity/investigations_computer_crime_security_violations",
-    "label2": "Investigations of computer crime (cybercrime) and security violations",
+    "node2": "http://data.jrc.ec.europa.eu/ontology/cybersecurity/resilience_aspects",
+    "label2": "Resilience aspects",
     "similarity": 0.37
   },
   {
-    "node2": "http://data.jrc.ec.europa.eu/ontology/cybersecurity/information_flow_modelling",
-    "label2": "Information flow modelling and its application to confidentiality policies, composition of systems, and covert channel analysis",
+    "node2": "http://data.jrc.ec.europa.eu/ontology/cybersecurity/quantitative_security_assurance",
+    "label2": "Quantitative security for assurance",
     "similarity": 0.37
   },
   {
     "node2": "http://data.jrc.ec.europa.eu/ontology/cybersecurity/vulnerability_analysis_response",
     "label2": "Vulnerability analysis and response",
-    "similarity": 0.37
-  },
-  {
-    "node2": "http://data.jrc.ec.europa.eu/ontology/cybersecurity/cybersecurity-aware_culture",
-    "label2": "Cybersecurity-aware culture",
-    "similarity": 0.37
-  },
-  {
-    "node2": "http://data.jrc.ec.europa.eu/ontology/cybersecurity/self_healing-protecting-configuration_systems",
-    "label2": "Self-* including self-healing, self-protecting, self-configuration systems",
-    "similarity": 0.37
-  },
-  {
-    "node2": "http://data.jrc.ec.europa.eu/ontology/cybersecurity/artificial_intelligence",
-    "label2": "Artificial intelligence",
-    "similarity": 0.37
-  },
-  {
-    "node2": "http://data.jrc.ec.europa.eu/ontology/cybersecurity/formal_specification_analysis_verification_software_hardware",
-    "label2": "Formal specification, analysis, and verification of software and hardware",
-    "similarity": 0.37
-  },
-  {
-    "node2": "http://data.jrc.ec.europa.eu/ontology/cybersecurity/vulnerability_discovery_penetration_testing",
-    "label2": "Vulnerability discovery and penetration testing",
-    "similarity": 0.37
-  },
-  {
-    "node2": "http://data.jrc.ec.europa.eu/ontology/cybersecurity/validation_comparison_frameworks_security_metrics",
-    "label2": "Validation and comparison frameworks for security metrics",
-    "similarity": 0.37
-  },
-  {
-    "node2": "http://data.jrc.ec.europa.eu/ontology/cybersecurity/capability_maturity_models",
-    "label2": "Capability maturity models",
-    "similarity": 0.36
-  },
-  {
-    "node2": "http://data.jrc.ec.europa.eu/ontology/cybersecurity/security-metrics_key-performance-indicators_benchmarks",
-    "label2": "Security metrics, key performance indicators, and benchmarks",
-    "similarity": 0.36
-  },
-  {
-    "node2": "http://data.jrc.ec.europa.eu/ontology/cybersecurity/digital_forensics_case_studies",
-    "label2": "Digital forensic case studies",
-    "similarity": 0.36
-  },
-  {
-    "node2": "http://data.jrc.ec.europa.eu/ontology/cybersecurity/formal_verification_security_assurance",
-    "label2": "Formal verification of security assurance",
-    "similarity": 0.36
-  },
-  {
-    "node2": "http://data.jrc.ec.europa.eu/ontology/cybersecurity/attack_modelling_techniques_countermeasures",
-    "label2": "Attack modelling, techniques, and countermeasures",
-    "similarity": 0.36
-  },
-  {
-    "node2": "http://data.jrc.ec.europa.eu/ontology/cybersecurity/human_perception_cybersecurity",
-    "label2": "Human perception of cybersecurity",
-    "similarity": 0.36
-  },
-  {
-    "node2": "http://data.jrc.ec.europa.eu/ontology/cybersecurity/cryptography_mathematical_foundations",
-    "label2": "Mathematical foundations of cryptography",
-    "similarity": 0.36
-  },
-  {
-    "node2": "http://data.jrc.ec.europa.eu/ontology/cybersecurity/risk_analysis_attacks_deanonymization_reidentification",
-    "label2": "Risk analysis and attacks with respect to de-anonymization or data re-identification",
-    "similarity": 0.36
-  },
-  {
-    "node2": "http://data.jrc.ec.europa.eu/ontology/cybersecurity/quantitative_security_assurance",
-    "label2": "Quantitative security for assurance",
-    "similarity": 0.35
-  },
-  {
-    "node2": "http://data.jrc.ec.europa.eu/ontology/cybersecurity/runtime_security_verification_enforcement",
-    "label2": "Runtime security verification and enforcement",
-    "similarity": 0.35
-  },
-  {
-    "node2": "http://data.jrc.ec.europa.eu/ontology/cybersecurity/legal_societal_issues_information_security",
-    "label2": "Legal and societal issues in information security",
-    "similarity": 0.35
-  },
-  {
-    "node2": "http://data.jrc.ec.europa.eu/ontology/cybersecurity/protection_public_spaces",
-    "label2": "Protection of public spaces",
-    "similarity": 0.35
-  },
-  {
-    "node2": "http://data.jrc.ec.europa.eu/ontology/cybersecurity/post-quantum_cryptography",
-    "label2": "Post-quantum cryptography",
-    "similarity": 0.35
-  },
-  {
-    "node2": "http://data.jrc.ec.europa.eu/ontology/cybersecurity/symmetric_cyptography",
-    "label2": "Symmetric cryptography",
-    "similarity": 0.35
-  },
-  {
-    "node2": "http://data.jrc.ec.europa.eu/ontology/cybersecurity/psychological-models_cognitive-processes",
-    "label2": "Psychological models and cognitive processes",
-    "similarity": 0.35
-  },
-  {
-    "node2": "http://data.jrc.ec.europa.eu/ontology/cybersecurity/security_analytics_visualization",
-    "label2": "Security analytics and visualization",
-    "similarity": 0.35
-  },
-  {
-    "node2": "http://data.jrc.ec.europa.eu/ontology/cybersecurity/governance_incident-management_disaster-recovery_business-continuity",
-    "label2": "Governance aspects of incident management, disaster recovery, business continuity",
-    "similarity": 0.35
-  },
-  {
-    "node2": "http://data.jrc.ec.europa.eu/ontology/cybersecurity/techniques_business_continuity-disaster_recovery",
-    "label2": "Techniques to ensure business continuity/disaster recovery",
-    "similarity": 0.35
-  },
-  {
-    "node2": "http://data.jrc.ec.europa.eu/ontology/cybersecurity/measurement_assessment_seecurity_levels",
-    "label2": "Measurement and assessment of security levels",
-    "similarity": 0.35
-  },
-  {
-    "node2": "http://data.jrc.ec.europa.eu/ontology/cybersecurity/cryptanalysis_methodologies_techniques_tools",
-    "label2": "Cryptanalysis methodologies, techniques and tools",
-    "similarity": 0.35
-  },
-  {
-    "node2": "http://data.jrc.ec.europa.eu/ontology/cybersecurity/attack_techniques",
-    "label2": "Attack techniques",
     "similarity": 0.34
   },
   {
-    "node2": "http://data.jrc.ec.europa.eu/ontology/cybersecurity/coordination_information_sharing_cross-border-organizational_incidents",
-    "label2": "Coordination and information sharing in the context of cross-border/organizational incidents",
-    "similarity": 0.34
-  },
-  {
-    "node2": "http://data.jrc.ec.europa.eu/ontology/cybersecurity/digital_services_platforms",
-    "label2": "Digital Services and Platforms",
-    "similarity": 0.34
-  },
-  {
-    "node2": "http://data.jrc.ec.europa.eu/ontology/cybersecurity/theories-techniques-tools_management_preservation_digital_evidence",
-    "label2": "Theories, techniques and tools for the identification, collection, attribution, acquisition, analysis and preservation of digital evidence",
-    "similarity": 0.34
-  },
-  {
-    "node2": "http://data.jrc.ec.europa.eu/ontology/cybersecurity/standards_information_security",
-    "label2": "Standards for Information Security",
-    "similarity": 0.34
-  },
-  {
-    "node2": "http://data.jrc.ec.europa.eu/ontology/cybersecurity/human_machine_interface",
-    "label2": "Human Machine Interface",
-    "similarity": 0.34
-  },
-  {
-    "node2": "http://data.jrc.ec.europa.eu/ontology/cybersecurity/new_theoreticall_techniques_formal_analysis_design_cryptographic_protocols",
-    "label2": "New theoretically-based techniques for the formal analysis and design of cryptographic protocols and their applications",
-    "similarity": 0.34
-  },
-  {
-    "node2": "http://data.jrc.ec.europa.eu/ontology/cybersecurity/fault_tolerant_models",
-    "label2": "Fault tolerant models",
+    "node2": "http://data.jrc.ec.europa.eu/ontology/cybersecurity/human-related_risks-threats",
+    "label2": "Human-related risks/threats",
     "similarity": 0.33
   },
   {
-    "node2": "http://data.jrc.ec.europa.eu/ontology/cybersecurity/digital_forensic_processes_worklfow_models",
-    "label2": "Digital forensic processes and workflow models",
+    "node2": "http://data.jrc.ec.europa.eu/ontology/cybersecurity/threats_vulnerabilities_modelling",
+    "label2": "Threats and vulnerabilities modelling",
     "similarity": 0.33
   },
   {
-    "node2": "http://data.jrc.ec.europa.eu/ontology/cybersecurity/protocols_frameworks_secure_distributed_computing",
-    "label2": "Protocols and frameworks for secure distributed computing",
-    "similarity": 0.33
-  },
-  {
-    "node2": "http://data.jrc.ec.europa.eu/ontology/cybersecurity/vocational_training",
-    "label2": "Vocational training",
-    "similarity": 0.33
-  },
-  {
-    "node2": "http://data.jrc.ec.europa.eu/ontology/cybersecurity/network_attack_propagation_analysis",
-    "label2": "Network attack propagation analysis",
-    "similarity": 0.33
-  },
-  {
-    "node2": "http://data.jrc.ec.europa.eu/ontology/cybersecurity/assessment_information_security_effectiveness_degrees_control",
-    "label2": "Assessment of information security effectiveness and degrees of control",
-    "similarity": 0.33
-  },
-  {
-    "node2": "http://data.jrc.ec.europa.eu/ontology/cybersecurity/intrusion_detection_honeypots",
-    "label2": "Intrusion detection and honeypots",
-    "similarity": 0.33
+    "node2": "http://data.jrc.ec.europa.eu/ontology/cybersecurity/privacy_identity_management",
+    "label2": "Privacy and identity management",
+    "similarity": 0.32
   },
   {
     "node2": "http://data.jrc.ec.europa.eu/ontology/cybersecurity/computer_ethics_security",
@@ -615,199 +140,109 @@
     "similarity": 0.32
   },
   {
-    "node2": "http://data.jrc.ec.europa.eu/ontology/cybersecurity/incident_handling_digital_forensics",
-    "label2": "Incident Handling and Digital Forensics",
-    "similarity": 0.32
-  },
-  {
-    "node2": "http://data.jrc.ec.europa.eu/ontology/cybersecurity/identity-management_legal_aspects",
-    "label2": "Legal aspects of identity management",
-    "similarity": 0.32
-  },
-  {
-    "node2": "http://data.jrc.ec.europa.eu/ontology/cybersecurity/blockchain_dlt",
-    "label2": "Blockchain and Distributed Ledger Technology",
-    "similarity": 0.32
-  },
-  {
-    "node2": "http://data.jrc.ec.europa.eu/ontology/cybersecurity/safety_security",
-    "label2": "Safety and Security",
-    "similarity": 0.32
-  },
-  {
-    "node2": "http://data.jrc.ec.europa.eu/ontology/cybersecurity/history_cybersecurity",
-    "label2": "History of cybersecurity",
-    "similarity": 0.32
-  },
-  {
-    "node2": "http://data.jrc.ec.europa.eu/ontology/cybersecurity/cryptology",
-    "label2": "Cryptography and Cryptanalysis",
-    "similarity": 0.32
+    "node2": "http://data.jrc.ec.europa.eu/ontology/cybersecurity/artificial_intelligence",
+    "label2": "Artificial intelligence",
+    "similarity": 0.31
   },
   {
     "node2": "http://data.jrc.ec.europa.eu/ontology/cybersecurity/intellectual_property_rights",
     "label2": "Intellectual property rights",
-    "similarity": 0.32
-  },
-  {
-    "node2": "http://data.jrc.ec.europa.eu/ontology/cybersecurity/trusted_computing",
-    "label2": "Trusted computing",
-    "similarity": 0.32
-  },
-  {
-    "node2": "http://data.jrc.ec.europa.eu/ontology/cybersecurity/assurance_audit_certification",
-    "label2": "Assurance, Audit, and Certification",
-    "similarity": 0.32
-  },
-  {
-    "node2": "http://data.jrc.ec.europa.eu/ontology/cybersecurity/security_measurements",
-    "label2": "Security Measurements",
-    "similarity": 0.32
-  },
-  {
-    "node2": "http://data.jrc.ec.europa.eu/ontology/cybersecurity/border_external_security",
-    "label2": "Border and external security",
     "similarity": 0.31
-  },
-  {
-    "node2": "http://data.jrc.ec.europa.eu/ontology/cybersecurity/high_performance_computing",
-    "label2": "High-performance computing",
-    "similarity": 0.31
-  },
-  {
-    "node2": "http://data.jrc.ec.europa.eu/ontology/cybersecurity/cybersecurity-taxonomy",
-    "label2": "Cybersecurity taxonomy",
-    "similarity": 0.31
-  },
-  {
-    "node2": "http://data.jrc.ec.europa.eu/ontology/cybersecurity/cybersecurity_cybersafety_co-engineering",
-    "label2": "Cybersecurity and cyber-safety co-engineering",
-    "similarity": 0.31
-  },
-  {
-    "node2": "http://data.jrc.ec.europa.eu/ontology/cybersecurity/identity-attribute-management_models_frameworks_application_technologies_tools",
-    "label2": "Identity and attribute management models, frameworks, applications, technologies, and tools",
-    "similarity": 0.31
-  },
-  {
-    "node2": "http://data.jrc.ec.europa.eu/ontology/cybersecurity/steganography",
-    "label2": "Steganography",
-    "similarity": 0.31
-  },
-  {
-    "node2": "http://data.jrc.ec.europa.eu/ontology/cybersecurity/resilience_aspects",
-    "label2": "Resilience aspects",
-    "similarity": 0.31
-  },
-  {
-    "node2": "http://data.jrc.ec.europa.eu/ontology/cybersecurity/digital_watermarking",
-    "label2": "Digital watermarking",
-    "similarity": 0.3
-  },
-  {
-    "node2": "http://data.jrc.ec.europa.eu/ontology/cybersecurity/theoretical_foundations",
-    "label2": "Theoretical Foundations",
-    "similarity": 0.3
-  },
-  {
-    "node2": "http://data.jrc.ec.europa.eu/ontology/cybersecurity/security_documentation",
-    "label2": "Security documentation",
-    "similarity": 0.3
-  },
-  {
-    "node2": "http://data.jrc.ec.europa.eu/ontology/cybersecurity/secure_distributed_computations",
-    "label2": "Secure distributed computations",
-    "similarity": 0.3
-  },
-  {
-    "node2": "http://data.jrc.ec.europa.eu/ontology/cybersecurity/message_authentication",
-    "label2": "Message authentication",
-    "similarity": 0.3
-  },
-  {
-    "node2": "http://data.jrc.ec.europa.eu/ontology/cybersecurity/cybercrime_prosecution_law_enforcement",
-    "label2": "Cybercrime prosecution and law enforcement",
-    "similarity": 0.3
-  },
-  {
-    "node2": "http://data.jrc.ec.europa.eu/ontology/cybersecurity/vehicular_systems",
-    "label2": "Vehicular Systems",
-    "similarity": 0.3
-  },
-  {
-    "node2": "http://data.jrc.ec.europa.eu/ontology/cybersecurity/audiovisual_media",
-    "label2": "Audiovisual and media",
-    "similarity": 0.3
-  },
-  {
-    "node2": "http://data.jrc.ec.europa.eu/ontology/cybersecurity/network_steganography",
-    "label2": "Network steganography",
-    "similarity": 0.3
-  },
-  {
-    "node2": "http://data.jrc.ec.europa.eu/ontology/cybersecurity/anonimity_pseudonimity",
-    "label2": "Anonymity, pseudonymity, unlinkability, undetectability, or unobservability",
-    "similarity": 0.3
-  },
-  {
-    "node2": "http://data.jrc.ec.europa.eu/ontology/cybersecurity/digital_signatures",
-    "label2": "Digital signatures",
-    "similarity": 0.3
-  },
-  {
-    "node2": "http://data.jrc.ec.europa.eu/ontology/cybersecurity/random_number_generation",
-    "label2": "Random number generation",
-    "similarity": 0.3
-  },
-  {
-    "node2": "http://data.jrc.ec.europa.eu/ontology/cybersecurity/hardware_technology",
-    "label2": "Hardware technology",
-    "similarity": 0.29
   },
   {
     "node2": "http://data.jrc.ec.europa.eu/ontology/cybersecurity/non-intrusive_security",
     "label2": "Non-intrusive security",
+    "similarity": 0.3
+  },
+  {
+    "node2": "http://data.jrc.ec.europa.eu/ontology/cybersecurity/privacy-impact-assessment_risk_management",
+    "label2": "Privacy impact assessment and risk management",
     "similarity": 0.29
   },
   {
-    "node2": "http://data.jrc.ec.europa.eu/ontology/cybersecurity/modelling_cross-sectoral_interdependencies_cascading",
-    "label2": "Modelling of cross-sectoral interdependencies and cascading effects",
+    "node2": "http://data.jrc.ec.europa.eu/ontology/cybersecurity/distributed_consensus_techniques",
+    "label2": "Distributed consensus techniques",
     "similarity": 0.29
   },
   {
-    "node2": "http://data.jrc.ec.europa.eu/ontology/cybersecurity/cybersecurity_concepts_ontologies_taxonomies_foundations",
-    "label2": "Cybersecurity concepts, definitions, ontologies, taxonomies, foundational aspects",
+    "node2": "http://data.jrc.ec.europa.eu/ontology/cybersecurity/forensic_cyberpsychology",
+    "label2": "Forensic cyberpsychology",
     "similarity": 0.29
   },
   {
-    "node2": "http://data.jrc.ec.europa.eu/ontology/cybersecurity/transportation",
-    "label2": "Transportation",
+    "node2": "http://data.jrc.ec.europa.eu/ontology/cybersecurity/compliance_security_privacy_policies_procedures_regulations",
+    "label2": "Compliance with information security and privacy policies, procedures, and regulations",
     "similarity": 0.29
   },
   {
-    "node2": "http://data.jrc.ec.europa.eu/ontology/cybersecurity/data_usage_control",
-    "label2": "Data usage control",
+    "node2": "http://data.jrc.ec.europa.eu/ontology/cybersecurity/privacy-friendly_communication_architectures_services",
+    "label2": "Privacy-friendly communication architectures and services",
     "similarity": 0.29
   },
   {
-    "node2": "http://data.jrc.ec.europa.eu/ontology/cybersecurity/cyberranges_capturetheflag_education-training-tools_awareness",
-    "label2": "Cyber ranges, Capture the Flag exercises, simulation platforms, educational/training tools, cybersecurity awareness",
+    "node2": "http://data.jrc.ec.europa.eu/ontology/cybersecurity/risk_analysis_attacks_deanonymization_reidentification",
+    "label2": "Risk analysis and attacks with respect to de-anonymization or data re-identification",
     "similarity": 0.29
   },
   {
-    "node2": "http://data.jrc.ec.europa.eu/ontology/cybersecurity/eavesdropping_techniques",
-    "label2": "Eavesdropping techniques",
+    "node2": "http://data.jrc.ec.europa.eu/ontology/cybersecurity/assessment",
+    "label2": "Assessment",
+    "similarity": 0.29
+  },
+  {
+    "node2": "http://data.jrc.ec.europa.eu/ontology/cybersecurity/usability",
+    "label2": "Usability",
+    "similarity": 0.29
+  },
+  {
+    "node2": "http://data.jrc.ec.europa.eu/ontology/cybersecurity/uav",
+    "label2": "UAV",
+    "similarity": 0.29
+  },
+  {
+    "node2": "http://data.jrc.ec.europa.eu/ontology/cybersecurity/formal_verification_security_assurance",
+    "label2": "Formal verification of security assurance",
     "similarity": 0.28
   },
   {
-    "node2": "http://data.jrc.ec.europa.eu/ontology/cybersecurity/steganalysis",
-    "label2": "Steganalysis",
+    "node2": "http://data.jrc.ec.europa.eu/ontology/cybersecurity/cybersecurity_uncertainty_models",
+    "label2": "Cybersecurity uncertainty models",
     "similarity": 0.28
   },
   {
-    "node2": "http://data.jrc.ec.europa.eu/ontology/cybersecurity/reputation_models",
-    "label2": "Reputation models",
+    "node2": "http://data.jrc.ec.europa.eu/ontology/cybersecurity/financial",
+    "label2": "Financial",
     "similarity": 0.28
+  },
+  {
+    "node2": "http://data.jrc.ec.europa.eu/ontology/cybersecurity/cybersecurity_cybersafety_co-engineering",
+    "label2": "Cybersecurity and cyber-safety co-engineering",
+    "similarity": 0.28
+  },
+  {
+    "node2": "http://data.jrc.ec.europa.eu/ontology/cybersecurity/citizen_cooperation_reporting",
+    "label2": "Citizen cooperation and reporting",
+    "similarity": 0.28
+  },
+  {
+    "node2": "http://data.jrc.ec.europa.eu/ontology/cybersecurity/information-security_managerial_aspects",
+    "label2": "Managerial aspects concerning information security",
+    "similarity": 0.28
+  },
+  {
+    "node2": "http://data.jrc.ec.europa.eu/ontology/cybersecurity/privacy_enhancing_technologies",
+    "label2": "Privacy Enhancing Technologies",
+    "similarity": 0.27
+  },
+  {
+    "node2": "http://data.jrc.ec.europa.eu/ontology/cybersecurity/device_end-of-life_security_privacy",
+    "label2": "Processes and procedures to ensure device end-of-life security and privacy",
+    "similarity": 0.27
+  },
+  {
+    "node2": "http://data.jrc.ec.europa.eu/ontology/cybersecurity/transparent_security",
+    "label2": "Transparent security",
+    "similarity": 0.27
   },
   {
     "node2": "http://data.jrc.ec.europa.eu/ontology/cybersecurity/socio-technical_security",
@@ -815,204 +250,409 @@
     "similarity": 0.27
   },
   {
-    "node2": "http://data.jrc.ec.europa.eu/ontology/cybersecurity/human_aspects",
-    "label2": "Human aspects",
+    "node2": "http://data.jrc.ec.europa.eu/ontology/cybersecurity/coordination_information_sharing_cross-border-organizational_incidents",
+    "label2": "Coordination and information sharing in the context of cross-border/organizational incidents",
     "similarity": 0.27
   },
   {
-    "node2": "http://data.jrc.ec.europa.eu/ontology/cybersecurity/distributed_consensus_techniques",
-    "label2": "Distributed consensus techniques",
-    "similarity": 0.27
-  },
-  {
-    "node2": "http://data.jrc.ec.europa.eu/ontology/cybersecurity/threats_vulnerabilities_modelling",
-    "label2": "Threats and vulnerabilities modelling",
-    "similarity": 0.27
-  },
-  {
-    "node2": "http://data.jrc.ec.europa.eu/ontology/cybersecurity/accessibility",
-    "label2": "Accessibility",
+    "node2": "http://data.jrc.ec.europa.eu/ontology/cybersecurity/data_security_privacy",
+    "label2": "Data Security and Privacy",
     "similarity": 0.26
   },
   {
-    "node2": "http://data.jrc.ec.europa.eu/ontology/cybersecurity/big_data",
-    "label2": "Big data",
+    "node2": "http://data.jrc.ec.europa.eu/ontology/cybersecurity/security_management_governance",
+    "label2": "Security Management and Governance",
     "similarity": 0.26
   },
   {
-    "node2": "http://data.jrc.ec.europa.eu/ontology/cybersecurity/knowledge_domain",
-    "label2": "Knowledge domain",
+    "node2": "http://data.jrc.ec.europa.eu/ontology/cybersecurity/vulnerability_discovery_penetration_testing",
+    "label2": "Vulnerability discovery and penetration testing",
     "similarity": 0.26
-  },
-  {
-    "node2": "http://data.jrc.ec.europa.eu/ontology/cybersecurity/asymmetric_cryptography",
-    "label2": "Asymmetric cryptography",
-    "similarity": 0.26
-  },
-  {
-    "node2": "http://data.jrc.ec.europa.eu/ontology/cybersecurity/transparent_security",
-    "label2": "Transparent security",
-    "similarity": 0.26
-  },
-  {
-    "node2": "http://data.jrc.ec.europa.eu/ontology/cybersecurity/professional_training",
-    "label2": "Professional training",
-    "similarity": 0.25
-  },
-  {
-    "node2": "http://data.jrc.ec.europa.eu/ontology/cybersecurity/use_case",
-    "label2": "Use case",
-    "similarity": 0.25
-  },
-  {
-    "node2": "http://data.jrc.ec.europa.eu/ontology/cybersecurity/security_testing_validation",
-    "label2": "Security testing and validation",
-    "similarity": 0.25
-  },
-  {
-    "node2": "http://data.jrc.ec.europa.eu/ontology/cybersecurity/quantum_technologies",
-    "label2": "Quantum Technologies",
-    "similarity": 0.24
-  },
-  {
-    "node2": "http://data.jrc.ec.europa.eu/ontology/cybersecurity/education_training",
-    "label2": "Education and Training",
-    "similarity": 0.24
-  },
-  {
-    "node2": "http://data.jrc.ec.europa.eu/ontology/cybersecurity/cybersecurity_profiling",
-    "label2": "Cybersecurity profiling",
-    "similarity": 0.24
-  },
-  {
-    "node2": "http://data.jrc.ec.europa.eu/ontology/cybersecurity/homomorphic_encryption",
-    "label2": "Homomorphic encryption",
-    "similarity": 0.24
-  },
-  {
-    "node2": "http://data.jrc.ec.europa.eu/ontology/cybersecurity/network_interoperability",
-    "label2": "Network interoperability",
-    "similarity": 0.24
-  },
-  {
-    "node2": "http://data.jrc.ec.europa.eu/ontology/cybersecurity/legal",
-    "label2": "Legal aspects",
-    "similarity": 0.23
-  },
-  {
-    "node2": "http://data.jrc.ec.europa.eu/ontology/cybersecurity/forensic_cyberpsychology",
-    "label2": "Forensic cyberpsychology",
-    "similarity": 0.23
-  },
-  {
-    "node2": "http://data.jrc.ec.europa.eu/ontology/cybersecurity/security_visualization",
-    "label2": "Security visualization",
-    "similarity": 0.23
-  },
-  {
-    "node2": "http://data.jrc.ec.europa.eu/ontology/cybersecurity/mobile_devices",
-    "label2": "Mobile devices",
-    "similarity": 0.23
-  },
-  {
-    "node2": "http://data.jrc.ec.europa.eu/ontology/cybersecurity/biometric_methods_technologies_tools",
-    "label2": "Biometric methods, technologies and tools",
-    "similarity": 0.23
-  },
-  {
-    "node2": "http://data.jrc.ec.europa.eu/ontology/cybersecurity/cybersecurity_uncertainty_models",
-    "label2": "Cybersecurity uncertainty models",
-    "similarity": 0.23
-  },
-  {
-    "node2": "http://data.jrc.ec.europa.eu/ontology/cybersecurity/higher_education",
-    "label2": "Higher Education",
-    "similarity": 0.23
-  },
-  {
-    "node2": "http://data.jrc.ec.europa.eu/ontology/cybersecurity/audit",
-    "label2": "Audit",
-    "similarity": 0.22
   },
   {
     "node2": "http://data.jrc.ec.europa.eu/ontology/cybersecurity/cyberpsychology",
     "label2": "Cyberpsychology",
-    "similarity": 0.22
+    "similarity": 0.26
   },
   {
-    "node2": "http://data.jrc.ec.europa.eu/ontology/cybersecurity/space",
-    "label2": "Space",
-    "similarity": 0.22
+    "node2": "http://data.jrc.ec.europa.eu/ontology/cybersecurity/human_machine_interface",
+    "label2": "HMI",
+    "similarity": 0.26
   },
   {
-    "node2": "http://data.jrc.ec.europa.eu/ontology/cybersecurity/hash_functions",
-    "label2": "Hash functions",
-    "similarity": 0.22
+    "node2": "http://data.jrc.ec.europa.eu/ontology/cybersecurity/blockchain_dlt",
+    "label2": "DLT",
+    "similarity": 0.25
   },
   {
-    "node2": "http://data.jrc.ec.europa.eu/ontology/cybersecurity/government",
-    "label2": "Government",
-    "similarity": 0.21
+    "node2": "http://data.jrc.ec.europa.eu/ontology/cybersecurity/information_systems",
+    "label2": "Information systems",
+    "similarity": 0.25
   },
   {
-    "node2": "http://data.jrc.ec.europa.eu/ontology/cybersecurity/assessment",
-    "label2": "Assessment",
-    "similarity": 0.21
+    "node2": "http://data.jrc.ec.europa.eu/ontology/cybersecurity/assurance_audit_certification",
+    "label2": "Assurance, Audit, and Certification",
+    "similarity": 0.25
   },
   {
-    "node2": "http://data.jrc.ec.europa.eu/ontology/cybersecurity/financial",
-    "label2": "Financial",
-    "similarity": 0.21
+    "node2": "http://data.jrc.ec.europa.eu/ontology/cybersecurity/message_authentication",
+    "label2": "Message authentication",
+    "similarity": 0.25
   },
   {
-    "node2": "http://data.jrc.ec.europa.eu/ontology/cybersecurity/nuclear",
-    "label2": "Nuclear",
-    "similarity": 0.21
+    "node2": "http://data.jrc.ec.europa.eu/ontology/cybersecurity/theoretical_foundations",
+    "label2": "Theoretical Foundations",
+    "similarity": 0.24
   },
   {
-    "node2": "http://data.jrc.ec.europa.eu/ontology/cybersecurity/functional_encryption",
-    "label2": "Functional encryption",
-    "similarity": 0.21
+    "node2": "http://data.jrc.ec.europa.eu/ontology/cybersecurity/identity_management",
+    "label2": "Identity Management",
+    "similarity": 0.24
   },
   {
-    "node2": "http://data.jrc.ec.europa.eu/ontology/cybersecurity/education_methodology",
-    "label2": "Education methodology",
-    "similarity": 0.21
+    "node2": "http://data.jrc.ec.europa.eu/ontology/cybersecurity/information_flow_modelling",
+    "label2": "Information flow modelling and its application to confidentiality policies, composition of systems, and covert channel analysis",
+    "similarity": 0.24
+  },
+  {
+    "node2": "http://data.jrc.ec.europa.eu/ontology/cybersecurity/risk-management_modeling_assessment_analysis_mitigation",
+    "label2": "Risk management, including modeling, assessment, analysis and mitigation",
+    "similarity": 0.24
+  },
+  {
+    "node2": "http://data.jrc.ec.europa.eu/ontology/cybersecurity/privacy-by-design",
+    "label2": "Privacy by design",
+    "similarity": 0.24
   },
   {
     "node2": "http://data.jrc.ec.europa.eu/ontology/cybersecurity/certification",
     "label2": "Certification",
+    "similarity": 0.24
+  },
+  {
+    "node2": "http://data.jrc.ec.europa.eu/ontology/cybersecurity/history_cybersecurity",
+    "label2": "History of cybersecurity",
+    "similarity": 0.24
+  },
+  {
+    "node2": "http://data.jrc.ec.europa.eu/ontology/cybersecurity/cybersecurity_economic_aspects",
+    "label2": "Economic aspects of the cybersecurity ecosystem",
+    "similarity": 0.24
+  },
+  {
+    "node2": "http://data.jrc.ec.europa.eu/ontology/cybersecurity/user_acceptance_security_policies-technologies",
+    "label2": "User acceptance of security policies and technologies",
+    "similarity": 0.23
+  },
+  {
+    "node2": "http://data.jrc.ec.europa.eu/ontology/cybersecurity/cybersecurity-aware_culture",
+    "label2": "Cybersecurity-aware culture",
+    "similarity": 0.23
+  },
+  {
+    "node2": "http://data.jrc.ec.europa.eu/ontology/cybersecurity/critical_infrastructure_protection",
+    "label2": "Critical Infrastructure Protection",
+    "similarity": 0.23
+  },
+  {
+    "node2": "http://data.jrc.ec.europa.eu/ontology/cybersecurity/cybersecurity_profiling",
+    "label2": "Cybersecurity profiling",
+    "similarity": 0.23
+  },
+  {
+    "node2": "http://data.jrc.ec.europa.eu/ontology/cybersecurity/health",
+    "label2": "Health",
+    "similarity": 0.23
+  },
+  {
+    "node2": "http://data.jrc.ec.europa.eu/ontology/cybersecurity/runtime_security_verification_enforcement",
+    "label2": "Runtime security verification and enforcement",
+    "similarity": 0.23
+  },
+  {
+    "node2": "http://data.jrc.ec.europa.eu/ontology/cybersecurity/security_measurements",
+    "label2": "Security Measurements",
+    "similarity": 0.22
+  },
+  {
+    "node2": "http://data.jrc.ec.europa.eu/ontology/cybersecurity/capability_maturity_models",
+    "label2": "Capability maturity models",
+    "similarity": 0.22
+  },
+  {
+    "node2": "http://data.jrc.ec.europa.eu/ontology/cybersecurity/anti-forensics_malware_analytics",
+    "label2": "Anti-forensics and malware analytics",
+    "similarity": 0.22
+  },
+  {
+    "node2": "http://data.jrc.ec.europa.eu/ontology/cybersecurity/cryptomaterial_management",
+    "label2": "Crypto material management",
+    "similarity": 0.22
+  },
+  {
+    "node2": "http://data.jrc.ec.europa.eu/ontology/cybersecurity/protocols-frameworks_authentication,_authorizations_rights_management",
+    "label2": "Protocols and frameworks for authentication, authorization, and rights management",
+    "similarity": 0.22
+  },
+  {
+    "node2": "http://data.jrc.ec.europa.eu/ontology/cybersecurity/digital-forensics_policy_issues",
+    "label2": "Policy issues related to digital forensics",
+    "similarity": 0.22
+  },
+  {
+    "node2": "http://data.jrc.ec.europa.eu/ontology/cybersecurity/audit",
+    "label2": "Audit",
     "similarity": 0.21
   },
   {
-    "node2": "http://data.jrc.ec.europa.eu/ontology/cybersecurity/food_drink",
-    "label2": "Food and drink",
-    "similarity": 0.19
-  },
-  {
-    "node2": "http://data.jrc.ec.europa.eu/ontology/cybersecurity/gamification",
-    "label2": "Gamification",
-    "similarity": 0.16
+    "node2": "http://data.jrc.ec.europa.eu/ontology/cybersecurity/legal_societal_issues_information_security",
+    "label2": "Legal and societal issues in information security",
+    "similarity": 0.21
   },
   {
     "node2": "http://data.jrc.ec.europa.eu/ontology/cybersecurity/defence",
     "label2": "Defence",
-    "similarity": 0.16
+    "similarity": 0.21
+  },
+  {
+    "node2": "http://data.jrc.ec.europa.eu/ontology/cybersecurity/accessibility",
+    "label2": "Accessibility",
+    "similarity": 0.21
   },
   {
     "node2": "http://data.jrc.ec.europa.eu/ontology/cybersecurity/energy",
     "label2": "Energy",
+    "similarity": 0.21
+  },
+  {
+    "node2": "http://data.jrc.ec.europa.eu/ontology/cybersecurity/assessment_information_security_effectiveness_degrees_control",
+    "label2": "Assessment of information security effectiveness and degrees of control",
+    "similarity": 0.21
+  },
+  {
+    "node2": "http://data.jrc.ec.europa.eu/ontology/cybersecurity/cryptanalysis_methodologies_techniques_tools",
+    "label2": "Cryptanalysis methodologies, techniques and tools",
+    "similarity": 0.2
+  },
+  {
+    "node2": "http://data.jrc.ec.europa.eu/ontology/cybersecurity/incident_handling_digital_forensics",
+    "label2": "Incident Handling and Digital Forensics",
+    "similarity": 0.2
+  },
+  {
+    "node2": "http://data.jrc.ec.europa.eu/ontology/cybersecurity/symmetric_cyptography",
+    "label2": "Symmetric cryptography",
+    "similarity": 0.2
+  },
+  {
+    "node2": "http://data.jrc.ec.europa.eu/ontology/cybersecurity/disaster_resilience_crisis_management",
+    "label2": "Disaster resilience and crisis management",
+    "similarity": 0.2
+  },
+  {
+    "node2": "http://data.jrc.ec.europa.eu/ontology/cybersecurity/identity-management_legal_aspects",
+    "label2": "Legal aspects of identity management",
+    "similarity": 0.2
+  },
+  {
+    "node2": "http://data.jrc.ec.europa.eu/ontology/cybersecurity/theories-techniques-tools_management_preservation_digital_evidence",
+    "label2": "Theories, techniques and tools for the identification, collection, attribution, acquisition, analysis and preservation of digital evidence",
+    "similarity": 0.19
+  },
+  {
+    "node2": "http://data.jrc.ec.europa.eu/ontology/cybersecurity/network-security_managerial_procedural_technical_aspects",
+    "label2": "Managerial, procedural and technical aspects of network security",
+    "similarity": 0.19
+  },
+  {
+    "node2": "http://data.jrc.ec.europa.eu/ontology/cybersecurity/cryptology",
+    "label2": "Cryptography and Cryptanalysis",
+    "similarity": 0.19
+  },
+  {
+    "node2": "http://data.jrc.ec.europa.eu/ontology/cybersecurity/border_external_security",
+    "label2": "Border and external security",
+    "similarity": 0.19
+  },
+  {
+    "node2": "http://data.jrc.ec.europa.eu/ontology/cybersecurity/knowledge_domain",
+    "label2": "Knowledge domain",
+    "similarity": 0.19
+  },
+  {
+    "node2": "http://data.jrc.ec.europa.eu/ontology/cybersecurity/education_methodology",
+    "label2": "Education methodology",
+    "similarity": 0.19
+  },
+  {
+    "node2": "http://data.jrc.ec.europa.eu/ontology/cybersecurity/identity-attribute-management_models_frameworks_application_technologies_tools",
+    "label2": "Identity and attribute management models, frameworks, applications, technologies, and tools",
+    "similarity": 0.19
+  },
+  {
+    "node2": "http://data.jrc.ec.europa.eu/ontology/cybersecurity/data_integrity",
+    "label2": "Data integrity",
+    "similarity": 0.19
+  },
+  {
+    "node2": "http://data.jrc.ec.europa.eu/ontology/cybersecurity/mobile_devices",
+    "label2": "Mobile devices",
+    "similarity": 0.19
+  },
+  {
+    "node2": "http://data.jrc.ec.europa.eu/ontology/cybersecurity/government",
+    "label2": "Government",
+    "similarity": 0.19
+  },
+  {
+    "node2": "http://data.jrc.ec.europa.eu/ontology/cybersecurity/digital_signatures",
+    "label2": "Digital signatures",
+    "similarity": 0.19
+  },
+  {
+    "node2": "http://data.jrc.ec.europa.eu/ontology/cybersecurity/network_interoperability",
+    "label2": "Network interoperability",
+    "similarity": 0.19
+  },
+  {
+    "node2": "http://data.jrc.ec.europa.eu/ontology/cybersecurity/incident-analysis_communication_documentation_forecasting_response_reporting",
+    "label2": "Incident analysis, communication, documentation, forecasting, response, and reporting",
+    "similarity": 0.19
+  },
+  {
+    "node2": "http://data.jrc.ec.europa.eu/ontology/cybersecurity/protection_public_spaces",
+    "label2": "Protection of public spaces",
+    "similarity": 0.18
+  },
+  {
+    "node2": "http://data.jrc.ec.europa.eu/ontology/cybersecurity/security_documentation",
+    "label2": "Security documentation",
+    "similarity": 0.18
+  },
+  {
+    "node2": "http://data.jrc.ec.europa.eu/ontology/cybersecurity/legal",
+    "label2": "Legal aspects",
+    "similarity": 0.18
+  },
+  {
+    "node2": "http://data.jrc.ec.europa.eu/ontology/cybersecurity/anonimity_pseudonimity",
+    "label2": "Anonymity, pseudonymity, unlinkability, undetectability, or unobservability",
+    "similarity": 0.18
+  },
+  {
+    "node2": "http://data.jrc.ec.europa.eu/ontology/cybersecurity/security_visualization",
+    "label2": "Security visualization",
+    "similarity": 0.18
+  },
+  {
+    "node2": "http://data.jrc.ec.europa.eu/ontology/cybersecurity/modelling_cross-sectoral_interdependencies_cascading",
+    "label2": "Modelling of cross-sectoral interdependencies and cascading effects",
+    "similarity": 0.18
+  },
+  {
+    "node2": "http://data.jrc.ec.europa.eu/ontology/cybersecurity/validation_comparison_frameworks_security_metrics",
+    "label2": "Validation and comparison frameworks for security metrics",
+    "similarity": 0.18
+  },
+  {
+    "node2": "http://data.jrc.ec.europa.eu/ontology/cybersecurity/cryptography_mathematical_foundations",
+    "label2": "Mathematical foundations of cryptography",
+    "similarity": 0.18
+  },
+  {
+    "node2": "http://data.jrc.ec.europa.eu/ontology/cybersecurity/algorithmic_auditability_accountability",
+    "label2": "Algorithmic auditability and accountability",
+    "similarity": 0.18
+  },
+  {
+    "node2": "http://data.jrc.ec.europa.eu/ontology/cybersecurity/sector",
+    "label2": "Sector",
+    "similarity": 0.17
+  },
+  {
+    "node2": "http://data.jrc.ec.europa.eu/ontology/cybersecurity/manufacturing_supply_chain",
+    "label2": "Manufacturing and supply chain",
+    "similarity": 0.17
+  },
+  {
+    "node2": "http://data.jrc.ec.europa.eu/ontology/cybersecurity/cybersecurity_concepts_ontologies_taxonomies_foundations",
+    "label2": "Cybersecurity concepts, definitions, ontologies, taxonomies, foundational aspects",
+    "similarity": 0.17
+  },
+  {
+    "node2": "http://data.jrc.ec.europa.eu/ontology/cybersecurity/standards_information_security",
+    "label2": "Standards for Information Security",
+    "similarity": 0.17
+  },
+  {
+    "node2": "http://data.jrc.ec.europa.eu/ontology/cybersecurity/fault_tolerant_models",
+    "label2": "Fault tolerant models",
+    "similarity": 0.17
+  },
+  {
+    "node2": "http://data.jrc.ec.europa.eu/ontology/cybersecurity/data_usage_control",
+    "label2": "Data usage control",
+    "similarity": 0.17
+  },
+  {
+    "node2": "http://data.jrc.ec.europa.eu/ontology/cybersecurity/privacy_requirements_data_management_systems",
+    "label2": "Privacy requirements for data management systems",
+    "similarity": 0.17
+  },
+  {
+    "node2": "http://data.jrc.ec.europa.eu/ontology/cybersecurity/digital_rights_management",
+    "label2": "DRM",
     "similarity": 0.16
   },
   {
-    "node2": "http://data.jrc.ec.europa.eu/ontology/cybersecurity/chemical",
-    "label2": "Chemical",
+    "node2": "http://data.jrc.ec.europa.eu/ontology/cybersecurity/self_healing-protecting-configuration_systems",
+    "label2": "Self-* including self-healing, self-protecting, self-configuration systems",
     "similarity": 0.16
   },
   {
-    "node2": "http://data.jrc.ec.europa.eu/ontology/cybersecurity/assurance",
-    "label2": "Assurance",
+    "node2": "http://data.jrc.ec.europa.eu/ontology/cybersecurity/big_data",
+    "label2": "Big data",
     "similarity": 0.16
+  },
+  {
+    "node2": "http://data.jrc.ec.europa.eu/ontology/cybersecurity/area_observation_surveillance",
+    "label2": "Local/wide area observation and surveillance",
+    "similarity": 0.16
+  },
+  {
+    "node2": "http://data.jrc.ec.europa.eu/ontology/cybersecurity/high_performance_computing",
+    "label2": "HPC",
+    "similarity": 0.16
+  },
+  {
+    "node2": "http://data.jrc.ec.europa.eu/ontology/cybersecurity/security_risk_analysis_components_compositions",
+    "label2": "Security and risk analysis of components compositions",
+    "similarity": 0.16
+  },
+  {
+    "node2": "http://data.jrc.ec.europa.eu/ontology/cybersecurity/security_testing_validation",
+    "label2": "Security testing and validation",
+    "similarity": 0.16
+  },
+  {
+    "node2": "http://data.jrc.ec.europa.eu/ontology/cybersecurity/malware_analysis",
+    "label2": "Malware analysis including adversarial learning of malware",
+    "similarity": 0.16
+  },
+  {
+    "node2": "http://data.jrc.ec.europa.eu/ontology/cybersecurity/refinement-verification_security_management_policy_models",
+    "label2": "Refinement and verification of security management policy models",
+    "similarity": 0.16
+  },
+  {
+    "node2": "http://data.jrc.ec.europa.eu/ontology/cybersecurity/security_support_programming_environments",
+    "label2": "Security support in programming environments",
+    "similarity": 0.15
+  },
+  {
+    "node2": "http://data.jrc.ec.europa.eu/ontology/cybersecurity/fight_against_crime_terrorism",
+    "label2": "Fight against crime and terrorism",
+    "similarity": 0.15
   },
   {
     "node2": "http://data.jrc.ec.europa.eu/ontology/cybersecurity/technology",
@@ -1020,23 +660,383 @@
     "similarity": 0.15
   },
   {
-    "node2": "http://data.jrc.ec.europa.eu/ontology/cybersecurity/health",
-    "label2": "Health",
-    "similarity": 0.11
+    "node2": "http://data.jrc.ec.europa.eu/ontology/cybersecurity/transportation",
+    "label2": "Transportation",
+    "similarity": 0.15
   },
   {
-    "node2": "http://data.jrc.ec.europa.eu/ontology/cybersecurity/sector",
-    "label2": "Sector",
-    "similarity": 0.11
+    "node2": "http://data.jrc.ec.europa.eu/ontology/cybersecurity/network-security_requirements",
+    "label2": "Requirements for network security",
+    "similarity": 0.15
+  },
+  {
+    "node2": "http://data.jrc.ec.europa.eu/ontology/cybersecurity/fault_injection_testing_analysis",
+    "label2": "Fault injection testing and analysis",
+    "similarity": 0.15
+  },
+  {
+    "node2": "http://data.jrc.ec.europa.eu/ontology/cybersecurity/security-metrics_key-performance-indicators_benchmarks",
+    "label2": "Security metrics, key performance indicators, and benchmarks",
+    "similarity": 0.15
+  },
+  {
+    "node2": "http://data.jrc.ec.europa.eu/ontology/cybersecurity/digital_forensics_case_studies",
+    "label2": "Digital forensic case studies",
+    "similarity": 0.15
+  },
+  {
+    "node2": "http://data.jrc.ec.europa.eu/ontology/cybersecurity/quantum_cryptography",
+    "label2": "Quantum cryptography",
+    "similarity": 0.15
+  },
+  {
+    "node2": "http://data.jrc.ec.europa.eu/ontology/cybersecurity/higher_education",
+    "label2": "Higher Education",
+    "similarity": 0.15
+  },
+  {
+    "node2": "http://data.jrc.ec.europa.eu/ontology/cybersecurity/asymmetric_cryptography",
+    "label2": "Asymmetric cryptography",
+    "similarity": 0.14
+  },
+  {
+    "node2": "http://data.jrc.ec.europa.eu/ontology/cybersecurity/eavesdropping_techniques",
+    "label2": "Eavesdropping techniques",
+    "similarity": 0.14
+  },
+  {
+    "node2": "http://data.jrc.ec.europa.eu/ontology/cybersecurity/homomorphic_encryption",
+    "label2": "Homomorphic encryption",
+    "similarity": 0.14
+  },
+  {
+    "node2": "http://data.jrc.ec.europa.eu/ontology/cybersecurity/gamification",
+    "label2": "Gamification",
+    "similarity": 0.14
+  },
+  {
+    "node2": "http://data.jrc.ec.europa.eu/ontology/cybersecurity/measurement_assessment_seecurity_levels",
+    "label2": "Measurement and assessment of security levels",
+    "similarity": 0.14
+  },
+  {
+    "node2": "http://data.jrc.ec.europa.eu/ontology/cybersecurity/post-quantum_cryptography",
+    "label2": "Post-quantum cryptography",
+    "similarity": 0.14
+  },
+  {
+    "node2": "http://data.jrc.ec.europa.eu/ontology/cybersecurity/investigations_computer_crime_security_violations",
+    "label2": "Investigations of computer crime (cybercrime) and security violations",
+    "similarity": 0.13
+  },
+  {
+    "node2": "http://data.jrc.ec.europa.eu/ontology/cybersecurity/use_case",
+    "label2": "Use case",
+    "similarity": 0.13
+  },
+  {
+    "node2": "http://data.jrc.ec.europa.eu/ontology/cybersecurity/cybersecurity_regulation_analysis_design",
+    "label2": "Cybersecurity regulation analysis and design",
+    "similarity": 0.13
+  },
+  {
+    "node2": "http://data.jrc.ec.europa.eu/ontology/cybersecurity/governance_incident-management_disaster-recovery_business-continuity",
+    "label2": "Governance aspects of incident management, disaster recovery, business continuity",
+    "similarity": 0.13
   },
   {
     "node2": "http://data.jrc.ec.europa.eu/ontology/cybersecurity/robotics",
     "label2": "Robotics",
+    "similarity": 0.13
+  },
+  {
+    "node2": "http://data.jrc.ec.europa.eu/ontology/cybersecurity/secure_multi-party_computation",
+    "label2": "Secure multi-party computation",
+    "similarity": 0.13
+  },
+  {
+    "node2": "http://data.jrc.ec.europa.eu/ontology/cybersecurity/secure_system_interconnection",
+    "label2": "Secure system interconnection",
+    "similarity": 0.13
+  },
+  {
+    "node2": "http://data.jrc.ec.europa.eu/ontology/cybersecurity/vehicular_systems",
+    "label2": "Vehicular Systems",
+    "similarity": 0.13
+  },
+  {
+    "node2": "http://data.jrc.ec.europa.eu/ontology/cybersecurity/digital_forensic_processes_worklfow_models",
+    "label2": "Digital forensic processes and workflow models",
+    "similarity": 0.13
+  },
+  {
+    "node2": "http://data.jrc.ec.europa.eu/ontology/cybersecurity/formal_specification_aspects_security",
+    "label2": "Formal specification of various aspects of security",
+    "similarity": 0.12
+  },
+  {
+    "node2": "http://data.jrc.ec.europa.eu/ontology/cybersecurity/impact_hardware-software_changes_magement_information_security",
+    "label2": "Identification of the impact of hardware and software changes on the management of Information Security",
+    "similarity": 0.12
+  },
+  {
+    "node2": "http://data.jrc.ec.europa.eu/ontology/cybersecurity/functional_encryption",
+    "label2": "Functional encryption",
+    "similarity": 0.12
+  },
+  {
+    "node2": "http://data.jrc.ec.europa.eu/ontology/cybersecurity/new_theoreticall_techniques_formal_analysis_design_cryptographic_protocols",
+    "label2": "New theoretically-based techniques for the formal analysis and design of cryptographic protocols and their applications",
+    "similarity": 0.12
+  },
+  {
+    "node2": "http://data.jrc.ec.europa.eu/ontology/cybersecurity/distributed_systems_security",
+    "label2": "Distributed systems security",
+    "similarity": 0.12
+  },
+  {
+    "node2": "http://data.jrc.ec.europa.eu/ontology/cybersecurity/secure_programming_principles_best_practices",
+    "label2": "Secure programming principles and best practices",
+    "similarity": 0.12
+  },
+  {
+    "node2": "http://data.jrc.ec.europa.eu/ontology/cybersecurity/network-security_principles_methods_protocols_algorithms_technologies",
+    "label2": "Network security (principles, methods, protocols, algorithms and technologies)",
     "similarity": 0.11
   },
   {
-    "node2": "http://data.jrc.ec.europa.eu/ontology/cybersecurity/usability",
-    "label2": "Usability",
+    "node2": "http://data.jrc.ec.europa.eu/ontology/cybersecurity/secure_distributed_computations",
+    "label2": "Secure distributed computations",
     "similarity": 0.11
+  },
+  {
+    "node2": "http://data.jrc.ec.europa.eu/ontology/cybersecurity/network_distributed_systems",
+    "label2": "Network and Distributed Systems",
+    "similarity": 0.11
+  },
+  {
+    "node2": "http://data.jrc.ec.europa.eu/ontology/cybersecurity/industrial_iot_control_systems",
+    "label2": "Industrial IoT and Control Systems",
+    "similarity": 0.11
+  },
+  {
+    "node2": "http://data.jrc.ec.europa.eu/ontology/cybersecurity/steganalysis",
+    "label2": "Steganalysis",
+    "similarity": 0.11
+  },
+  {
+    "node2": "http://data.jrc.ec.europa.eu/ontology/cybersecurity/intrusion_detection_honeypots",
+    "label2": "Intrusion detection and honeypots",
+    "similarity": 0.11
+  },
+  {
+    "node2": "http://data.jrc.ec.europa.eu/ontology/cybersecurity/cloud_edge_virtualisation",
+    "label2": "Cloud, Edge and Virtualisation",
+    "similarity": 0.11
+  },
+  {
+    "node2": "http://data.jrc.ec.europa.eu/ontology/cybersecurity/attack_modelling_techniques_countermeasures",
+    "label2": "Attack modelling, techniques, and countermeasures",
+    "similarity": 0.11
+  },
+  {
+    "node2": "http://data.jrc.ec.europa.eu/ontology/cybersecurity/cybersecurity-taxonomy",
+    "label2": "Cybersecurity taxonomy",
+    "similarity": 0.1
+  },
+  {
+    "node2": "http://data.jrc.ec.europa.eu/ontology/cybersecurity/hash_functions",
+    "label2": "Hash functions",
+    "similarity": 0.1
+  },
+  {
+    "node2": "http://data.jrc.ec.europa.eu/ontology/cybersecurity/attack_techniques",
+    "label2": "Attack techniques",
+    "similarity": 0.1
+  },
+  {
+    "node2": "http://data.jrc.ec.europa.eu/ontology/cybersecurity/biometric_methods_technologies_tools",
+    "label2": "Biometric methods, technologies and tools",
+    "similarity": 0.1
+  },
+  {
+    "node2": "http://data.jrc.ec.europa.eu/ontology/cybersecurity/network_attack_propagation_analysis",
+    "label2": "Network attack propagation analysis",
+    "similarity": 0.1
+  },
+  {
+    "node2": "http://data.jrc.ec.europa.eu/ontology/cybersecurity/chemical",
+    "label2": "Chemical",
+    "similarity": 0.1
+  },
+  {
+    "node2": "http://data.jrc.ec.europa.eu/ontology/cybersecurity/food_drink",
+    "label2": "Food and drink",
+    "similarity": 0.1
+  },
+  {
+    "node2": "http://data.jrc.ec.europa.eu/ontology/cybersecurity/digital_watermarking",
+    "label2": "Digital watermarking",
+    "similarity": 0.1
+  },
+  {
+    "node2": "http://data.jrc.ec.europa.eu/ontology/cybersecurity/cyberranges_capturetheflag_education-training-tools_awareness",
+    "label2": "Cyber ranges, Capture the Flag exercises, simulation platforms, educational/training tools, cybersecurity awareness",
+    "similarity": 0.09
+  },
+  {
+    "node2": "http://data.jrc.ec.europa.eu/ontology/cybersecurity/distributed_systems_security_analysis_simulation",
+    "label2": "Distributed systems security analysis and simulation",
+    "similarity": 0.09
+  },
+  {
+    "node2": "http://data.jrc.ec.europa.eu/ontology/cybersecurity/space",
+    "label2": "Space",
+    "similarity": 0.09
+  },
+  {
+    "node2": "http://data.jrc.ec.europa.eu/ontology/cybersecurity/network_steganography",
+    "label2": "Network steganography",
+    "similarity": 0.09
+  },
+  {
+    "node2": "http://data.jrc.ec.europa.eu/ontology/cybersecurity/security_analytics_visualization",
+    "label2": "Security analytics and visualization",
+    "similarity": 0.09
+  },
+  {
+    "node2": "http://data.jrc.ec.europa.eu/ontology/cybersecurity/audiovisual_media",
+    "label2": "Audiovisual and media",
+    "similarity": 0.08
+  },
+  {
+    "node2": "http://data.jrc.ec.europa.eu/ontology/cybersecurity/techniques_business_continuity-disaster_recovery",
+    "label2": "Techniques to ensure business continuity/disaster recovery",
+    "similarity": 0.08
+  },
+  {
+    "node2": "http://data.jrc.ec.europa.eu/ontology/cybersecurity/optical_electronic_document_security",
+    "label2": "Optical and electronic document security",
+    "similarity": 0.07
+  },
+  {
+    "node2": "http://data.jrc.ec.europa.eu/ontology/cybersecurity/quantum_technologies",
+    "label2": "Quantum Technologies",
+    "similarity": 0.07
+  },
+  {
+    "node2": "http://data.jrc.ec.europa.eu/ontology/cybersecurity/iot_embedded_pervasive_systems",
+    "label2": "Internet of Things, embedded systems, pervasive systems",
+    "similarity": 0.07
+  },
+  {
+    "node2": "http://data.jrc.ec.europa.eu/ontology/cybersecurity/education_training",
+    "label2": "Education and Training",
+    "similarity": 0.07
+  },
+  {
+    "node2": "http://data.jrc.ec.europa.eu/ontology/cybersecurity/software_hardware_security_engineering",
+    "label2": "Software and Hardware Security Engineering",
+    "similarity": 0.07
+  },
+  {
+    "node2": "http://data.jrc.ec.europa.eu/ontology/cybersecurity/digital_services_platforms",
+    "label2": "Digital Services and Platforms",
+    "similarity": 0.07
+  },
+  {
+    "node2": "http://data.jrc.ec.europa.eu/ontology/cybersecurity/formal_specification_analysis_verification_software_hardware",
+    "label2": "Formal specification, analysis, and verification of software and hardware",
+    "similarity": 0.07
+  },
+  {
+    "node2": "http://data.jrc.ec.europa.eu/ontology/cybersecurity/protocols_frameworks_secure_distributed_computing",
+    "label2": "Protocols and frameworks for secure distributed computing",
+    "similarity": 0.07
+  },
+  {
+    "node2": "http://data.jrc.ec.europa.eu/ontology/cybersecurity/random_number_generation",
+    "label2": "Random number generation",
+    "similarity": 0.07
+  },
+  {
+    "node2": "http://data.jrc.ec.europa.eu/ontology/cybersecurity/telecomm_infrastructure",
+    "label2": "Telecomm Infrastructure",
+    "similarity": 0.06
+  },
+  {
+    "node2": "http://data.jrc.ec.europa.eu/ontology/cybersecurity/model-driven_security_domain-specific_modelling_languages",
+    "label2": "Model-driven security and domain-specific modelling languages",
+    "similarity": 0.06
+  },
+  {
+    "node2": "http://data.jrc.ec.europa.eu/ontology/cybersecurity/network_layer_attacks_mitigation_techniques",
+    "label2": "Network layer attacks and mitigation techniques",
+    "similarity": 0.06
+  },
+  {
+    "node2": "http://data.jrc.ec.europa.eu/ontology/cybersecurity/professional_training",
+    "label2": "Professional training",
+    "similarity": 0.06
+  },
+  {
+    "node2": "http://data.jrc.ec.europa.eu/ontology/cybersecurity/steganography",
+    "label2": "Steganography",
+    "similarity": 0.06
+  },
+  {
+    "node2": "http://data.jrc.ec.europa.eu/ontology/cybersecurity/secure_softwre_architectures_design",
+    "label2": "Security by design",
+    "similarity": 0.06
+  },
+  {
+    "node2": "http://data.jrc.ec.europa.eu/ontology/cybersecurity/hardware_technology",
+    "label2": "Hardware technology",
+    "similarity": 0.05
+  },
+  {
+    "node2": "http://data.jrc.ec.europa.eu/ontology/cybersecurity/automating_security_functionality",
+    "label2": "Automating security functionality",
+    "similarity": 0.05
+  },
+  {
+    "node2": "http://data.jrc.ec.europa.eu/ontology/cybersecurity/nuclear",
+    "label2": "Nuclear",
+    "similarity": 0.05
+  },
+  {
+    "node2": "http://data.jrc.ec.europa.eu/ontology/cybersecurity/development_operations_data_management_systems",
+    "label2": "Design, implementation, and operation of data management systems that include security and privacy functions",
+    "similarity": 0.05
+  },
+  {
+    "node2": "http://data.jrc.ec.europa.eu/ontology/cybersecurity/vocational_training",
+    "label2": "Vocational training",
+    "similarity": 0.05
+  },
+  {
+    "node2": "http://data.jrc.ec.europa.eu/ontology/cybersecurity/satellite_systems_applications",
+    "label2": "Satellite systems and applications",
+    "similarity": 0.03
+  },
+  {
+    "node2": "http://data.jrc.ec.europa.eu/ontology/cybersecurity/security_design_patterns",
+    "label2": "Security design patterns",
+    "similarity": 0.03
+  },
+  {
+    "node2": "http://data.jrc.ec.europa.eu/ontology/cybersecurity/operating_systems",
+    "label2": "Operating systems",
+    "similarity": 0.01
+  },
+  {
+    "node2": "http://data.jrc.ec.europa.eu/ontology/cybersecurity/cybercrime_prosecution_law_enforcement",
+    "label2": "Cybercrime prosecution and law enforcement",
+    "similarity": 0.01
+  },
+  {
+    "node2": "http://data.jrc.ec.europa.eu/ontology/cybersecurity/steganography_steganalysis_watermarking",
+    "label2": "Steganography, Steganalysis and Watermarking",
+    "similarity": 0.01
   }
 ]

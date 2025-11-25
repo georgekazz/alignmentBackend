@@ -2,10 +2,6 @@ from database import Base
 from datetime import datetime
 from sqlalchemy import Column, Integer, String, ForeignKey, Float, DateTime, func, Boolean
 from sqlalchemy.orm import relationship
-from datetime import datetime
-from database import Base
-from sqlalchemy.sql import func
-
 
 class User(Base):
     __tablename__ = "users"
