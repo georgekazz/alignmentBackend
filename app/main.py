@@ -1,14 +1,14 @@
 from fastapi import FastAPI, Depends, HTTPException, Form, APIRouter
 from sqlalchemy.orm import Session
-from database import get_db, engine, Base
-from models import User,File, Project, Vote, Link, LinkType
-from auth import hash_password, verify_password, create_access_token
+from app.database import get_db, engine, Base
+from app.models import User,File, Project, Vote, Link, LinkType
+from app.auth import hash_password, verify_password, create_access_token
 from pydantic import BaseModel
 from fastapi.security import OAuth2PasswordBearer
-from auth import SECRET_KEY, ALGORITHM
+from app.auth import SECRET_KEY, ALGORITHM
 from jose import jwt, JWTError
 from fastapi import UploadFile, File as UploadFileField
-from schemas import FileCreate, FileResponse, VoteCreate, VoteResponse, LinkCreate, LinkResponse, LinkTypeResponse, ProjectResponse, VoteRequest
+from app.schemas import FileCreate, FileResponse, VoteCreate, VoteResponse, LinkCreate, LinkResponse, LinkTypeResponse, ProjectResponse, VoteRequest
 import shutil
 import os
 from rdflib import Graph, Namespace
@@ -695,7 +695,7 @@ def export_project_links(project_id: int, db: Session = Depends(get_db), current
     # Επιστρέφουμε JSON
     return JSONResponse(content=links_data)
 
-from models import Link, LinkType
+from app.models import Link, LinkType
 from rdflib import Graph, URIRef
 from fastapi.responses import StreamingResponse
 import io
