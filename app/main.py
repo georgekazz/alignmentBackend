@@ -836,162 +836,6 @@ def get_skos_tree(
 
 # SILK------------------------------------------------------------------------
 
-import os
-import json
-import re
-from rapidfuzz import fuzz
-from nltk.stem import SnowballStemmer
-from typing import List
-from rdflib.namespace import RDFS
-from rdflib import URIRef
-from sentence_transformers import SentenceTransformer, util
-import torch
-
-# --- Config ---
-SUGGESTIONS_DIR = "C:/xampp/htdocs/alignme/app/uploads/suggestions"
-SKOS = Namespace("http://www.w3.org/2004/02/skos/core#")
-
-# NLP setup
-stemmer = SnowballStemmer("english")
-STOPWORDS = set("""
-a able about across after all almost also am among an and any are as at be because been but by can cannot could dear did do does either else ever every for from get got had has have he her hers him his how however i if in into is it its just least let like likely may me might most must my neither no nor not of off often on only or other our own rather said say says she should since so some than that the their them then there these they this tis to too twas us wants was we were what when where which while who whom why will with would yet you your
-""".split())
-
-model = SentenceTransformer("paraphrase-multilingual-mpnet-base-v2")
-
-
-def clean_label(label: str) -> str:
-    label = label.strip()
-    label = re.sub(r"\s+", " ", label)
-    return label
-
-
-def preprocess_label(label: str) -> str:
-    label = label.lower()
-    label = re.sub(r"[^a-zA-Zα-ωΑ-Ω0-9\s\-]", " ", label)
-    tokens = [stemmer.stem(t) for t in label.split() if t not in STOPWORDS]
-    return " ".join(tokens)
-
-
-@app.get("/projects/{project_id}/suggestions_full")
-def generate_node_suggestions_full_embeddings(
-    project_id: int,
-    node_uri: str = Query(..., description="URI of the selected node"),
-    db: Session = Depends(get_db),
-    current_user=Depends(get_current_user)
-):
-    project = (
-        db.query(Project)
-        .filter(Project.id == project_id, Project.user_id == current_user.id)
-        .first()
-    )
-    if not project:
-        raise HTTPException(status_code=404, detail="Project not found")
-
-    file1 = db.query(File).filter(File.id == project.file1_id).first()
-    file2 = db.query(File).filter(File.id == project.file2_id).first()
-
-    if not file1 or not file2:
-        raise HTTPException(status_code=404, detail="Files not found")
-
-    format1 = guess_rdf_format(file1.resource)
-    format2 = guess_rdf_format(file2.resource)
-
-    g1, g2 = Graph(), Graph()
-    g1.parse(file1.resource, format=format1)
-    g2.parse(file2.resource, format=format2)
-
-    node_props = [SKOS.prefLabel, SKOS.altLabel, RDFS.label]
-    node_uri_ref = URIRef(node_uri)
-
-    node_labels_original = [
-        clean_label(str(l))
-        for prop in node_props
-        for l in g1.objects(node_uri_ref, prop)
-    ]
-
-    node_labels_processed = [
-        preprocess_label(str(l))
-        for prop in node_props
-        for l in g1.objects(node_uri_ref, prop)
-    ]
-
-    if not node_labels_processed:
-        raise HTTPException(status_code=404, detail="Node not found in left ontology")
-
-    node_embs = model.encode(
-        node_labels_processed,
-        convert_to_tensor=True,
-        normalize_embeddings=True
-    )
-
-    suggestions = []
-    seen_labels = set()
-    target_props = [SKOS.prefLabel, SKOS.altLabel]
-
-    for s2 in g2.subjects():
-
-        target_original_labels = [
-            clean_label(str(l))
-            for prop in target_props
-            for l in g2.objects(s2, prop)
-        ]
-
-        target_processed_labels = [
-            preprocess_label(str(l))
-            for prop in target_props
-            for l in g2.objects(s2, prop)
-        ]
-
-        if not target_processed_labels:
-            continue
-
-        target_embs = model.encode(
-            target_processed_labels,
-            convert_to_tensor=True,
-            normalize_embeddings=True
-        )
-
-        best_score = 0.0
-        best_label_original = None
-
-        for nl_emb in node_embs:
-            sim_row = util.cos_sim(nl_emb, target_embs)
-            max_val, max_idx = torch.max(sim_row, dim=1)
-
-            score = max_val.item()
-            idx = max_idx.item()
-
-            if score > best_score:
-                best_score = score
-                best_label_original = target_original_labels[idx]
-
-        if best_label_original and best_label_original not in seen_labels:
-            suggestions.append({
-                "node2": str(s2),
-                "label2": best_label_original,
-                "similarity": round(best_score, 2)
-            })
-            seen_labels.add(best_label_original)
-
-    suggestions.sort(key=lambda x: x["similarity"], reverse=True)
-
-    os.makedirs(SUGGESTIONS_DIR, exist_ok=True)
-    output_file = os.path.join(SUGGESTIONS_DIR, f"{project_id}.json")
-
-    with open(output_file, "w", encoding="utf-8") as f:
-        json.dump(suggestions, f, ensure_ascii=False, indent=2)
-
-    return {
-        "node": node_uri,
-        "labels": node_labels_original,
-        "suggestions": suggestions
-    }
-
-
-
-# SILK------------------------------------------------------------------------
-
 # import os
 # import json
 # import re
@@ -1000,8 +844,11 @@ def generate_node_suggestions_full_embeddings(
 # from typing import List
 # from rdflib.namespace import RDFS
 # from rdflib import URIRef
+# from sentence_transformers import SentenceTransformer, util
+# import torch
 
-# SUGGESTIONS_DIR = "C:/xampp/htdocs/alignme/app/uploads/suggestions"
+# # --- Config ---
+# SUGGESTIONS_DIR = "uploads/suggestions"
 # SKOS = Namespace("http://www.w3.org/2004/02/skos/core#")
 
 # # NLP setup
@@ -1010,94 +857,247 @@ def generate_node_suggestions_full_embeddings(
 # a able about across after all almost also am among an and any are as at be because been but by can cannot could dear did do does either else ever every for from get got had has have he her hers him his how however i if in into is it its just least let like likely may me might most must my neither no nor not of off often on only or other our own rather said say says she should since so some than that the their them then there these they this tis to too twas us wants was we were what when where which while who whom why will with would yet you your
 # """.split())
 
+# model = SentenceTransformer("paraphrase-multilingual-mpnet-base-v2")
+
+
+# def clean_label(label: str) -> str:
+#     label = label.strip()
+#     label = re.sub(r"\s+", " ", label)
+#     return label
+
+
 # def preprocess_label(label: str) -> str:
 #     label = label.lower()
-#     label = re.sub(r"[^a-zα-ω0-9\s]", " ", label, flags=re.IGNORECASE)
+#     label = re.sub(r"[^a-zA-Zα-ωΑ-Ω0-9\s\-]", " ", label)
 #     tokens = [stemmer.stem(t) for t in label.split() if t not in STOPWORDS]
 #     return " ".join(tokens)
 
-# def dice_similarity(a: str, b: str) -> float:
-#     def bigrams(s):
-#         s = s.lower()
-#         return {s[i:i+2] for i in range(len(s)-1)}
-    
-#     a_bigrams = bigrams(a)
-#     b_bigrams = bigrams(b)
-#     if not a_bigrams or not b_bigrams:
-#         return 0.0
-#     overlap = len(a_bigrams & b_bigrams)
-#     return 2 * overlap / (len(a_bigrams) + len(b_bigrams))
-
 
 # @app.get("/projects/{project_id}/suggestions_full")
-# def generate_node_suggestions_full(
+# def generate_node_suggestions_full_embeddings(
 #     project_id: int,
 #     node_uri: str = Query(..., description="URI of the selected node"),
 #     db: Session = Depends(get_db),
-#     current_user = Depends(get_current_user)
+#     current_user=Depends(get_current_user)
 # ):
-   
-#     project = db.query(Project).filter(Project.id == project_id, Project.user_id == current_user.id).first()
+#     project = (
+#         db.query(Project)
+#         .filter(Project.id == project_id, Project.user_id == current_user.id)
+#         .first()
+#     )
 #     if not project:
 #         raise HTTPException(status_code=404, detail="Project not found")
-    
+
 #     file1 = db.query(File).filter(File.id == project.file1_id).first()
 #     file2 = db.query(File).filter(File.id == project.file2_id).first()
+
 #     if not file1 or not file2:
 #         raise HTTPException(status_code=404, detail="Files not found")
 
 #     format1 = guess_rdf_format(file1.resource)
 #     format2 = guess_rdf_format(file2.resource)
+
 #     g1, g2 = Graph(), Graph()
 #     g1.parse(file1.resource, format=format1)
 #     g2.parse(file2.resource, format=format2)
 
 #     node_props = [SKOS.prefLabel, SKOS.altLabel, RDFS.label]
 #     node_uri_ref = URIRef(node_uri)
-#     node_label = None
-#     print(f"Node URI: {node_uri_ref}")
-#     for p, o in g1.predicate_objects(subject=node_uri_ref):
-#         print("Predicate:", p, "| Object:", o)
 
-#     for prop in node_props:
-#         val = g1.value(subject=node_uri_ref, predicate=prop)
-#         if val:
-#             node_label = preprocess_label(str(val))
-#             break
+#     node_labels_original = [
+#         clean_label(str(l))
+#         for prop in node_props
+#         for l in g1.objects(node_uri_ref, prop)
+#     ]
 
-#     if not node_label:
+#     node_labels_processed = [
+#         preprocess_label(str(l))
+#         for prop in node_props
+#         for l in g1.objects(node_uri_ref, prop)
+#     ]
+
+#     if not node_labels_processed:
 #         raise HTTPException(status_code=404, detail="Node not found in left ontology")
 
+#     node_embs = model.encode(
+#         node_labels_processed,
+#         convert_to_tensor=True,
+#         normalize_embeddings=True
+#     )
+
 #     suggestions = []
-#     target_props = [SKOS.prefLabel, SKOS.altLabel]
 #     seen_labels = set()
+#     target_props = [SKOS.prefLabel, SKOS.altLabel]
 
 #     for s2 in g2.subjects():
-#         best_score = 0
-#         best_label = None
-#         for prop in target_props:
-#             label2 = g2.value(subject=s2, predicate=prop)
-#             if label2:
-#                 processed_label2 = preprocess_label(str(label2))
-#                 score = max(dice_similarity(node_label, processed_label2),
-#                             fuzz.token_sort_ratio(node_label, processed_label2)/100)
-#                 if score > best_score:
-#                     best_score = score
-#                     best_label = str(label2)
-        
-#         if best_score > 0 and best_label not in seen_labels:
+
+#         target_original_labels = [
+#             clean_label(str(l))
+#             for prop in target_props
+#             for l in g2.objects(s2, prop)
+#         ]
+
+#         target_processed_labels = [
+#             preprocess_label(str(l))
+#             for prop in target_props
+#             for l in g2.objects(s2, prop)
+#         ]
+
+#         if not target_processed_labels:
+#             continue
+
+#         target_embs = model.encode(
+#             target_processed_labels,
+#             convert_to_tensor=True,
+#             normalize_embeddings=True
+#         )
+
+#         best_score = 0.0
+#         best_label_original = None
+
+#         for nl_emb in node_embs:
+#             sim_row = util.cos_sim(nl_emb, target_embs)
+#             max_val, max_idx = torch.max(sim_row, dim=1)
+
+#             score = max_val.item()
+#             idx = max_idx.item()
+
+#             if score > best_score:
+#                 best_score = score
+#                 best_label_original = target_original_labels[idx]
+
+#         if best_label_original and best_label_original not in seen_labels:
 #             suggestions.append({
 #                 "node2": str(s2),
-#                 "label2": best_label,
+#                 "label2": best_label_original,
 #                 "similarity": round(best_score, 2)
 #             })
-#             seen_labels.add(best_label)
+#             seen_labels.add(best_label_original)
 
 #     suggestions.sort(key=lambda x: x["similarity"], reverse=True)
 
 #     os.makedirs(SUGGESTIONS_DIR, exist_ok=True)
 #     output_file = os.path.join(SUGGESTIONS_DIR, f"{project_id}.json")
+
 #     with open(output_file, "w", encoding="utf-8") as f:
 #         json.dump(suggestions, f, ensure_ascii=False, indent=2)
 
-#     return {"node": node_uri, "label": node_label, "suggestions": suggestions}
+#     return {
+#         "node": node_uri,
+#         "labels": node_labels_original,
+#         "suggestions": suggestions
+#     }
+
+
+
+# SILK------------------------------------------------------------------------
+
+import os
+import json
+import re
+from rapidfuzz import fuzz
+from nltk.stem import SnowballStemmer
+from typing import List
+from rdflib.namespace import RDFS
+from rdflib import URIRef
+
+SUGGESTIONS_DIR = "uploads/suggestions"
+SKOS = Namespace("http://www.w3.org/2004/02/skos/core#")
+
+# NLP setup
+stemmer = SnowballStemmer("english")
+STOPWORDS = set("""
+a able about across after all almost also am among an and any are as at be because been but by can cannot could dear did do does either else ever every for from get got had has have he her hers him his how however i if in into is it its just least let like likely may me might most must my neither no nor not of off often on only or other our own rather said say says she should since so some than that the their them then there these they this tis to too twas us wants was we were what when where which while who whom why will with would yet you your
+""".split())
+
+def preprocess_label(label: str) -> str:
+    label = label.lower()
+    label = re.sub(r"[^a-zα-ω0-9\s]", " ", label, flags=re.IGNORECASE)
+    tokens = [stemmer.stem(t) for t in label.split() if t not in STOPWORDS]
+    return " ".join(tokens)
+
+def dice_similarity(a: str, b: str) -> float:
+    def bigrams(s):
+        s = s.lower()
+        return {s[i:i+2] for i in range(len(s)-1)}
+    
+    a_bigrams = bigrams(a)
+    b_bigrams = bigrams(b)
+    if not a_bigrams or not b_bigrams:
+        return 0.0
+    overlap = len(a_bigrams & b_bigrams)
+    return 2 * overlap / (len(a_bigrams) + len(b_bigrams))
+
+
+@app.get("/projects/{project_id}/suggestions_full")
+def generate_node_suggestions_full(
+    project_id: int,
+    node_uri: str = Query(..., description="URI of the selected node"),
+    db: Session = Depends(get_db),
+    current_user = Depends(get_current_user)
+):
+   
+    project = db.query(Project).filter(Project.id == project_id, Project.user_id == current_user.id).first()
+    if not project:
+        raise HTTPException(status_code=404, detail="Project not found")
+    
+    file1 = db.query(File).filter(File.id == project.file1_id).first()
+    file2 = db.query(File).filter(File.id == project.file2_id).first()
+    if not file1 or not file2:
+        raise HTTPException(status_code=404, detail="Files not found")
+
+    format1 = guess_rdf_format(file1.resource)
+    format2 = guess_rdf_format(file2.resource)
+    g1, g2 = Graph(), Graph()
+    g1.parse(file1.resource, format=format1)
+    g2.parse(file2.resource, format=format2)
+
+    node_props = [SKOS.prefLabel, SKOS.altLabel, RDFS.label]
+    node_uri_ref = URIRef(node_uri)
+    node_label = None
+    print(f"Node URI: {node_uri_ref}")
+    for p, o in g1.predicate_objects(subject=node_uri_ref):
+        print("Predicate:", p, "| Object:", o)
+
+    for prop in node_props:
+        val = g1.value(subject=node_uri_ref, predicate=prop)
+        if val:
+            node_label = preprocess_label(str(val))
+            break
+
+    if not node_label:
+        raise HTTPException(status_code=404, detail="Node not found in left ontology")
+
+    suggestions = []
+    target_props = [SKOS.prefLabel, SKOS.altLabel]
+    seen_labels = set()
+
+    for s2 in g2.subjects():
+        best_score = 0
+        best_label = None
+        for prop in target_props:
+            label2 = g2.value(subject=s2, predicate=prop)
+            if label2:
+                processed_label2 = preprocess_label(str(label2))
+                score = max(dice_similarity(node_label, processed_label2),
+                            fuzz.token_sort_ratio(node_label, processed_label2)/100)
+                if score > best_score:
+                    best_score = score
+                    best_label = str(label2)
+        
+        if best_score > 0 and best_label not in seen_labels:
+            suggestions.append({
+                "node2": str(s2),
+                "label2": best_label,
+                "similarity": round(best_score, 2)
+            })
+            seen_labels.add(best_label)
+
+    suggestions.sort(key=lambda x: x["similarity"], reverse=True)
+
+    os.makedirs(SUGGESTIONS_DIR, exist_ok=True)
+    output_file = os.path.join(SUGGESTIONS_DIR, f"{project_id}.json")
+    with open(output_file, "w", encoding="utf-8") as f:
+        json.dump(suggestions, f, ensure_ascii=False, indent=2)
+
+    return {"node": node_uri, "label": node_label, "suggestions": suggestions}
