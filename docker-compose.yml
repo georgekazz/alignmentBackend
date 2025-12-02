@@ -7,6 +7,12 @@ services:
     networks:
       - shared_align_network
     restart: unless-stopped
+    environment:
+      DB_HOST: laravel-db
+      DB_PORT: 3306
+      DB_USER: root
+      DB_PASSWORD: root
+      DB_NAME: laravel
 
 networks:
   shared_align_network:
