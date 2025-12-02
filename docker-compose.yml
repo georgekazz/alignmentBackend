@@ -1,9 +1,14 @@
-version: '3.9'
-
 services:
   fastapi-app:
     build: .
     container_name: fastapi_app
     ports:
       - "7861:7861"
+    networks:
+      - shared_align_network
     restart: unless-stopped
+
+networks:
+  shared_align_network:
+    external: true
+    name: shared_alignment_network
