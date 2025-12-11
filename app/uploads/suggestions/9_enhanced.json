@@ -1,32 +1,63 @@
 [
   {
-    "node2": "http://data.jrc.ec.europa.eu/ontology/cybersecurity/chemical",
-    "label2": "Chemical",
+    "node2": "http://data.jrc.ec.europa.eu/ontology/cybersecurity/mobile_devices",
+    "label2": "Mobile devices",
     "all_labels": [
-      "Chemical"
+      "Mobile devices"
     ],
-    "similarity": 0.495,
+    "similarity": 0.455,
     "is_exact_match": false,
     "scores": {
-      "label": 0.545,
-      "definition": 0.346,
+      "label": 0.522,
+      "definition": 0.0,
       "parent": 0.0,
       "child": 0.0,
       "sibling": 0.0
     }
   },
   {
-    "node2": "http://data.jrc.ec.europa.eu/ontology/cybersecurity/human_machine_interface",
-    "label2": "Human Machine Interface",
+    "node2": "http://data.jrc.ec.europa.eu/ontology/cybersecurity/resilience_aspects",
+    "label2": "Resilience aspects",
     "all_labels": [
-      "Human Machine Interface",
-      "HMI"
+      "Resilience aspects"
     ],
-    "similarity": 0.436,
+    "similarity": 0.419,
     "is_exact_match": false,
     "scores": {
-      "label": 0.5,
+      "label": 0.48,
       "definition": 0.0,
+      "parent": 0.0,
+      "child": 0.0,
+      "sibling": 0.0
+    }
+  },
+  {
+    "node2": "http://data.jrc.ec.europa.eu/ontology/cybersecurity/defence",
+    "label2": "Defence",
+    "all_labels": [
+      "Defence"
+    ],
+    "similarity": 0.411,
+    "is_exact_match": false,
+    "scores": {
+      "label": 0.444,
+      "definition": 0.312,
+      "parent": 0.0,
+      "child": 0.0,
+      "sibling": 0.0
+    }
+  },
+  {
+    "node2": "http://data.jrc.ec.europa.eu/ontology/cybersecurity/financial",
+    "label2": "Financial",
+    "all_labels": [
+      "Financial"
+    ],
+    "similarity": 0.408,
+    "is_exact_match": false,
+    "scores": {
+      "label": 0.421,
+      "definition": 0.369,
       "parent": 0.0,
       "child": 0.0,
       "sibling": 0.0

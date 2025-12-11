@@ -204,24 +204,69 @@ def rdf_to_triples(
     db: Session = Depends(get_db),
     current_user: User = Depends(get_current_user)
 ):
-
+    # Get file
     db_file = db.query(File).filter(File.id == file_id).first()
     if not db_file:
         raise HTTPException(status_code=404, detail="File not found")
 
-    if not db_file.filename.endswith(".rdf"):
-        raise HTTPException(status_code=400, detail="File is not RDF")
+    # Check if file is RDF-compatible
+    rdf_extensions = [".rdf", ".ttl", ".owl", ".n3", ".nt", ".xml", ".jsonld"]
+    file_ext = os.path.splitext(db_file.filename)[1].lower()
+    
+    if file_ext not in rdf_extensions:
+        raise HTTPException(
+            status_code=400, 
+            detail=f"File format not supported. Supported: {', '.join(rdf_extensions)}"
+        )
+
+    os.makedirs(TRIPLES_DIR, exist_ok=True)
 
     g = Graph()
     try:
-        g.parse(db_file.resource)
+        format_map = {
+            ".rdf": "xml",
+            ".owl": "xml",
+            ".ttl": "turtle",
+            ".n3": "n3",
+            ".nt": "nt",
+            ".xml": "xml",
+            ".jsonld": "json-ld"
+        }
+        rdf_format = format_map.get(file_ext, "xml")
+        
+        if not os.path.exists(db_file.resource):
+            raise HTTPException(status_code=404, detail="File resource not found on disk")
+        
+        g.parse(db_file.resource, format=rdf_format)
+        
     except Exception as e:
-        raise HTTPException(status_code=500, detail=f"Failed to parse RDF: {str(e)}")
+        db_file.status = "error"
+        db.commit()
+        raise HTTPException(
+            status_code=500, 
+            detail=f"Failed to parse RDF file: {str(e)}"
+        )
 
-    triples_filename = db_file.filename.replace(".rdf", "_triples.nt")
+    if len(g) == 0:
+        raise HTTPException(
+            status_code=400, 
+            detail="Parsed graph is empty. File may be invalid or corrupted."
+        )
+
+    base_name = os.path.splitext(db_file.filename)[0]
+    base_name = "".join(c for c in base_name if c.isalnum() or c in ('-', '_'))
+    triples_filename = f"{base_name}_triples.nt"
     triples_path = os.path.join(TRIPLES_DIR, triples_filename)
 
-    g.serialize(destination=triples_path, format="nt")
+    try:
+        g.serialize(destination=triples_path, format="nt", encoding="utf-8")
+    except Exception as e:
+        db_file.status = "error"
+        db.commit()
+        raise HTTPException(
+            status_code=500, 
+            detail=f"Failed to serialize triples: {str(e)}"
+        )
 
     db_file.parsed = True
     db_file.status = "parsed"
@@ -231,8 +276,10 @@ def rdf_to_triples(
     return {
         "message": "RDF file converted to triples successfully",
         "triples_file": triples_filename,
+        "triples_path": triples_path,
         "triples_count": len(g),
-        "parsed": db_file.parsed
+        "parsed": db_file.parsed,
+        "source_format": rdf_format
     }
 
 
@@ -317,44 +364,96 @@ def delete_file(
 
 
 @app.get("/project-files/{project_id}")
-def get_project_files(project_id: int, db: Session = Depends(get_db), current_user: User = Depends(get_current_user)):
-
-    project = db.query(Project).filter(Project.id == project_id, Project.user_id == current_user.id).first()
+def get_project_files(
+    project_id: int, 
+    db: Session = Depends(get_db), 
+    current_user: User = Depends(get_current_user)
+):
+    
+    project = db.query(Project).filter(
+        Project.id == project_id, 
+        Project.user_id == current_user.id
+    ).first()
+    
     if not project:
         raise HTTPException(status_code=404, detail="Project not found")
     
+    if not project.file1_id or not project.file2_id:
+        raise HTTPException(
+            status_code=400, 
+            detail="Project must have two files assigned"
+        )
+    
     file_ids = [project.file1_id, project.file2_id]
+    
+    files = db.query(File).filter(File.id.in_(file_ids)).all()
+    
+    if len(files) != 2:
+        missing_ids = set(file_ids) - {f.id for f in files}
+        raise HTTPException(
+            status_code=404, 
+            detail=f"Files not found: {missing_ids}"
+        )
+    
+    files_dict = {f.id: f for f in files}
+    ordered_files = [files_dict[fid] for fid in file_ids]
+    
     files_data = []
-
-    for file_id in file_ids:
-        file = db.query(File).filter(File.id == file_id).first()
-        if not file:
-            raise HTTPException(status_code=404, detail=f"File {file_id} not found")
-
+    
+    for file in ordered_files:
+        if not file.parsed or file.status != "parsed":
+            raise HTTPException(
+                status_code=400,
+                detail=f"File '{file.filename}' has not been parsed yet. Parse it first."
+            )
+        
         base_name = os.path.splitext(file.filename)[0]
+        base_name = "".join(c for c in base_name if c.isalnum() or c in ('-', '_'))
         nt_filename = f"{base_name}_triples.nt"
-        BASE_DIR = os.path.dirname(os.path.abspath(__file__))
-        nt_path = os.path.join(BASE_DIR, "uploads", "triples", nt_filename)
-        print("Looking for NT file at:", nt_path)
-
-
+        
+        nt_path = os.path.join(TRIPLES_DIR, nt_filename)
+        
         if not os.path.exists(nt_path):
-            raise HTTPException(status_code=404, detail=f"{nt_filename} not found in triples folder")
-
-        with open(nt_path, "r", encoding="utf-8") as f:
-            nt_content = f.read()
-
+            raise HTTPException(
+                status_code=404, 
+                detail=f"Triples file not found: {nt_filename}. File may need to be re-parsed."
+            )
+        
+        try:
+            with open(nt_path, "r", encoding="utf-8") as f:
+                nt_content = f.read()
+        except UnicodeDecodeError:
+            raise HTTPException(
+                status_code=500,
+                detail=f"Failed to read {nt_filename}: encoding error"
+            )
+        except IOError as e:
+            raise HTTPException(
+                status_code=500,
+                detail=f"Failed to read {nt_filename}: {str(e)}"
+            )
+        
+        try:
+            tree = nt_to_tree(nt_content)
+        except Exception as e:
+            raise HTTPException(
+                status_code=500,
+                detail=f"Failed to build tree for {nt_filename}: {str(e)}"
+            )
+        
         files_data.append({
             "id": file.id,
             "filename": nt_filename,
+            "original_filename": file.filename,
             "filetype": "nt",
             "status": file.status,
             "public": file.public,
             "created_at": file.created_at,
             "content": nt_content,
-            "tree": nt_to_tree(nt_content)
+            "tree": tree,
+            "triples_count": len(nt_content.split('\n')) if nt_content else 0
         })
-
+    
     return files_data
     
 @app.get("/node-details/")
