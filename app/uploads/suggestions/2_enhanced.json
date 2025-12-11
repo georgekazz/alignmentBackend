@@ -1,0 +1,275 @@
+[
+  {
+    "node2": "http://data.jrc.ec.europa.eu/ontology/cybersecurity/quantum_cryptography",
+    "label2": "Quantum cryptography",
+    "all_labels": [
+      "Quantum cryptography"
+    ],
+    "similarity": 0.97,
+    "is_exact_match": true,
+    "scores": {
+      "label": 1.0,
+      "definition": 0.0,
+      "parent": 1.0,
+      "child": 0.0,
+      "sibling": 1.0
+    }
+  },
+  {
+    "node2": "http://data.jrc.ec.europa.eu/ontology/cybersecurity/post-quantum_cryptography",
+    "label2": "Post-quantum cryptography",
+    "all_labels": [
+      "Post-quantum cryptography"
+    ],
+    "similarity": 0.786,
+    "is_exact_match": false,
+    "scores": {
+      "label": 0.889,
+      "definition": 0.0,
+      "parent": 1.0,
+      "child": 0.0,
+      "sibling": 1.0
+    }
+  },
+  {
+    "node2": "http://data.jrc.ec.europa.eu/ontology/cybersecurity/symmetric_cyptography",
+    "label2": "Symmetric cryptography",
+    "all_labels": [
+      "Symmetric cryptography"
+    ],
+    "similarity": 0.677,
+    "is_exact_match": false,
+    "scores": {
+      "label": 0.7,
+      "definition": 0.0,
+      "parent": 1.0,
+      "child": 0.0,
+      "sibling": 1.0
+    }
+  },
+  {
+    "node2": "http://data.jrc.ec.europa.eu/ontology/cybersecurity/cryptography_mathematical_foundations",
+    "label2": "Mathematical foundations of cryptography",
+    "all_labels": [
+      "Mathematical foundations of cryptography"
+    ],
+    "similarity": 0.674,
+    "is_exact_match": false,
+    "scores": {
+      "label": 0.694,
+      "definition": 0.0,
+      "parent": 1.0,
+      "child": 0.0,
+      "sibling": 1.0
+    }
+  },
+  {
+    "node2": "http://data.jrc.ec.europa.eu/ontology/cybersecurity/asymmetric_cryptography",
+    "label2": "Asymmetric cryptography",
+    "all_labels": [
+      "Asymmetric cryptography"
+    ],
+    "similarity": 0.629,
+    "is_exact_match": false,
+    "scores": {
+      "label": 0.615,
+      "definition": 0.0,
+      "parent": 1.0,
+      "child": 0.0,
+      "sibling": 1.0
+    }
+  },
+  {
+    "node2": "http://data.jrc.ec.europa.eu/ontology/cybersecurity/cryptology",
+    "label2": "Cryptology",
+    "all_labels": [
+      "Cryptology",
+      "Cryptography and Cryptanalysis"
+    ],
+    "similarity": 0.582,
+    "is_exact_match": false,
+    "scores": {
+      "label": 0.667,
+      "definition": 0.0,
+      "parent": 0.0,
+      "child": 0.0,
+      "sibling": 0.0
+    }
+  },
+  {
+    "node2": "http://data.jrc.ec.europa.eu/ontology/cybersecurity/cryptomaterial_management",
+    "label2": "Crypto material management",
+    "all_labels": [
+      "Crypto material management"
+    ],
+    "similarity": 0.563,
+    "is_exact_match": false,
+    "scores": {
+      "label": 0.513,
+      "definition": 0.0,
+      "parent": 1.0,
+      "child": 0.0,
+      "sibling": 0.923
+    }
+  },
+  {
+    "node2": "http://data.jrc.ec.europa.eu/ontology/cybersecurity/functional_encryption",
+    "label2": "Functional encryption",
+    "all_labels": [
+      "Functional encryption"
+    ],
+    "similarity": 0.555,
+    "is_exact_match": false,
+    "scores": {
+      "label": 0.5,
+      "definition": 0.0,
+      "parent": 1.0,
+      "child": 0.0,
+      "sibling": 0.923
+    }
+  },
+  {
+    "node2": "http://data.jrc.ec.europa.eu/ontology/cybersecurity/homomorphic_encryption",
+    "label2": "Homomorphic encryption",
+    "all_labels": [
+      "Homomorphic encryption"
+    ],
+    "similarity": 0.547,
+    "is_exact_match": false,
+    "scores": {
+      "label": 0.486,
+      "definition": 0.0,
+      "parent": 1.0,
+      "child": 0.0,
+      "sibling": 0.923
+    }
+  },
+  {
+    "node2": "http://data.jrc.ec.europa.eu/ontology/cybersecurity/cryptanalysis_methodologies_techniques_tools",
+    "label2": "Cryptanalysis methodologies, techniques and tools",
+    "all_labels": [
+      "Cryptanalysis methodologies, techniques and tools"
+    ],
+    "similarity": 0.51,
+    "is_exact_match": false,
+    "scores": {
+      "label": 0.421,
+      "definition": 0.0,
+      "parent": 1.0,
+      "child": 0.0,
+      "sibling": 0.923
+    }
+  },
+  {
+    "node2": "http://data.jrc.ec.europa.eu/ontology/cybersecurity/random_number_generation",
+    "label2": "Random number generation",
+    "all_labels": [
+      "Random number generation"
+    ],
+    "similarity": 0.492,
+    "is_exact_match": false,
+    "scores": {
+      "label": 0.39,
+      "definition": 0.0,
+      "parent": 1.0,
+      "child": 0.0,
+      "sibling": 0.923
+    }
+  },
+  {
+    "node2": "http://data.jrc.ec.europa.eu/ontology/cybersecurity/secure_multi-party_computation",
+    "label2": "Secure multi-party computation",
+    "all_labels": [
+      "Secure multi-party computation"
+    ],
+    "similarity": 0.477,
+    "is_exact_match": false,
+    "scores": {
+      "label": 0.364,
+      "definition": 0.0,
+      "parent": 1.0,
+      "child": 0.0,
+      "sibling": 0.923
+    }
+  },
+  {
+    "node2": "http://data.jrc.ec.europa.eu/ontology/cybersecurity/digital_signatures",
+    "label2": "Digital signatures",
+    "all_labels": [
+      "Digital signatures"
+    ],
+    "similarity": 0.471,
+    "is_exact_match": false,
+    "scores": {
+      "label": 0.353,
+      "definition": 0.0,
+      "parent": 1.0,
+      "child": 0.0,
+      "sibling": 0.923
+    }
+  },
+  {
+    "node2": "http://data.jrc.ec.europa.eu/ontology/cybersecurity/hash_functions",
+    "label2": "Hash functions",
+    "all_labels": [
+      "Hash functions"
+    ],
+    "similarity": 0.442,
+    "is_exact_match": false,
+    "scores": {
+      "label": 0.303,
+      "definition": 0.0,
+      "parent": 1.0,
+      "child": 0.0,
+      "sibling": 0.923
+    }
+  },
+  {
+    "node2": "http://data.jrc.ec.europa.eu/ontology/cybersecurity/message_authentication",
+    "label2": "Message authentication",
+    "all_labels": [
+      "Message authentication"
+    ],
+    "similarity": 0.437,
+    "is_exact_match": false,
+    "scores": {
+      "label": 0.294,
+      "definition": 0.0,
+      "parent": 1.0,
+      "child": 0.0,
+      "sibling": 0.923
+    }
+  },
+  {
+    "node2": "http://data.jrc.ec.europa.eu/ontology/cybersecurity/steganography",
+    "label2": "Steganography",
+    "all_labels": [
+      "Steganography"
+    ],
+    "similarity": 0.423,
+    "is_exact_match": false,
+    "scores": {
+      "label": 0.485,
+      "definition": 0.0,
+      "parent": 0.0,
+      "child": 0.0,
+      "sibling": 0.0
+    }
+  },
+  {
+    "node2": "http://data.jrc.ec.europa.eu/ontology/cybersecurity/steganography_steganalysis_watermarking",
+    "label2": "Steganography, Steganalysis and Watermarking",
+    "all_labels": [
+      "Steganography, Steganalysis and Watermarking"
+    ],
+    "similarity": 0.412,
+    "is_exact_match": false,
+    "scores": {
+      "label": 0.473,
+      "definition": 0.0,
+      "parent": 0.0,
+      "child": 0.0,
+      "sibling": 0.0
+    }
+  }
+]

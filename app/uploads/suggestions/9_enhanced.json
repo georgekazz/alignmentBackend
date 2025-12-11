@@ -1,0 +1,35 @@
+[
+  {
+    "node2": "http://data.jrc.ec.europa.eu/ontology/cybersecurity/chemical",
+    "label2": "Chemical",
+    "all_labels": [
+      "Chemical"
+    ],
+    "similarity": 0.495,
+    "is_exact_match": false,
+    "scores": {
+      "label": 0.545,
+      "definition": 0.346,
+      "parent": 0.0,
+      "child": 0.0,
+      "sibling": 0.0
+    }
+  },
+  {
+    "node2": "http://data.jrc.ec.europa.eu/ontology/cybersecurity/human_machine_interface",
+    "label2": "Human Machine Interface",
+    "all_labels": [
+      "Human Machine Interface",
+      "HMI"
+    ],
+    "similarity": 0.436,
+    "is_exact_match": false,
+    "scores": {
+      "label": 0.5,
+      "definition": 0.0,
+      "parent": 0.0,
+      "child": 0.0,
+      "sibling": 0.0
+    }
+  }
+]

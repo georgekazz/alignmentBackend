@@ -285,6 +285,36 @@ def nt_to_tree(nt_content: str):
     return {"name": "Root", "children": root_nodes}
 
 
+@app.delete("/files/{file_id}")
+def delete_file(
+    file_id: int,
+    db: Session = Depends(get_db),
+    current_user = Depends(get_current_user)
+):
+
+    file = db.query(File).filter(
+        File.id == file_id,
+        File.owner_id == current_user.id
+    ).first()
+
+    if not file:
+        raise HTTPException(status_code=404, detail="File not found")
+
+    is_used = db.query(Project).filter(
+        (Project.file1_id == file_id) | (Project.file2_id == file_id)
+    ).first()
+
+    if is_used:
+        raise HTTPException(status_code=400, detail="File is used in a project and cannot be deleted")
+
+    if os.path.exists(file.resource):
+        os.remove(file.resource)
+
+    db.delete(file)
+    db.commit()
+
+    return {"message": "File deleted successfully"}
+
 
 @app.get("/project-files/{project_id}")
 def get_project_files(project_id: int, db: Session = Depends(get_db), current_user: User = Depends(get_current_user)):
@@ -430,67 +460,6 @@ def get_link_types(group: str = None, db: Session = Depends(get_db)):
     return query.all()
 
 
-SUGGESTIONS_DIR = "uploads/suggestions"
-os.makedirs(SUGGESTIONS_DIR, exist_ok=True)
-SKOS = Namespace("http://www.w3.org/2004/02/skos/core#")
-
-# -------------------------
-#  Helper: guess RDF format
-# -------------------------
-def guess_rdf_format(file_path: str):
-    with open(file_path, "r", encoding="utf-8") as f:
-        first_line = f.read(100).lstrip()
-    if first_line.startswith("<?xml"):
-        return "xml"
-    elif first_line.startswith("@prefix") or first_line.startswith("@base"):
-        return "ttl"
-    else:
-        return "nt"
-
-# -------------------------
-#  Endpoint: Generate Suggestions
-# -------------------------
-@app.post("/projects/{project_id}/suggestions/generate")
-def generate_suggestions(project_id: int, db: Session = Depends(get_db), current_user = Depends(get_current_user)):
-    project = db.query(Project).filter(Project.id == project_id, Project.user_id == current_user.id).first()
-    if not project:
-        raise HTTPException(status_code=404, detail="Project not found")
-
-    file1 = db.query(File).filter(File.id == project.file1_id).first()
-    file2 = db.query(File).filter(File.id == project.file2_id).first()
-    if not file1 or not file2:
-        raise HTTPException(status_code=404, detail="Files not found")
-
-    g1, g2 = Graph(), Graph()
-    format1 = guess_rdf_format(file1.resource)
-    format2 = guess_rdf_format(file2.resource)
-
-    g1.parse(file1.resource, format=format1)
-    g2.parse(file2.resource, format=format2)
-
-    labels1 = [(str(s), str(o)) for s, o in g1.subject_objects(SKOS.prefLabel)]
-    labels2 = [(str(s), str(o)) for s, o in g2.subject_objects(SKOS.prefLabel)]
-
-    suggestions = []
-    for uri1, label1 in labels1:
-        for uri2, label2 in labels2:
-            score = fuzz.token_sort_ratio(label1, label2) / 100.0
-            if score > 0.7:  
-                suggestions.append({
-                    "node1": uri1,
-                    "label1": label1,
-                    "node2": uri2,
-                    "label2": label2,
-                    "similarity": round(score, 2)
-                })
-
-    suggestions_file = os.path.join(SUGGESTIONS_DIR, f"{project_id}.json")
-    with open(suggestions_file, "w", encoding="utf-8") as f:
-        json.dump(suggestions, f, ensure_ascii=False, indent=2)
-
-    return {"message": "Suggestions generated", "file": suggestions_file, "count": len(suggestions)}
-
-
 # -------------------------
 #  Endpoint: Read Suggestions
 # -------------------------
@@ -502,50 +471,6 @@ def read_suggestions(project_id: int):
     with open(suggestions_file, "r", encoding="utf-8") as f:
         suggestions = json.load(f)
     return {"suggestions": suggestions}
-
-SKOS = Namespace("http://www.w3.org/2004/02/skos/core#")
-
-@app.get("/projects/{project_id}/suggestions")
-def generate_node_suggestions(
-    project_id: int,
-    node_uri: str = Query(..., description="URI of the selected node"),
-    db: Session = Depends(get_db),
-    current_user = Depends(get_current_user)
-):
-    project = db.query(Project).filter(Project.id == project_id, Project.user_id == current_user.id).first()
-    if not project:
-        raise HTTPException(status_code=404, detail="Project not found")
-
-    file1 = db.query(File).filter(File.id == project.file1_id).first()
-    file2 = db.query(File).filter(File.id == project.file2_id).first()
-    if not file1 or not file2:
-        raise HTTPException(status_code=404, detail="Files not found")
-
-    g1, g2 = Graph(), Graph()
-    g1.parse(file1.resource, format="xml") 
-    g2.parse(file2.resource, format="xml")
-
-    node_label = None
-    for s, o in g1.subject_objects(SKOS.prefLabel):
-        if str(s) == node_uri:
-            node_label = str(o)
-            break
-    if not node_label:
-        raise HTTPException(status_code=404, detail="Node not found in left ontology")
-
-    suggestions = []
-    for s2, label2 in g2.subject_objects(SKOS.prefLabel):
-        score = fuzz.token_sort_ratio(node_label, str(label2)) / 100.0
-        if score > 0:  
-            suggestions.append({
-                "node2": str(s2),
-                "label2": str(label2),
-                "similarity": round(score, 2)
-            })
-
-    suggestions.sort(key=lambda x: x["similarity"], reverse=True)
-
-    return {"node": node_uri, "label": node_label, "suggestions": suggestions}
 
 
 @app.post("/projects/{project_id}/vote", response_model=VoteResponse)
@@ -670,17 +595,32 @@ def list_links(project_id: int, db: Session = Depends(get_db)):
 
 from fastapi.responses import JSONResponse
 @app.get("/projects/{project_id}/export-links")
-def export_project_links(project_id: int, db: Session = Depends(get_db), current_user: User = Depends(get_current_user)):
-    
-    links = db.query(Link).filter(Link.project_id == project_id).all()
+def export_project_links(
+    project_id: int,
+    db: Session = Depends(get_db),
+    current_user: User = Depends(get_current_user)
+):
+
+    project = db.query(Project).filter(
+        Project.id == project_id,
+        Project.user_id == current_user.id
+    ).first()
+
+    if not project:
+        raise HTTPException(status_code=404, detail="Project not found")
+
+    links = (
+        db.query(Link)
+        .filter(Link.project_id == project_id)
+        .all()
+    )
+
     if not links:
         raise HTTPException(status_code=404, detail="No links found for this project")
 
     links_data = [
         {
             "id": link.id,
-            "project_id": link.project_id,
-            "user_id": link.user_id,
             "source_node": link.source_node,
             "target_node": link.target_node,
             "link_type_id": link.link_type_id,
@@ -692,8 +632,19 @@ def export_project_links(project_id: int, db: Session = Depends(get_db), current
         for link in links
     ]
 
-    # Επιστρέφουμε JSON
-    return JSONResponse(content=links_data)
+    headers = {
+        "Content-Disposition": f"attachment; filename=project_{project_id}_links.json"
+    }
+
+    return JSONResponse(
+        content={
+            "project_id": project_id,
+            "user_id": current_user.id,
+            "total_links": len(links),
+            "links": links_data
+        },
+        headers=headers
+    )
 
 from app.models import Link, LinkType
 from rdflib import Graph, URIRef
@@ -832,164 +783,6 @@ def get_skos_tree(
 
 
 
-
-
-# SILK------------------------------------------------------------------------
-
-# import os
-# import json
-# import re
-# from rapidfuzz import fuzz
-# from nltk.stem import SnowballStemmer
-# from typing import List
-# from rdflib.namespace import RDFS
-# from rdflib import URIRef
-# from sentence_transformers import SentenceTransformer, util
-# import torch
-
-# # --- Config ---
-# SUGGESTIONS_DIR = "uploads/suggestions"
-# SKOS = Namespace("http://www.w3.org/2004/02/skos/core#")
-
-# # NLP setup
-# stemmer = SnowballStemmer("english")
-# STOPWORDS = set("""
-# a able about across after all almost also am among an and any are as at be because been but by can cannot could dear did do does either else ever every for from get got had has have he her hers him his how however i if in into is it its just least let like likely may me might most must my neither no nor not of off often on only or other our own rather said say says she should since so some than that the their them then there these they this tis to too twas us wants was we were what when where which while who whom why will with would yet you your
-# """.split())
-
-# model = SentenceTransformer("paraphrase-multilingual-mpnet-base-v2")
-
-
-# def clean_label(label: str) -> str:
-#     label = label.strip()
-#     label = re.sub(r"\s+", " ", label)
-#     return label
-
-
-# def preprocess_label(label: str) -> str:
-#     label = label.lower()
-#     label = re.sub(r"[^a-zA-Zα-ωΑ-Ω0-9\s\-]", " ", label)
-#     tokens = [stemmer.stem(t) for t in label.split() if t not in STOPWORDS]
-#     return " ".join(tokens)
-
-
-# @app.get("/projects/{project_id}/suggestions_full")
-# def generate_node_suggestions_full_embeddings(
-#     project_id: int,
-#     node_uri: str = Query(..., description="URI of the selected node"),
-#     db: Session = Depends(get_db),
-#     current_user=Depends(get_current_user)
-# ):
-#     project = (
-#         db.query(Project)
-#         .filter(Project.id == project_id, Project.user_id == current_user.id)
-#         .first()
-#     )
-#     if not project:
-#         raise HTTPException(status_code=404, detail="Project not found")
-
-#     file1 = db.query(File).filter(File.id == project.file1_id).first()
-#     file2 = db.query(File).filter(File.id == project.file2_id).first()
-
-#     if not file1 or not file2:
-#         raise HTTPException(status_code=404, detail="Files not found")
-
-#     format1 = guess_rdf_format(file1.resource)
-#     format2 = guess_rdf_format(file2.resource)
-
-#     g1, g2 = Graph(), Graph()
-#     g1.parse(file1.resource, format=format1)
-#     g2.parse(file2.resource, format=format2)
-
-#     node_props = [SKOS.prefLabel, SKOS.altLabel, RDFS.label]
-#     node_uri_ref = URIRef(node_uri)
-
-#     node_labels_original = [
-#         clean_label(str(l))
-#         for prop in node_props
-#         for l in g1.objects(node_uri_ref, prop)
-#     ]
-
-#     node_labels_processed = [
-#         preprocess_label(str(l))
-#         for prop in node_props
-#         for l in g1.objects(node_uri_ref, prop)
-#     ]
-
-#     if not node_labels_processed:
-#         raise HTTPException(status_code=404, detail="Node not found in left ontology")
-
-#     node_embs = model.encode(
-#         node_labels_processed,
-#         convert_to_tensor=True,
-#         normalize_embeddings=True
-#     )
-
-#     suggestions = []
-#     seen_labels = set()
-#     target_props = [SKOS.prefLabel, SKOS.altLabel]
-
-#     for s2 in g2.subjects():
-
-#         target_original_labels = [
-#             clean_label(str(l))
-#             for prop in target_props
-#             for l in g2.objects(s2, prop)
-#         ]
-
-#         target_processed_labels = [
-#             preprocess_label(str(l))
-#             for prop in target_props
-#             for l in g2.objects(s2, prop)
-#         ]
-
-#         if not target_processed_labels:
-#             continue
-
-#         target_embs = model.encode(
-#             target_processed_labels,
-#             convert_to_tensor=True,
-#             normalize_embeddings=True
-#         )
-
-#         best_score = 0.0
-#         best_label_original = None
-
-#         for nl_emb in node_embs:
-#             sim_row = util.cos_sim(nl_emb, target_embs)
-#             max_val, max_idx = torch.max(sim_row, dim=1)
-
-#             score = max_val.item()
-#             idx = max_idx.item()
-
-#             if score > best_score:
-#                 best_score = score
-#                 best_label_original = target_original_labels[idx]
-
-#         if best_label_original and best_label_original not in seen_labels:
-#             suggestions.append({
-#                 "node2": str(s2),
-#                 "label2": best_label_original,
-#                 "similarity": round(best_score, 2)
-#             })
-#             seen_labels.add(best_label_original)
-
-#     suggestions.sort(key=lambda x: x["similarity"], reverse=True)
-
-#     os.makedirs(SUGGESTIONS_DIR, exist_ok=True)
-#     output_file = os.path.join(SUGGESTIONS_DIR, f"{project_id}.json")
-
-#     with open(output_file, "w", encoding="utf-8") as f:
-#         json.dump(suggestions, f, ensure_ascii=False, indent=2)
-
-#     return {
-#         "node": node_uri,
-#         "labels": node_labels_original,
-#         "suggestions": suggestions
-#     }
-
-
-
 # SILK------------------------------------------------------------------------
 
 import os
@@ -1000,9 +793,24 @@ from nltk.stem import SnowballStemmer
 from typing import List
 from rdflib.namespace import RDFS
 from rdflib import URIRef
+from typing import List, Dict, Set, Tuple
 
 SUGGESTIONS_DIR = "uploads/suggestions"
 SKOS = Namespace("http://www.w3.org/2004/02/skos/core#")
+os.makedirs(SUGGESTIONS_DIR, exist_ok=True)
+
+# -------------------------
+#  Helper: guess RDF format
+# -------------------------
+def guess_rdf_format(file_path: str):
+    with open(file_path, "r", encoding="utf-8") as f:
+        first_line = f.read(100).lstrip()
+    if first_line.startswith("<?xml"):
+        return "xml"
+    elif first_line.startswith("@prefix") or first_line.startswith("@base"):
+        return "ttl"
+    else:
+        return "nt"
 
 # NLP setup
 stemmer = SnowballStemmer("english")
@@ -1011,12 +819,14 @@ a able about across after all almost also am among an and any are as at be becau
 """.split())
 
 def preprocess_label(label: str) -> str:
+    """Normalize and stem a label for comparison."""
     label = label.lower()
     label = re.sub(r"[^a-zα-ω0-9\s]", " ", label, flags=re.IGNORECASE)
     tokens = [stemmer.stem(t) for t in label.split() if t not in STOPWORDS]
     return " ".join(tokens)
 
 def dice_similarity(a: str, b: str) -> float:
+    """Calculate Dice coefficient based on character bigrams."""
     def bigrams(s):
         s = s.lower()
         return {s[i:i+2] for i in range(len(s)-1)}
@@ -1028,16 +838,245 @@ def dice_similarity(a: str, b: str) -> float:
     overlap = len(a_bigrams & b_bigrams)
     return 2 * overlap / (len(a_bigrams) + len(b_bigrams))
 
+def get_all_labels(graph, uri_ref) -> List[str]:
+    """Extract all labels (prefLabel, altLabel, label) for a concept."""
+    labels = []
+    label_props = [SKOS.prefLabel, SKOS.altLabel, RDFS.label]
+    
+    for prop in label_props:
+        for label in graph.objects(subject=uri_ref, predicate=prop):
+            labels.append(str(label))
+    
+    return labels
+
+def get_definition(graph, uri_ref) -> str:
+    """Extract definition/description for a concept."""
+    definition = graph.value(subject=uri_ref, predicate=SKOS.definition)
+    return str(definition) if definition else ""
+
+def get_parents(graph, uri_ref) -> Set[URIRef]:
+    """Get all parent concepts (broader relations)."""
+    parents = set()
+    for parent in graph.objects(subject=uri_ref, predicate=SKOS.broader):
+        parents.add(parent)
+    return parents
+
+def get_children(graph, uri_ref) -> Set[URIRef]:
+    """Get all child concepts (narrower relations)."""
+    children = set()
+    for child in graph.objects(subject=uri_ref, predicate=SKOS.narrower):
+        children.add(child)
+    # Also check inverse broader relations
+    for child in graph.subjects(predicate=SKOS.broader, object=uri_ref):
+        children.add(child)
+    return children
+
+def get_siblings(graph, uri_ref) -> Set[URIRef]:
+    """Get sibling concepts (sharing same parent)."""
+    siblings = set()
+    parents = get_parents(graph, uri_ref)
+    
+    for parent in parents:
+        # Get all children of this parent
+        for sibling in get_children(graph, parent):
+            if sibling != uri_ref:
+                siblings.add(sibling)
+    
+    return siblings
+
+def calculate_label_similarity(labels1: List[str], labels2: List[str]) -> Tuple[float, bool]:
+    """
+    Calculate maximum similarity between any pair of labels.
+    Returns (similarity_score, is_exact_match)
+    """
+    max_score = 0.0
+    is_exact = False
+    
+    for l1 in labels1:
+        processed_l1 = preprocess_label(l1)
+        l1_clean = l1.lower().strip()
+        
+        for l2 in labels2:
+            processed_l2 = preprocess_label(l2)
+            l2_clean = l2.lower().strip()
+            
+            # Check for exact match (before preprocessing)
+            if l1_clean == l2_clean:
+                return 1.0, True
+            
+            # Check for exact match after preprocessing
+            if processed_l1 == processed_l2 and processed_l1:
+                is_exact = True
+                max_score = 1.0
+                continue
+            
+            dice_score = dice_similarity(processed_l1, processed_l2)
+            fuzz_score = fuzz.token_sort_ratio(processed_l1, processed_l2) / 100
+            score = max(dice_score, fuzz_score)
+            
+            if score > max_score:
+                max_score = score
+    
+    return max_score, is_exact
+
+def calculate_definition_similarity(def1: str, def2: str) -> float:
+    """Calculate similarity between definitions."""
+    if not def1 or not def2:
+        return 0.0
+    
+    processed_def1 = preprocess_label(def1)
+    processed_def2 = preprocess_label(def2)
+    
+    if not processed_def1 or not processed_def2:
+        return 0.0
+    
+    # Use token sort ratio for longer text
+    return fuzz.token_set_ratio(processed_def1, processed_def2) / 100
+
+def calculate_structural_similarity(
+    graph1, uri1: URIRef, 
+    graph2, uri2: URIRef,
+    similarity_threshold: float = 0.65
+) -> Dict[str, float]:
+    """Calculate structural similarity based on hierarchy."""
+    
+    parents1 = get_parents(graph1, uri1)
+    parents2 = get_parents(graph2, uri2)
+    children1 = get_children(graph1, uri1)
+    children2 = get_children(graph2, uri2)
+    siblings1 = get_siblings(graph1, uri1)
+    siblings2 = get_siblings(graph2, uri2)
+    
+    # Parent similarity
+    parent_score = 0.0
+    if parents1 and parents2:
+        parent_matches = 0
+        for p1 in parents1:
+            p1_labels = get_all_labels(graph1, p1)
+            for p2 in parents2:
+                p2_labels = get_all_labels(graph2, p2)
+                similarity, _ = calculate_label_similarity(p1_labels, p2_labels)
+                if similarity > similarity_threshold:
+                    parent_matches += 1
+                    break
+        parent_score = parent_matches / max(len(parents1), len(parents2))
+    
+    # Child similarity
+    child_score = 0.0
+    if children1 and children2:
+        child_matches = 0
+        for c1 in children1:
+            c1_labels = get_all_labels(graph1, c1)
+            for c2 in children2:
+                c2_labels = get_all_labels(graph2, c2)
+                similarity, _ = calculate_label_similarity(c1_labels, c2_labels)
+                if similarity > similarity_threshold:
+                    child_matches += 1
+                    break
+        child_score = child_matches / max(len(children1), len(children2))
+    
+    # Sibling similarity
+    sibling_score = 0.0
+    if siblings1 and siblings2:
+        sibling_matches = 0
+        for s1 in siblings1:
+            s1_labels = get_all_labels(graph1, s1)
+            for s2 in siblings2:
+                s2_labels = get_all_labels(graph2, s2)
+                similarity, _ = calculate_label_similarity(s1_labels, s2_labels)
+                if similarity > similarity_threshold:
+                    sibling_matches += 1
+                    break
+        sibling_score = sibling_matches / max(len(siblings1), len(siblings2))
+    
+    return {
+        "parent": parent_score,
+        "child": child_score,
+        "sibling": sibling_score
+    }
+
+def calculate_combined_score(
+    label_score: float,
+    is_exact_match: bool,
+    definition_score: float,
+    structural_scores: Dict[str, float]
+) -> float:
+    """
+    Calculate combined score with adaptive weighting.
+    Exact matches get high scores even without structural similarity.
+    """
+    
+    # If exact match, prioritize it heavily
+    if is_exact_match:
+        # Base score is very high for exact matches
+        base_score = 0.95
+        
+        # Add small bonuses for supporting evidence
+        definition_bonus = definition_score * 0.02
+        structural_bonus = (
+            structural_scores["parent"] * 0.01 +
+            structural_scores["child"] * 0.01 +
+            structural_scores["sibling"] * 0.01
+        )
+        
+        return min(1.0, base_score + definition_bonus + structural_bonus)
+    
+    weights = {
+        "label": 0.50,
+        "definition": 0.15,
+        "parent": 0.15,
+        "child": 0.12,
+        "sibling": 0.08
+    }
+    
+    # If no definition exists, redistribute that weight to label
+    if definition_score == 0:
+        weights["label"] += weights["definition"] * 0.5
+        weights["parent"] += weights["definition"] * 0.2
+        weights["child"] += weights["definition"] * 0.2
+        weights["sibling"] += weights["definition"] * 0.1
+        weights["definition"] = 0
+    
+    # If no structural context exists, give more weight to label and definition
+    has_structure = any(structural_scores[k] > 0 for k in ["parent", "child", "sibling"])
+    if not has_structure:
+        structural_weight = weights["parent"] + weights["child"] + weights["sibling"]
+        weights["label"] += structural_weight * 0.7
+        weights["definition"] += structural_weight * 0.3
+        weights["parent"] = weights["child"] = weights["sibling"] = 0
+    
+    combined_score = (
+        weights["label"] * label_score +
+        weights["definition"] * definition_score +
+        weights["parent"] * structural_scores["parent"] +
+        weights["child"] * structural_scores["child"] +
+        weights["sibling"] * structural_scores["sibling"]
+    )
+    
+    return combined_score
 
 @app.get("/projects/{project_id}/suggestions_full")
-def generate_node_suggestions_full(
+def generate_node_suggestions_enhanced(
     project_id: int,
     node_uri: str = Query(..., description="URI of the selected node"),
+    min_threshold: float = Query(0.4, description="Minimum similarity threshold"),
+    structural_threshold: float = Query(0.65, description="Threshold for structural matching"),
     db: Session = Depends(get_db),
     current_user = Depends(get_current_user)
 ):
-   
-    project = db.query(Project).filter(Project.id == project_id, Project.user_id == current_user.id).first()
+    """
+    Enhanced ontology matching with:
+    - Multiple labels (prefLabel, altLabel)
+    - Exact match detection
+    - Definitions
+    - Parent/child/sibling context
+    - Adaptive weighted scoring
+    """
+    
+    project = db.query(Project).filter(
+        Project.id == project_id, 
+        Project.user_id == current_user.id
+    ).first()
     if not project:
         raise HTTPException(status_code=404, detail="Project not found")
     
@@ -1052,52 +1091,83 @@ def generate_node_suggestions_full(
     g1.parse(file1.resource, format=format1)
     g2.parse(file2.resource, format=format2)
 
-    node_props = [SKOS.prefLabel, SKOS.altLabel, RDFS.label]
     node_uri_ref = URIRef(node_uri)
-    node_label = None
-    print(f"Node URI: {node_uri_ref}")
-    for p, o in g1.predicate_objects(subject=node_uri_ref):
-        print("Predicate:", p, "| Object:", o)
-
-    for prop in node_props:
-        val = g1.value(subject=node_uri_ref, predicate=prop)
-        if val:
-            node_label = preprocess_label(str(val))
-            break
-
-    if not node_label:
-        raise HTTPException(status_code=404, detail="Node not found in left ontology")
-
+    
+    # Extract all information about source node
+    source_labels = get_all_labels(g1, node_uri_ref)
+    if not source_labels:
+        raise HTTPException(status_code=404, detail="Node not found in source ontology")
+    
+    source_definition = get_definition(g1, node_uri_ref)
+    
+    # Calculate suggestions
     suggestions = []
-    target_props = [SKOS.prefLabel, SKOS.altLabel]
-    seen_labels = set()
-
+    seen_uris = set()
+    
     for s2 in g2.subjects():
-        best_score = 0
-        best_label = None
-        for prop in target_props:
-            label2 = g2.value(subject=s2, predicate=prop)
-            if label2:
-                processed_label2 = preprocess_label(str(label2))
-                score = max(dice_similarity(node_label, processed_label2),
-                            fuzz.token_sort_ratio(node_label, processed_label2)/100)
-                if score > best_score:
-                    best_score = score
-                    best_label = str(label2)
+        if s2 in seen_uris:
+            continue
         
-        if best_score > 0 and best_label not in seen_labels:
+        target_labels = get_all_labels(g2, s2)
+        if not target_labels:
+            continue
+        
+        # Calculate label similarity
+        label_score, is_exact = calculate_label_similarity(source_labels, target_labels)
+        
+        # Calculate definition similarity
+        target_definition = get_definition(g2, s2)
+        definition_score = calculate_definition_similarity(
+            source_definition, 
+            target_definition
+        )
+        
+        # Calculate structural similarity
+        structural_scores = calculate_structural_similarity(
+            g1, node_uri_ref, 
+            g2, s2,
+            structural_threshold
+        )
+        
+        # Calculate combined score with adaptive weighting
+        combined_score = calculate_combined_score(
+            label_score,
+            is_exact,
+            definition_score,
+            structural_scores
+        )
+        
+        if combined_score >= min_threshold:
             suggestions.append({
                 "node2": str(s2),
-                "label2": best_label,
-                "similarity": round(best_score, 2)
+                "label2": target_labels[0],  # Primary label
+                "all_labels": target_labels,
+                "similarity": round(combined_score, 3),
+                "is_exact_match": is_exact,
+                "scores": {
+                    "label": round(label_score, 3),
+                    "definition": round(definition_score, 3),
+                    "parent": round(structural_scores["parent"], 3),
+                    "child": round(structural_scores["child"], 3),
+                    "sibling": round(structural_scores["sibling"], 3)
+                }
             })
-            seen_labels.add(best_label)
-
-    suggestions.sort(key=lambda x: x["similarity"], reverse=True)
-
+            seen_uris.add(s2)
+    
+    # Sort by combined similarity (exact matches first, then by score)
+    suggestions.sort(key=lambda x: (not x["is_exact_match"], -x["similarity"]))
+    
+    # Save results
     os.makedirs(SUGGESTIONS_DIR, exist_ok=True)
-    output_file = os.path.join(SUGGESTIONS_DIR, f"{project_id}.json")
+    output_file = os.path.join(SUGGESTIONS_DIR, f"{project_id}_enhanced.json")
     with open(output_file, "w", encoding="utf-8") as f:
         json.dump(suggestions, f, ensure_ascii=False, indent=2)
-
-    return {"node": node_uri, "label": node_label, "suggestions": suggestions}
+    
+    return {
+        "node": node_uri,
+        "source_labels": source_labels,
+        "source_definition": source_definition,
+        "suggestions": suggestions[:20],  # Return top 20
+        "total_matches": len(suggestions),
+        "exact_matches": sum(1 for s in suggestions if s["is_exact_match"])
+    }
