@@ -28,6 +28,7 @@ origins = [
     "http://localhost:5500",
     "http://127.0.0.1:5500",
     "http://192.168.6.123:8000",
+    "http://alignment.okfn.gr",
 ]
 
 app.add_middleware(
