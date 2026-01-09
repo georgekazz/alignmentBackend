@@ -1,14 +1,19 @@
 # schemas.py
-from pydantic import BaseModel
-from typing import Optional
+from pydantic import BaseModel, ConfigDict
+from typing import Optional, List
 from datetime import datetime
-from typing import List
+
+
+# --------------------
+# FILES
+# --------------------
 
 class FileCreate(BaseModel):
     filename: str
     resource: Optional[str] = None
     filetype: Optional[str] = None
-    public: Optional[bool] = False
+    public: bool = False
+
 
 class FileResponse(BaseModel):
     id: int
@@ -21,66 +26,46 @@ class FileResponse(BaseModel):
     created_at: datetime
     updated_at: datetime
 
-    class Config:
-        orm_mode = True
+    model_config = ConfigDict(from_attributes=True)
+
+
+# --------------------
+# PROJECTS
+# --------------------
 
 class ProjectBase(BaseModel):
     name: str
+
 
 class ProjectCreate(ProjectBase):
     file1_id: int
     file2_id: int
 
+
 class ProjectResponse(ProjectBase):
     id: int
-    name: str
     user_id: int
     file1_id: int
     file2_id: int
     created_at: datetime
 
-    class Config:
-        orm_mode = True
-
-class VoteCreate(BaseModel):
-    link_id: int
-    vote: int 
-
-class VoteResponse(BaseModel):
-    link_id: int
-    vote: int
-    user_id: int
-    project_id: int
-
-    class Config:
-        orm_mode = True
+    model_config = ConfigDict(from_attributes=True)
 
 
-class VoteBase(BaseModel):
-    project_id: int
-    link_id: int
-    vote: int   # 1 = like, -1 = dislike
-
-class VoteCreate(VoteBase):
-    pass
-
-class VoteResponse(VoteBase):
-    id: int
-    user_id: int
-    created_at: datetime
-
-    class Config:
-        orm_mode = True
-
+# --------------------
+# LINKS & LINK TYPES
+# --------------------
 
 class LinkBase(BaseModel):
     project_id: int
     source_node: str
     target_node: str
 
+
 class LinkCreate(LinkBase):
     link_type_id: int
     suggestion_score: float
+
 
 class LinkTypeBase(BaseModel):
     group: str
@@ -88,11 +73,16 @@ class LinkTypeBase(BaseModel):
     value: str
     public: bool = True
 
+
+class LinkTypeCreate(LinkTypeBase):
+    pass
+
+
 class LinkTypeResponse(LinkTypeBase):
     id: int
 
-    class Config:
-        orm_mode = True
+    model_config = ConfigDict(from_attributes=True)
+
 
 class LinkResponse(LinkBase):
     id: int
@@ -103,13 +93,30 @@ class LinkResponse(LinkBase):
     downvote: int
     created_at: datetime
     link_type: LinkTypeResponse
-    class Config:
-        orm_mode = True
+
+    model_config = ConfigDict(from_attributes=True)
 
 
-class LinkTypeCreate(LinkTypeBase):
+# --------------------
+# VOTES
+# --------------------
+
+class VoteBase(BaseModel):
+    project_id: int
+    link_id: int
+    vote: int   # 1 = like, -1 = dislike
+
+
+class VoteCreate(VoteBase):
     pass
 
+
+class VoteResponse(VoteBase):
+    id: int
+    user_id: int
+    created_at: datetime
+
+    model_config = ConfigDict(from_attributes=True)
 
 
 class VoteRequest(BaseModel):
