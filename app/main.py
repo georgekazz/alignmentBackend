@@ -288,48 +288,234 @@ class ProjectCreate(BaseModel):
     file1_id: int
     file2_id: int
 
-def nt_to_tree(nt_content: str):
+from rdflib import Graph, Namespace, URIRef, RDFS
+from typing import Dict, List, Set
+import re
+
+SKOS = Namespace("http://www.w3.org/2004/02/skos/core#")
+OWL = Namespace("http://www.w3.org/2002/07/owl#")
+
+def nt_to_tree(nt_content: str) -> Dict:
+   
     g = Graph()
-    g.parse(data=nt_content, format="nt")
-
-    nodes = {}
-    root_nodes = []
-
+    try:
+        g.parse(data=nt_content, format="nt")
+    except Exception as e:
+        raise ValueError(f"Failed to parse N-Triples: {str(e)}")
+    
+    if len(g) == 0:
+        return {"name": "Root", "uri": "root", "children": []}
+    
+    LABEL_PREDICATES = {
+        str(SKOS.prefLabel),
+        str(SKOS.altLabel),
+        str(RDFS.label)
+    }
+    
+    BROADER_PREDICATES = {
+        str(SKOS.broader),
+    }
+    
+    NARROWER_PREDICATES = {
+        str(SKOS.narrower),
+    }
+    
+    SUBCLASS_PREDICATES = {
+        str(RDFS.subClassOf),
+        str(OWL.subClassOf)
+    }
+    
+    TOP_CONCEPT_PREDICATES = {
+        str(SKOS.hasTopConcept),
+        str(SKOS.topConceptOf)
+    }
+    
+    nodes: Dict[str, Dict] = {}
+    child_to_parents: Dict[str, Set[str]] = {}
+    parent_to_children: Dict[str, List[str]] = {}
+    explicit_top_concepts: Set[str] = set()
+    concept_scheme_uri: str = None
+    concept_scheme_label: str = None
+    
     for s, p, o in g.triples((None, None, None)):
-        s = str(s)
-        p = str(p)
-        o = str(o)
-
-        if any(k in p for k in ["prefLabel", "altLabel", "label"]):
-            label = o.strip('"').replace("@en", "")
-
-            if label.startswith("http"):
+        s_str = str(s)
+        p_str = str(p)
+        o_str = str(o)
+        
+        if p_str not in LABEL_PREDICATES:
+            continue
+        
+        if not s_str.startswith("http"):
+            continue
+        
+        label = o_str
+        
+        if label.startswith('"') and '"' in label[1:]:
+            label = label[1:label.rindex('"')]
+        
+        label = re.sub(r'@[a-z]{2}(-[A-Z]{2})?$', '', label).strip()
+        
+        if label.startswith("http"):
+            continue
+        
+        if not label:
+            continue
+        
+        if s_str not in nodes:
+            nodes[s_str] = {
+                "name": label,
+                "uri": s_str,
+                "children": []
+            }
+        else:
+            if "name" not in nodes[s_str] or not nodes[s_str]["name"]:
+                nodes[s_str]["name"] = label
+    
+    for s in g.subjects(predicate=None, object=SKOS.ConceptScheme):
+        concept_scheme_uri = str(s)
+        for pred in [SKOS.prefLabel, RDFS.label]:
+            label = g.value(subject=s, predicate=pred)
+            if label:
+                concept_scheme_label = str(label)
+                concept_scheme_label = re.sub(r'@[a-z]{2}(-[A-Z]{2})?$', '', concept_scheme_label).strip('"')
+                break
+        break  
+    
+    for s, p, o in g.triples((None, None, None)):
+        p_str = str(p)
+        
+        if p_str == str(SKOS.hasTopConcept):
+            explicit_top_concepts.add(str(o))
+        elif p_str == str(SKOS.topConceptOf):
+            explicit_top_concepts.add(str(s))
+    
+    for s, p, o in g.triples((None, None, None)):
+        s_str = str(s)
+        p_str = str(p)
+        o_str = str(o)
+        
+        if not s_str.startswith("http") or not o_str.startswith("http"):
+            continue
+        
+        child_uri = None
+        parent_uri = None
+        
+        if p_str in BROADER_PREDICATES:
+            child_uri = s_str
+            parent_uri = o_str
+        
+        elif p_str in NARROWER_PREDICATES:
+            parent_uri = s_str
+            child_uri = o_str
+        
+        elif p_str in SUBCLASS_PREDICATES:
+            child_uri = s_str
+            parent_uri = o_str
+        
+        if child_uri and parent_uri:
+            if child_uri not in child_to_parents:
+                child_to_parents[child_uri] = set()
+            child_to_parents[child_uri].add(parent_uri)
+            
+            if parent_uri not in parent_to_children:
+                parent_to_children[parent_uri] = []
+            if child_uri not in parent_to_children[parent_uri]:
+                parent_to_children[parent_uri].append(child_uri)
+    
+    for parent_uri in parent_to_children.keys():
+        if parent_uri not in nodes:
+            label = parent_uri.split("#")[-1].split("/")[-1]
+            label = re.sub(r'[_-]', ' ', label)
+            
+            nodes[parent_uri] = {
+                "name": label,
+                "uri": parent_uri,
+                "children": []
+            }
+    
+    for parent_uri, child_uris in parent_to_children.items():
+        if parent_uri not in nodes:
+            continue
+        
+        parent_node = nodes[parent_uri]
+        
+        for child_uri in child_uris:
+            if child_uri not in nodes:
                 continue
-            if s not in nodes:
-                nodes[s] = {"name": label, "uri": s, "children": []}
+            
+            child_node = nodes[child_uri]
+            
+            child_id = id(child_node)
+            parent_children_ids = {id(c) for c in parent_node["children"]}
+            
+            if child_id not in parent_children_ids:
+                parent_node["children"].append(child_node)
+    
+    root_nodes = []
+    root_node_ids = set()
+    
+    if explicit_top_concepts:
+        for uri in explicit_top_concepts:
+            if uri in nodes:
+                node = nodes[uri]
+                node_id = id(node)
+                if node_id not in root_node_ids:
+                    root_nodes.append(node)
+                    root_node_ids.add(node_id)
+    
+    if not root_nodes:
+        for uri, node in nodes.items():
+            has_parent = uri in child_to_parents and len(child_to_parents[uri]) > 0
+            
+            if not has_parent:
+                node_id = id(node)
+                if node_id not in root_node_ids:
+                    root_nodes.append(node)
+                    root_node_ids.add(node_id)
+    
+    if not root_nodes:
+        nodes_by_children = sorted(
+            nodes.items(),
+            key=lambda x: len(parent_to_children.get(x[0], [])),
+            reverse=True
+        )
+        
+        for uri, node in nodes_by_children[:min(20, len(nodes_by_children))]:
+            node_id = id(node)
+            if node_id not in root_node_ids:
+                root_nodes.append(node)
+                root_node_ids.add(node_id)
+    
+    if not root_nodes and nodes:
+        root_nodes = list(nodes.values())
+    
+    root_name = "Root"
+    root_uri = "root"
+    
+    if concept_scheme_label:
+        root_name = concept_scheme_label
+        root_uri = concept_scheme_uri or "root"
+    elif len(root_nodes) == 1:
+        root_name = root_nodes[0]["name"]
+        root_uri = root_nodes[0]["uri"]
+        root_nodes = root_nodes[0]["children"]
+    else:
+        common_words = set()
+        for node in root_nodes[:5]:
+            words = set(node["name"].lower().split())
+            if not common_words:
+                common_words = words
             else:
-                nodes[s]["name"] = label
-
-    for s, p, o in g.triples((None, None, None)):
-        s = str(s)
-        p = str(p)
-        o = str(o)
-        if "broader" in p:
-            parent_uri = o.strip("<>")
-            child_node = nodes.get(s)
-            parent_node = nodes.get(parent_uri)
-            if child_node:
-                if parent_node:
-                    parent_node["children"].append(child_node)
-                else:
-                    root_nodes.append(child_node)
-
-    for uri, node in nodes.items():
-        has_parent = any(node in n.get("children", []) for n in nodes.values())
-        if not has_parent and node not in root_nodes:
-            root_nodes.append(node)
-
-    return {"name": "Root", "children": root_nodes}
+                common_words &= words
+        
+        if common_words:
+            root_name = " ".join(sorted(common_words)).title() + " Ontology"
+    
+    return {
+        "name": root_name,
+        "uri": root_uri,
+        "children": root_nodes
+    }
 
 
 @app.delete("/files/{file_id}")

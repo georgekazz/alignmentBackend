@@ -1,14 +1,14 @@
 [
   {
-    "node2": "http://data.jrc.ec.europa.eu/ontology/cybersecurity/mobile_devices",
-    "label2": "Mobile devices",
+    "node2": "http://data.jrc.ec.europa.eu/ontology/cybersecurity/network_steganography",
+    "label2": "Network steganography",
     "all_labels": [
-      "Mobile devices"
+      "Network steganography"
     ],
-    "similarity": 0.455,
+    "similarity": 0.551,
     "is_exact_match": false,
     "scores": {
-      "label": 0.522,
+      "label": 0.632,
       "definition": 0.0,
       "parent": 0.0,
       "child": 0.0,
@@ -16,15 +16,15 @@
     }
   },
   {
-    "node2": "http://data.jrc.ec.europa.eu/ontology/cybersecurity/resilience_aspects",
-    "label2": "Resilience aspects",
+    "node2": "http://data.jrc.ec.europa.eu/ontology/cybersecurity/network-security_requirements",
+    "label2": "Requirements for network security",
     "all_labels": [
-      "Resilience aspects"
+      "Requirements for network security"
     ],
-    "similarity": 0.419,
+    "similarity": 0.472,
     "is_exact_match": false,
     "scores": {
-      "label": 0.48,
+      "label": 0.541,
       "definition": 0.0,
       "parent": 0.0,
       "child": 0.0,
@@ -32,32 +32,48 @@
     }
   },
   {
-    "node2": "http://data.jrc.ec.europa.eu/ontology/cybersecurity/defence",
-    "label2": "Defence",
+    "node2": "http://data.jrc.ec.europa.eu/ontology/cybersecurity/network_distributed_systems",
+    "label2": "Network and Distributed Systems",
     "all_labels": [
-      "Defence"
+      "Network and Distributed Systems"
+    ],
+    "similarity": 0.445,
+    "is_exact_match": false,
+    "scores": {
+      "label": 0.488,
+      "definition": 0.318,
+      "parent": 0.0,
+      "child": 0.0,
+      "sibling": 0.0
+    }
+  },
+  {
+    "node2": "http://data.jrc.ec.europa.eu/ontology/cybersecurity/biometric_methods_technologies_tools",
+    "label2": "Biometric methods, technologies and tools",
+    "all_labels": [
+      "Biometric methods, technologies and tools"
+    ],
+    "similarity": 0.417,
+    "is_exact_match": false,
+    "scores": {
+      "label": 0.478,
+      "definition": 0.0,
+      "parent": 0.0,
+      "child": 0.0,
+      "sibling": 0.0
+    }
+  },
+  {
+    "node2": "http://data.jrc.ec.europa.eu/ontology/cybersecurity/network_interoperability",
+    "label2": "Network interoperability",
+    "all_labels": [
+      "Network interoperability"
     ],
     "similarity": 0.411,
     "is_exact_match": false,
     "scores": {
-      "label": 0.444,
-      "definition": 0.312,
-      "parent": 0.0,
-      "child": 0.0,
-      "sibling": 0.0
-    }
-  },
-  {
-    "node2": "http://data.jrc.ec.europa.eu/ontology/cybersecurity/financial",
-    "label2": "Financial",
-    "all_labels": [
-      "Financial"
-    ],
-    "similarity": 0.408,
-    "is_exact_match": false,
-    "scores": {
-      "label": 0.421,
-      "definition": 0.369,
+      "label": 0.471,
+      "definition": 0.0,
       "parent": 0.0,
       "child": 0.0,
       "sibling": 0.0
