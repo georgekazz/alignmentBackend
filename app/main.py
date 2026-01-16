@@ -1457,3 +1457,91 @@ def generate_node_suggestions_enhanced(
         "total_matches": len(suggestions),
         "exact_matches": sum(1 for s in suggestions if s["is_exact_match"])
     }
+
+#---test skos tree node details
+from typing import Dict, Any
+def normalize_values(values):
+    if isinstance(values, list):
+        unique_values = list(set(values))
+        return unique_values[0] if len(unique_values) == 1 else unique_values
+    return values
+
+@app.get("/node-details-skostree/")
+def node_details_skostree(
+    uri: str = Query(...),
+    file_id: int = Query(...),
+    db: Session = Depends(get_db)
+) -> Dict[str, Any]:
+
+    file = db.query(File).filter(File.id == file_id).first()
+    if not file:
+        raise HTTPException(status_code=404, detail=f"File with id {file_id} not found")
+
+    BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+    nt_path = os.path.join(BASE_DIR, "uploads", "triples", f"{os.path.splitext(file.filename)[0]}_triples.nt")
+
+    if not os.path.exists(nt_path):
+        raise HTTPException(status_code=404, detail=f"NT file {nt_path} not found")
+
+    # Ανάγνωση triples
+    node_uri = URIRef(uri)
+    details = {}
+    found = False
+
+    g = Graph()
+    g.parse(nt_path, format="nt")
+    for s, p, o in g.triples((node_uri, None, None)):
+        pred = str(p).split("#")[-1] if "#" in str(p) else str(p).split("/")[-1]
+        details.setdefault(pred, [])
+        details[pred].append(str(o))
+        found = True
+
+    if not found:
+        raise HTTPException(status_code=404, detail=f"Node {uri} not found in {file.filename}")
+
+    details = {k: normalize_values(v) for k, v in details.items()}
+    return {"uri": uri, "details": details}
+
+
+@app.delete("/projects/{project_id}")
+def delete_project(
+    project_id: int,
+    db: Session = Depends(get_db),
+    current_user: User = Depends(get_current_user)
+):
+    
+    # Find the project and verify ownership
+    project = db.query(Project).filter(
+        Project.id == project_id,
+        Project.user_id == current_user.id
+    ).first()
+    
+    if not project:
+        raise HTTPException(
+            status_code=404, 
+            detail="Project not found or you don't have permission to delete it"
+        )
+    
+    #Delete all associated links first
+    links_deleted = db.query(Link).filter(Link.project_id == project_id).delete()
+    
+    #Delete all votes on those links
+    if links_deleted > 0:
+        db.query(Vote).filter(
+            Vote.link_id.in_(
+                db.query(Link.id).filter(Link.project_id == project_id)
+            )
+        ).delete(synchronize_session=False)
+    
+    # Store project name for response
+    project_name = project.name
+    
+    # Delete the project
+    db.delete(project)
+    db.commit()
+    
+    return {
+        "message": f"Project '{project_name}' deleted successfully",
+        "deleted_project_id": project_id,
+        "deleted_links": links_deleted
+    }
