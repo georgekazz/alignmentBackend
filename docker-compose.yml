@@ -14,8 +14,12 @@ services:
       DB_PASSWORD: root
       DB_NAME: laravel
     volumes:
-      - /mnt/data/align/uploads:/app/uploads
+      - uploads_data:/app/uploads
+
 networks:
   shared_align_network:
     external: true
     name: shared_alignment_network
+
+volumes:
+  uploads_data:
