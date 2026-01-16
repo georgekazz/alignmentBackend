@@ -659,7 +659,12 @@ def node_details(project_id: int = Query(...), uri: str = Query(...), db: Sessio
         file = db.query(File).filter(File.id == file_id).first()
         if file:
             base_name = os.path.splitext(file.filename)[0]
+
             nt_path = os.path.join(BASE_DIR, "uploads", "triples", f"{base_name}_triples.nt")
+            
+            if not os.path.exists(nt_path):
+                nt_path = os.path.join("/app/uploads/triples", f"{base_name}_triples.nt")
+            
             if os.path.exists(nt_path):
                 files_paths.append(nt_path)
 
@@ -880,32 +885,31 @@ def list_links(project_id: int, db: Session = Depends(get_db)):
     return db.query(Link).filter(Link.project_id == project_id).all()
 
 from fastapi.responses import JSONResponse
+from datetime import datetime
 @app.get("/projects/{project_id}/export-links")
-def export_project_links(
+def export_project_links_json(
     project_id: int,
     db: Session = Depends(get_db),
     current_user: User = Depends(get_current_user)
 ):
-
+    
     project = db.query(Project).filter(
         Project.id == project_id,
         Project.user_id == current_user.id
     ).first()
-
+    
     if not project:
         raise HTTPException(status_code=404, detail="Project not found")
-
-    links = (
-        db.query(Link)
-        .filter(Link.project_id == project_id)
-        .all()
-    )
-
+    
+    links = db.query(Link).filter(Link.project_id == project_id).all()
+    
     if not links:
         raise HTTPException(status_code=404, detail="No links found for this project")
-
-    links_data = [
-        {
+    
+    links_data = []
+    for link in links:
+        
+        links_data.append({
             "id": link.id,
             "source_node": link.source_node,
             "target_node": link.target_node,
@@ -913,20 +917,20 @@ def export_project_links(
             "suggestion_score": link.suggestion_score,
             "upvote": link.upvote,
             "downvote": link.downvote,
-            "created_at": link.created_at.isoformat()
-        }
-        for link in links
-    ]
-
+            "created_at": link.created_at.isoformat() if link.created_at else None
+        })
+    
     headers = {
         "Content-Disposition": f"attachment; filename=project_{project_id}_links.json"
     }
-
+    
     return JSONResponse(
         content={
             "project_id": project_id,
+            "project_name": project.name,
             "user_id": current_user.id,
             "total_links": len(links),
+            "export_date": datetime.now().isoformat(),
             "links": links_data
         },
         headers=headers
@@ -937,36 +941,64 @@ from rdflib import Graph, URIRef
 from fastapi.responses import StreamingResponse
 import io
 @app.get("/projects/{project_id}/export")
-def export_project(project_id: int, db: Session = Depends(get_db)):
+def export_project(
+    project_id: int,
+    format: str = "turtle",
+    db: Session = Depends(get_db),
+    current_user: User = Depends(get_current_user)
+):
+    
+    project = db.query(Project).filter(
+        Project.id == project_id,
+        Project.user_id == current_user.id
+    ).first()
+    
+    if not project:
+        raise HTTPException(status_code=404, detail="Project not found")
     
     links = db.query(Link).filter(Link.project_id == project_id).all()
+    
     if not links:
         raise HTTPException(status_code=404, detail="No links found for this project")
-
+    
     link_types = db.query(LinkType).all()
     link_type_map = {lt.id: lt.inner for lt in link_types}
-
+    
     g = Graph()
-
+    
     for link in links:
         predicate_uri = link_type_map.get(link.link_type_id)
+        
         if not predicate_uri:
-           
             continue
-
+        
         g.add((
             URIRef(link.source_node),
             URIRef(predicate_uri),
             URIRef(link.target_node)
         ))
-
-    data = g.serialize(format="turtle")
+    
+    valid_formats = {
+        "turtle": ("text/turtle", "ttl"),
+        "xml": ("application/rdf+xml", "rdf"),
+        "nt": ("application/n-triples", "nt"),
+        "n3": ("text/n3", "n3")
+    }
+    
+    if format not in valid_formats:
+        format = "turtle"  
+    
+    media_type, extension = valid_formats[format]
+    
+    data = g.serialize(format=format)
     stream = io.BytesIO(data.encode("utf-8"))
-
+    
     return StreamingResponse(
         stream,
-        media_type="text/turtle",
-        headers={"Content-Disposition": f"attachment; filename=project_{project_id}_ontology.ttl"}
+        media_type=media_type,
+        headers={
+            "Content-Disposition": f"attachment; filename=project_{project_id}_ontology.{extension}"
+        }
     )
 
 
@@ -998,10 +1030,15 @@ def get_skos_tree(
     if not file:
         raise HTTPException(status_code=404, detail="File not found")
 
-    nt_path = os.path.join("/app/uploads/triples", f"{os.path.splitext(file.filename)[0]}_triples.nt")
+    base_name = os.path.splitext(file.filename)[0]
+
+    nt_path = os.path.join(BASE_DIR, "uploads", "triples", f"{base_name}_triples.nt")
 
     if not os.path.exists(nt_path):
-        raise HTTPException(status_code=404, detail="NT triples file not found")
+        nt_path = os.path.join("/app/uploads/triples", f"{base_name}_triples.nt")
+
+    if not os.path.exists(nt_path):
+        raise HTTPException(status_code=404, detail=f"NT triples file {nt_path} not found")
 
     g = Graph()
     g.parse(nt_path, format="nt")
@@ -1293,12 +1330,10 @@ def calculate_combined_score(
     Exact matches get high scores even without structural similarity.
     """
     
-    # If exact match, prioritize it heavily
     if is_exact_match:
         # Base score is very high for exact matches
         base_score = 0.95
         
-        # Add small bonuses for supporting evidence
         definition_bonus = definition_score * 0.02
         structural_bonus = (
             structural_scores["parent"] * 0.01 +
@@ -1351,14 +1386,6 @@ def generate_node_suggestions_enhanced(
     db: Session = Depends(get_db),
     current_user = Depends(get_current_user)
 ):
-    """
-    Enhanced ontology matching with:
-    - Multiple labels (prefLabel, altLabel)
-    - Exact match detection
-    - Definitions
-    - Parent/child/sibling context
-    - Adaptive weighted scoring
-    """
     
     project = db.query(Project).filter(
         Project.id == project_id, 
@@ -1478,9 +1505,13 @@ def node_details_skostree(
     if not file:
         raise HTTPException(status_code=404, detail=f"File with id {file_id} not found")
 
-    BASE_DIR = os.path.dirname(os.path.abspath(__file__))
-    nt_path = os.path.join("/app/uploads/triples", f"{os.path.splitext(file.filename)[0]}_triples.nt")
+    base_name = os.path.splitext(file.filename)[0]
 
+    BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+    nt_path = os.path.join(BASE_DIR, "uploads", "triples", f"{base_name}_triples.nt")
+
+    if not os.path.exists(nt_path):
+        nt_path = os.path.join("/app/uploads/triples", f"{base_name}_triples.nt")
 
     if not os.path.exists(nt_path):
         raise HTTPException(status_code=404, detail=f"NT file {nt_path} not found")
@@ -1512,7 +1543,6 @@ def delete_project(
     current_user: User = Depends(get_current_user)
 ):
     
-    # Find the project and verify ownership
     project = db.query(Project).filter(
         Project.id == project_id,
         Project.user_id == current_user.id
@@ -1524,10 +1554,8 @@ def delete_project(
             detail="Project not found or you don't have permission to delete it"
         )
     
-    #Delete all associated links first
     links_deleted = db.query(Link).filter(Link.project_id == project_id).delete()
     
-    #Delete all votes on those links
     if links_deleted > 0:
         db.query(Vote).filter(
             Vote.link_id.in_(
@@ -1535,10 +1563,8 @@ def delete_project(
             )
         ).delete(synchronize_session=False)
     
-    # Store project name for response
     project_name = project.name
     
-    # Delete the project
     db.delete(project)
     db.commit()
     
