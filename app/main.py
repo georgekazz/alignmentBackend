@@ -998,7 +998,8 @@ def get_skos_tree(
     if not file:
         raise HTTPException(status_code=404, detail="File not found")
 
-    nt_path = os.path.join(BASE_DIR, "uploads", "triples", f"{os.path.splitext(file.filename)[0]}_triples.nt")
+    nt_path = os.path.join("/app/uploads/triples", f"{os.path.splitext(file.filename)[0]}_triples.nt")
+
     if not os.path.exists(nt_path):
         raise HTTPException(status_code=404, detail="NT triples file not found")
 
@@ -1478,7 +1479,8 @@ def node_details_skostree(
         raise HTTPException(status_code=404, detail=f"File with id {file_id} not found")
 
     BASE_DIR = os.path.dirname(os.path.abspath(__file__))
-    nt_path = os.path.join(BASE_DIR, "uploads", "triples", f"{os.path.splitext(file.filename)[0]}_triples.nt")
+    nt_path = os.path.join("/app/uploads/triples", f"{os.path.splitext(file.filename)[0]}_triples.nt")
+
 
     if not os.path.exists(nt_path):
         raise HTTPException(status_code=404, detail=f"NT file {nt_path} not found")
