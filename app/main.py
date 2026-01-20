@@ -1209,10 +1209,7 @@ def get_siblings(graph, uri_ref) -> Set[URIRef]:
     return siblings
 
 def calculate_label_similarity(labels1: List[str], labels2: List[str]) -> Tuple[float, bool]:
-    """
-    Calculate maximum similarity between any pair of labels.
-    Returns (similarity_score, is_exact_match)
-    """
+
     max_score = 0.0
     is_exact = False
     
@@ -1325,10 +1322,6 @@ def calculate_combined_score(
     definition_score: float,
     structural_scores: Dict[str, float]
 ) -> float:
-    """
-    Calculate combined score with adaptive weighting.
-    Exact matches get high scores even without structural similarity.
-    """
     
     if is_exact_match:
         # Base score is very high for exact matches
@@ -1572,4 +1565,455 @@ def delete_project(
         "message": f"Project '{project_name}' deleted successfully",
         "deleted_project_id": project_id,
         "deleted_links": links_deleted
+    }
+
+from typing import List, Dict, Set, Tuple, Optional
+import numpy as np
+from sentence_transformers import SentenceTransformer
+from sklearn.metrics.pairwise import cosine_similarity
+from rdflib import Graph, URIRef
+from rdflib.namespace import SKOS, RDFS
+import json
+import os
+from fastapi import HTTPException, Depends, Query
+from sqlalchemy.orm import Session
+
+# Model configuration
+MODEL_NAME = 'all-MiniLM-L6-v2'
+
+embedding_model = None
+
+def get_embedding_model():
+    """Lazy load the sentence transformer model."""
+    global embedding_model
+    if embedding_model is None:
+        print(f"Loading embedding model: {MODEL_NAME}")
+        embedding_model = SentenceTransformer(MODEL_NAME)
+        print("Model loaded successfully")
+    return embedding_model
+
+def get_all_labels(graph, uri_ref) -> List[str]:
+    labels = []
+    label_props = [SKOS.prefLabel, SKOS.altLabel, RDFS.label]
+    
+    for prop in label_props:
+        for label in graph.objects(subject=uri_ref, predicate=prop):
+            labels.append(str(label))
+    
+    return labels
+
+
+def get_definition(graph, uri_ref) -> str:
+    definition = graph.value(subject=uri_ref, predicate=SKOS.definition)
+    return str(definition) if definition else ""
+
+
+def get_parents(graph, uri_ref) -> Set[URIRef]:
+    parents = set()
+    for parent in graph.objects(subject=uri_ref, predicate=SKOS.broader):
+        parents.add(parent)
+    return parents
+
+
+def get_children(graph, uri_ref) -> Set[URIRef]:
+    children = set()
+    for child in graph.objects(subject=uri_ref, predicate=SKOS.narrower):
+        children.add(child)
+    for child in graph.subjects(predicate=SKOS.broader, object=uri_ref):
+        children.add(child)
+    return children
+
+
+def get_siblings(graph, uri_ref) -> Set[URIRef]:
+    siblings = set()
+    parents = get_parents(graph, uri_ref)
+    
+    for parent in parents:
+        for sibling in get_children(graph, parent):
+            if sibling != uri_ref:
+                siblings.add(sibling)
+    
+    return siblings
+
+
+def create_concept_text(labels: List[str], definition: str = "") -> str:
+    
+    text_parts = []
+    
+    if labels:
+        text_parts.append(labels[0])
+        
+        if len(labels) > 1:
+            alt_labels = ', '.join(labels[1:3])
+            text_parts.append(f"Also known as: {alt_labels}")
+    
+    if definition:
+        def_text = definition[:500] if len(definition) > 500 else definition
+        text_parts.append(def_text)
+    
+    return ". ".join(text_parts)
+
+
+def create_context_text(graph, uri_ref) -> str:
+  
+    context_parts = []
+    
+    parents = get_parents(graph, uri_ref)
+    if parents:
+        parent_labels = []
+        for parent in list(parents)[:2]:
+            p_labels = get_all_labels(graph, parent)
+            if p_labels:
+                parent_labels.append(p_labels[0])
+        if parent_labels:
+            context_parts.append(f"Parent categories: {', '.join(parent_labels)}")
+    
+    children = get_children(graph, uri_ref)
+    if children and len(children) > 0:
+        child_labels = []
+        for child in list(children)[:3]:
+            c_labels = get_all_labels(graph, child)
+            if c_labels:
+                child_labels.append(c_labels[0])
+        if child_labels:
+            context_parts.append(f"Includes: {', '.join(child_labels)}")
+    
+    return ". ".join(context_parts) if context_parts else ""
+
+
+
+def calculate_label_similarity_embeddings(
+    labels1: List[str],
+    labels2: List[str],
+    model: SentenceTransformer
+) -> Tuple[float, bool]:
+
+    if not labels1 or not labels2:
+        return 0.0, False
+    
+    labels1_lower = [l.lower().strip() for l in labels1]
+    labels2_lower = [l.lower().strip() for l in labels2]
+    
+    for l1 in labels1_lower:
+        if l1 in labels2_lower:
+            return 1.0, True
+    
+    all_labels = labels1 + labels2
+    embeddings = model.encode(all_labels, convert_to_tensor=False, show_progress_bar=False)
+    
+    embeddings1 = embeddings[:len(labels1)]
+    embeddings2 = embeddings[len(labels1):]
+    
+    similarities = cosine_similarity(embeddings1, embeddings2)
+    max_similarity = float(np.max(similarities))
+    
+    return max_similarity, False
+
+
+def calculate_concept_similarity_embeddings(
+    text1: str,
+    text2: str,
+    model: SentenceTransformer
+) -> float:
+  
+    if not text1 or not text2:
+        return 0.0
+    
+    embeddings = model.encode([text1, text2], convert_to_tensor=False, show_progress_bar=False)
+    similarity = cosine_similarity([embeddings[0]], [embeddings[1]])[0][0]
+    
+    return float(similarity)
+
+
+def calculate_definition_similarity_embeddings(
+    def1: str,
+    def2: str,
+    model: SentenceTransformer
+) -> float:
+    if not def1 or not def2:
+        return 0.0
+    
+    embeddings = model.encode([def1, def2], convert_to_tensor=False, show_progress_bar=False)
+    similarity = cosine_similarity([embeddings[0]], [embeddings[1]])[0][0]
+    
+    return float(similarity)
+
+
+def calculate_structural_similarity_embeddings(
+    graph1, uri1: URIRef,
+    graph2, uri2: URIRef,
+    model: SentenceTransformer,
+    threshold: float = 0.70
+) -> Dict[str, float]:
+   
+    parents1 = get_parents(graph1, uri1)
+    parents2 = get_parents(graph2, uri2)
+    children1 = get_children(graph1, uri1)
+    children2 = get_children(graph2, uri2)
+    siblings1 = get_siblings(graph1, uri1)
+    siblings2 = get_siblings(graph2, uri2)
+    
+    def match_concept_sets(concepts1: Set[URIRef], concepts2: Set[URIRef]) -> float:
+        if not concepts1 or not concepts2:
+            return 0.0
+        
+        texts1 = []
+        for c in concepts1:
+            labels = get_all_labels(graph1, c)
+            if labels:
+                texts1.append(labels[0])
+        
+        texts2 = []
+        for c in concepts2:
+            labels = get_all_labels(graph2, c)
+            if labels:
+                texts2.append(labels[0])
+        
+        if not texts1 or not texts2:
+            return 0.0
+        
+        embeddings1 = model.encode(texts1, convert_to_tensor=False, show_progress_bar=False)
+        embeddings2 = model.encode(texts2, convert_to_tensor=False, show_progress_bar=False)
+        
+        # Calculate similarities
+        similarities = cosine_similarity(embeddings1, embeddings2)
+        
+        # Count matches above threshold
+        matches = 0
+        for i in range(len(embeddings1)):
+            if np.max(similarities[i]) >= threshold:
+                matches += 1
+        
+        return matches / max(len(concepts1), len(concepts2))
+    
+    return {
+        "parent": match_concept_sets(parents1, parents2),
+        "child": match_concept_sets(children1, children2),
+        "sibling": match_concept_sets(siblings1, siblings2)
+    }
+
+
+# ============================================================================
+# Score Calculation
+# ============================================================================
+
+def calculate_combined_score_semantic(
+    label_similarity: float,
+    is_exact_match: bool,
+    concept_similarity: float,
+    definition_similarity: float,
+    structural_scores: Dict[str, float],
+    has_definition: bool
+) -> float:
+
+    if is_exact_match:
+        base_score = 0.92
+        
+        concept_boost = concept_similarity * 0.05
+        structural_avg = np.mean(list(structural_scores.values()))
+        structural_boost = structural_avg * 0.03
+        
+        return min(1.0, base_score + concept_boost + structural_boost)
+    
+    weights = {
+            "label": 0.20,
+            "concept": 0.10,     
+            "definition": 0.50,  
+            "parent": 0.10,       
+            "child": 0.05,        
+            "sibling": 0.05       
+        }
+        
+    if not has_definition:
+            extra = weights["definition"]
+            weights["concept"] += extra * 0.50    
+            weights["label"] += extra * 0.30      
+            weights["parent"] += extra * 0.15     
+            weights["child"] += extra * 0.05
+            weights["definition"] = 0
+        
+    has_structure = any(structural_scores[k] > 0 for k in ["parent", "child", "sibling"])
+    if not has_structure:
+            structural_weight = weights["parent"] + weights["child"] + weights["sibling"]
+            weights["definition"] += structural_weight * 0.50
+            weights["concept"] += structural_weight * 0.35     
+            weights["label"] += structural_weight * 0.15
+            weights["parent"] = weights["child"] = weights["sibling"] = 0
+        
+    combined = (
+            weights["label"] * label_similarity +
+            weights["concept"] * concept_similarity +
+            weights["definition"] * definition_similarity +
+            weights["parent"] * structural_scores["parent"] +
+            weights["child"] * structural_scores["child"] +
+            weights["sibling"] * structural_scores["sibling"]
+        )
+    return combined
+
+
+@app.get("/projects/{project_id}/suggestions_semantic")
+def generate_semantic_suggestions(
+    project_id: int,
+    node_uri: str = Query(..., description="URI of the selected node"),
+    min_threshold: float = Query(0.5, description="Minimum similarity threshold (0.0-1.0)"),
+    structural_threshold: float = Query(0.70, description="Threshold for structural matching"),
+    top_k: int = Query(20, description="Number of top suggestions to return"),
+    use_context: bool = Query(False, description="Include hierarchical context in embeddings"),
+    db: Session = Depends(get_db),
+    current_user = Depends(get_current_user)
+):
+    project = db.query(Project).filter(
+        Project.id == project_id,
+        Project.user_id == current_user.id
+    ).first()
+    if not project:
+        raise HTTPException(status_code=404, detail="Project not found")
+    
+    file1 = db.query(File).filter(File.id == project.file1_id).first()
+    file2 = db.query(File).filter(File.id == project.file2_id).first()
+    if not file1 or not file2:
+        raise HTTPException(status_code=404, detail="Ontology files not found")
+    
+    format1 = guess_rdf_format(file1.resource)
+    format2 = guess_rdf_format(file2.resource)
+    g1, g2 = Graph(), Graph()
+    g1.parse(file1.resource, format=format1)
+    g2.parse(file2.resource, format=format2)
+    
+    model = get_embedding_model()
+    
+    node_uri_ref = URIRef(node_uri)
+    
+    source_labels = get_all_labels(g1, node_uri_ref)
+    if not source_labels:
+        raise HTTPException(status_code=404, detail="Node not found in source ontology")
+    
+    source_definition = get_definition(g1, node_uri_ref)
+    source_concept_text = create_concept_text(source_labels, source_definition)
+    
+    if use_context:
+        context = create_context_text(g1, node_uri_ref)
+        if context:
+            source_concept_text += ". " + context
+    
+    source_concept_embedding = model.encode(source_concept_text, convert_to_tensor=False, show_progress_bar=False)
+    
+    targets = []
+    seen_uris = set()
+    
+    for s2 in g2.subjects():
+        if s2 in seen_uris:
+            continue
+        
+        target_labels = get_all_labels(g2, s2)
+        if not target_labels:
+            continue
+        
+        target_definition = get_definition(g2, s2)
+        target_concept_text = create_concept_text(target_labels, target_definition)
+        
+        # Optionally include context
+        if use_context:
+            context = create_context_text(g2, s2)
+            if context:
+                target_concept_text += ". " + context
+        
+        targets.append({
+            "uri": s2,
+            "labels": target_labels,
+            "definition": target_definition,
+            "concept_text": target_concept_text
+        })
+        seen_uris.add(s2)
+    
+    print(f"Found {len(targets)} target concepts")
+    
+    suggestions = []
+    
+    if targets:
+        target_texts = [t["concept_text"] for t in targets]
+        print(f"Encoding {len(target_texts)} target concepts...")
+        target_embeddings = model.encode(target_texts, convert_to_tensor=False, show_progress_bar=True)
+        
+        print("Calculating similarities...")
+        for i, target in enumerate(targets):
+            # Calculate label similarity
+            label_sim, is_exact = calculate_label_similarity_embeddings(
+                source_labels,
+                target["labels"],
+                model
+            )
+            
+            # Calculate concept similarity (full semantic understanding)
+            concept_sim = cosine_similarity(
+                [source_concept_embedding],
+                [target_embeddings[i]]
+            )[0][0]
+            
+            # Calculate definition similarity if both exist
+            def_sim = 0.0
+            if source_definition and target["definition"]:
+                def_sim = calculate_definition_similarity_embeddings(
+                    source_definition,
+                    target["definition"],
+                    model
+                )
+            
+            # Calculate structural similarity
+            structural_scores = calculate_structural_similarity_embeddings(
+                g1, node_uri_ref,
+                g2, target["uri"],
+                model,
+                structural_threshold
+            )
+            
+            combined_score = calculate_combined_score_semantic(
+                label_sim,
+                is_exact,
+                concept_sim,
+                def_sim,
+                structural_scores,
+                bool(source_definition and target["definition"])
+            )
+            
+            if combined_score >= min_threshold:
+                suggestions.append({
+                    "node2": str(target["uri"]),
+                    "label2": target["labels"][0],
+                    "all_labels": target["labels"],
+                    "definition": target["definition"],
+                    "similarity": round(float(combined_score), 3),
+                    "is_exact_match": is_exact,
+                    "scores": {
+                        "label": round(float(label_sim), 3),
+                        "concept": round(float(concept_sim), 3),
+                        "definition": round(float(def_sim), 3),
+                        "parent": round(structural_scores["parent"], 3),
+                        "child": round(structural_scores["child"], 3),
+                        "sibling": round(structural_scores["sibling"], 3)
+                    }
+                })
+    
+    suggestions.sort(key=lambda x: (not x["is_exact_match"], -x["similarity"]))
+    
+    print(f"Found {len(suggestions)} matches above threshold {min_threshold}")
+    
+    os.makedirs(SUGGESTIONS_DIR, exist_ok=True)
+    output_file = os.path.join(SUGGESTIONS_DIR, f"{project_id}_semantic.json")
+    with open(output_file, "w", encoding="utf-8") as f:
+        json.dump(suggestions[:top_k], f, ensure_ascii=False, indent=2)
+    
+    return {
+        "node": node_uri,
+        "source_labels": source_labels,
+        "source_definition": source_definition,
+        "suggestions": suggestions[:top_k],
+        "total_matches": len(suggestions),
+        "exact_matches": sum(1 for s in suggestions if s["is_exact_match"]),
+        "model_used": MODEL_NAME,
+        "parameters": {
+            "min_threshold": min_threshold,
+            "structural_threshold": structural_threshold,
+            "use_context": use_context
+        }
     }
